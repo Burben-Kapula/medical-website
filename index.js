@@ -7,7 +7,7 @@ import { OBJLoader } from "jsm/loaders/OBJLoader.js"; // ✅ для skeleton.obj
 const w = window.innerWidth;
 const h = window.innerHeight;
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0xE0F7FA);
+scene.background = new THREE.Color(0x000000);
 
 const camera = new THREE.PerspectiveCamera(75, w / h, 0.1, 1000);
 camera.position.set(0, 1, 3); // стартова позиція
