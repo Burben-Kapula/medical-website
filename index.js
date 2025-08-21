@@ -95,3 +95,12 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
+
+
+function showInfo(name){
+  document.getElementById('info-panel').innerHTML = '<h2>' + name + '</h2><p>Тут твій опис кістки...</p>';
+}
+
+
+
