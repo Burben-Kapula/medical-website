@@ -19,18 +19,26 @@ document.body.appendChild(renderer.domElement);
 const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
 
-// --- Цільова позиція камери (буде плавно змінюватись) ---
-let targetPos = new THREE.Vector3().copy(camera.position);
+// --- Цільові позиції ---
+let targetPos = new THREE.Vector3().copy(camera.position); // куди рухається камера
+let targetLook = new THREE.Vector3(0, 0.5, 0);             // куди дивиться камера
 
 // --- Кнопки ---
 document.getElementById("button_right").onclick = () => {
   targetPos.set(2, 0.5, 1.6); // права
+  targetLook.set(0, 0.5, 0);  // дивимось на тулуб
 };
 document.getElementById("button_left").onclick = () => {
   targetPos.set(-2, 0.9, -1.6); // ліва
+  targetLook.set(0, 0.5, 0);    // дивимось на тулуб
 };
-document.getElementById("button_front").onclick = () => {
-  targetPos.set(0, 0, 3); // прямо
+document.getElementById("button_head").onclick = () => {
+  targetPos.set(1, 1.5, 0.2);   // позиція камери
+  targetLook.set(0, 10, 2);    // 🔹 дивимось на голову
+};
+document.getElementById("button_legs").onclick = () => {
+  targetPos.set(0, 0, 3);       // позиція
+  targetLook.set(0, 0, 0);      // дивимось на ноги
 };
 
 // --- Завантаження skeleton.obj ---
@@ -64,8 +72,17 @@ scene.add(gradientBackground);
 function animate() {
   requestAnimationFrame(animate);
 
-  // 🔹 Плавний рух камери до targetPos (0.05 = швидкість)
+  // 🔹 Плавний рух камери
   camera.position.lerp(targetPos, 0.05);
+
+  // 🔹 Плавний поворот камери
+  let currentLook = new THREE.Vector3();
+  currentLook.lerpVectors(
+    camera.getWorldDirection(new THREE.Vector3()).add(camera.position),
+    targetLook,
+    0.05
+  );
+  camera.lookAt(currentLook);
 
   renderer.render(scene, camera);
   ctrls.update();
