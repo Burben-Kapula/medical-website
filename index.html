@@ -34,7 +34,7 @@
        z-index: 5;
        font-family: Arial, sans-serif;
      ">
-  Скелет Григорий
+  <!-- сюди  текст -->
 </div>
 
 
@@ -52,50 +52,79 @@
        z-index: 5;
        font-family: Arial, sans-serif;
      ">
-  <!-- сюда вставляй текст -->
+  <!-- сюди  текст --> скелет гріша
 </div>
 
 
-<div id="panels-container" style="
-  position: absolute;
-  top: 150px;  
-  left: 50%;
-  transform: translateX(-50%);
-  display: grid;
-  grid-template-columns: repeat(2, 200px);
-  gap: 40px 400px; 
-">
-  <div class="panel">Otsaluu </div>
-  <div class="panel">Päälaenluu </div>
-  <div class="panel">Ohimoluu</div>
-  <div class="panel">Takaraivoluu</div>
-  <div class="panel">Yläleukaluu</div>
-  <div class="panel">Alaleukaluu</div>
-  <div class="panel">Kaulanikama</div>
-  <div class="panel">Rintanikama</div>
-  <div class="panel">Lanneranka </div>
-  <div class="panel">Ristiluu</div>
-  <div class="panel">Rintalasta</div>
-  <div class="panel">Kylkiluu</div>
-  <div class="panel">Solisluu</div>
-  <div class="panel">Lapaluu</div>
-  <div class="panel">Olkaluu</div>
-  <div class="panel">Värttinäluu </div>
-  <div class="panel">Kyynärluu</div>
-  <div class="panel">Sormien luut </div>
-  <div class="panel">Lantion luu  </div>
-  <div class="panel">Reisiluu</div>
-  <div class="panel">Polviluu </div>
-  <div class="panel">Sääriluu</div>
-  <div class="panel">Pohjeluu </div>
-  <div class="panel">Jalkaterän luu</div>
+<!-- Ліва колонка -->
+<div id="left-column" style="position:absolute; top:290px; left:3%; display:flex; flex-direction:column; gap:10px;">
+  <div class="panel">Otsaluu <button onclick="showInfo('Otsaluu')">➡</button></div>
+  <div class="panel">Päälaenluu <button onclick="showInfo('Paalaenluu')">➡</button></div>
+  <div class="panel">Ohimoluu <button onclick="showInfo('Ohimoluu')">➡</button></div>
+  <div class="panel">Takaraivoluu <button onclick="showInfo('Takaraivoluu')">➡</button></div>
+  <div class="panel">Yläleukaluu <button onclick="showInfo('Ylaleukaluu')">➡</button></div>
+  <div class="panel">Alaleukaluu <button onclick="showInfo('Alaleukaluu')">➡</button></div>
+  <div class="panel">Kaulanikama <button onclick="showInfo('Kaulanikama')">➡</button></div>
+  <div class="panel">Rintanikama <button onclick="showInfo('Rintanikama')">➡</button></div>
+  <div class="panel">Lanneranka <button onclick="showInfo('Lanneranka')">➡</button></div>
+  <div class="panel">Ristiluu <button onclick="showInfo('Ristiluu')">➡</button></div>
+  <div class="panel">Rintalasta <button onclick="showInfo('Rintalasta')">➡</button></div>
+  <div class="panel">Kylkiluu <button onclick="showInfo('Kylkiluu')">➡</button></div>
 </div>
+
+<!-- Права колонка -->
+<div id="right-column" style="position:absolute; top:290px; left:58%; display:flex; flex-direction:column; gap:10px;">
+  <div class="panel">Solisluu <button onclick="showInfo('Solisluu')">➡</button></div>
+  <div class="panel">Lapaluu <button onclick="showInfo('Lapaluu')">➡</button></div>
+  <div class="panel">Olkaluu <button onclick="showInfo('Olkaluu')">➡</button></div>
+  <div class="panel">Värttinäluu <button onclick="showInfo('Varttinaluu')">➡</button></div>
+  <div class="panel">Kyynärluu <button onclick="showInfo('Kyyarnluu')">➡</button></div>
+  <div class="panel">Sormien luut <button onclick="showInfo('Sormien')">➡</button></div>
+  <div class="panel">Lantion luu <button onclick="showInfo('Lantion')">➡</button></div>
+  <div class="panel">Reisiluu <button onclick="showInfo('Reisiluu')">➡</button></div>
+  <div class="panel">Polviluu <button onclick="showInfo('Polviluu')">➡</button></div>
+  <div class="panel">Sääriluu <button onclick="showInfo('Saariluu')">➡</button></div>
+  <div class="panel">Pohjeluu <button onclick="showInfo('Pohjeluu')">➡</button></div>
+  <div class="panel">Jalkaterän luu <button onclick="showInfo('Jalkateran')">➡</button></div>
+</div>
+
+<!-- Вікна з описом -->
+<div id="info-container">
+<div id="Otsaluu" class="info-box" style="display:none;">
+  <h3>Otsaluu</h3>
+  <p>Otsaluu on pariton luu, joka muodostaa osan kalloa. Otsaluu koostuu kuudesta osasta. Sen tärkein tehtävä on suojella otsalohkoja.​</p>
+  <button onclick="closeInfo()">Закрити</button>
+</div>
+
+</div>
+  <div id="Paalaenluu" class="info-box" style="display:none;"><h3>Päälaenluu</h3><p>Опис Päälaenluu</p><button onclick="closeInfo('Paalaenluu')">Закрити</button></div>
+  <div id="Ohimoluu" class="info-box" style="display:none;"><h3>Ohimoluu</h3><p>Опис Ohimoluu</p><button onclick="closeInfo('Ohimoluu')">Закрити</button></div>
+  <div id="Takaraivoluu" class="info-box" style="display:none;"><h3>Takaraivoluu</h3><p>Опис Takaraivoluu</p><button onclick="closeInfo('Takaraivoluu')">Закрити</button></div>
+  <div id="Ylaleukaluu" class="info-box" style="display:none;"><h3>Yläleukaluu</h3><p>Опис Yläleukaluu</p><button onclick="closeInfo('Ylaleukaluu')">Закрити</button></div>
+  <div id="Alaleukaluu" class="info-box" style="display:none;"><h3>Alaleukaluu</h3><p>Опис Alaleukaluu</p><button onclick="closeInfo('Alaleukaluu')">Закрити</button></div>
+  <div id="Kaulanikama" class="info-box" style="display:none;"><h3>Kaulanikama</h3><p>Опис Kaulanikama</p><button onclick="closeInfo('Kaulanikama')">Закрити</button></div>
+  <div id="Rintanikama" class="info-box" style="display:none;"><h3>Rintanikama</h3><p>Опис Rintanikama</p><button onclick="closeInfo('Rintanikama')">Закрити</button></div>
+  <div id="Lanneranka" class="info-box" style="display:none;"><h3>Lanneranka</h3><p>Опис Lanneranka</p><button onclick="closeInfo('Lanneranka')">Закрити</button></div>
+  <div id="Ristiluu" class="info-box" style="display:none;"><h3>Ristiluu</h3><p>Опис Ristiluu</p><button onclick="closeInfo('Ristiluu')">Закрити</button></div>
+  <div id="Rintalasta" class="info-box" style="display:none;"><h3>Rintalasta</h3><p>Опис Rintalasta</p><button onclick="closeInfo('Rintalasta')">Закрити</button></div>
+  <div id="Kylkiluu" class="info-box" style="display:none;"><h3>Kylkiluu</h3><p>Опис Kylkiluu</p><button onclick="closeInfo('Kylkiluu')">Закрити</button></div>
+  
+  <div id="Solisluu" class="info-box" style="display:none;"><h3>Solisluu</h3><p>Опис Solisluu</p><button onclick="closeInfo('Solisluu')">Закрити</button></div>
+  <div id="Lapaluu" class="info-box" style="display:none;"><h3>Lapaluu</h3><p>Опис Lapaluu</p><button onclick="closeInfo('Lapaluu')">Закрити</button></div>
+  <div id="Olkaluu" class="info-box" style="display:none;"><h3>Olkaluu</h3><p>Опис Olkaluu</p><button onclick="closeInfo('Olkaluu')">Закрити</button></div>
+  <div id="Varttinaluu" class="info-box" style="display:none;"><h3>Värttinäluu</h3><p>Опис Värttinäluu</p><button onclick="closeInfo('Varttinaluu')">Закрити</button></div>
+  <div id="Kyyarnluu" class="info-box" style="display:none;"><h3>Kyynärluu</h3><p>Опис Kyynärluu</p><button onclick="closeInfo('Kyyarnluu')">Закрити</button></div>
+  <div id="Sormien" class="info-box" style="display:none;"><h3>Sormien luut</h3><p>Опис Sormien luut</p><button onclick="closeInfo('Sormien')">Закрити</button></div>
+  <div id="Lantion" class="info-box" style="display:none;"><h3>Lantion luu</h3><p>Опис Lantion luu</p><button onclick="closeInfo('Lantion')">Закрити</button></div>
+
+
+
 
 
 
 
 <body>
-  <!-- Canvas three.js малює тут -->
+  
   <div id="controls">
     <button id="button_left">← Vasen</button>
     <button id="button_front">⬆ Seura</button>
