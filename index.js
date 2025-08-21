@@ -103,10 +103,38 @@ document.addEventListener("DOMContentLoaded", () => {
   const info = {
     Otsaluu: `<h2>Otsaluu</h2><p>Otsaluu on pariton luu, joka muodostaa osan kalloa. Otsaluu koostuu kuudesta osasta. Sen tärkein tehtävä on suojella otsalohkoja.​</p>`,
     Päälaenluu: `<h2>Päälaenluu</h2><p>Päälaenluut (lat. os parietale) ovat kaksi luuta kallossa, jotka muodostavat pääkallon sivut ja katon. Molemmat luut ovat noin nelikulmion muotoisia.​​</p>`,
-    Ohimoluu: `<h2>Ohimoluu</h2><p>Ohimoluu on kallon sivulla oleva luu, joka muodostaa osan otsan ja posken aluetta.​</p>`,
-    Takaraivoluu: `<h2>Takaraivoluu</h2><p>(lat. os occipitale) kuuluu kallon luihin (ossa cranii) ja se koostuu kolmesta yhteen liittyneestä osasta. Pars basilaris sijaitsee alimmaisena ja sen alaosassa on atlaksen kanssa artikuloiva condylus occipitalis. Pars lateralis sijaitsee pars basilariksen molemminpuolin ja siinä oleva uloke, processus paracondylaris, toimii pään lihasten kiinnittymiskohtana. Squama occipitalis sijaitsee ylimpänä takaraivoluussa ja sen yläosassa on palpoitavissa oleva kyhmy, crista nuchae. Kaikki kolme takaraivoluun osaa osallistuvat niska-aukon (foramen magnum) muodostamiseen.​​</p>`
-
+    Ohimoluu: `<h2>Ohimoluu</h2><p>Ohimoluu (lat. os temporale) kuuluu kallon luihin, ja se sijaitsee kallon sivuilla sulkien sisäänsä korvakäytävän, välikorvan ja sisäkorvan. Ohimoluu muodostuu 
+    kolmesta toisiinsa liittyneestä osasta: pars squamosa, ohimoluun kallio-osa (pars petrosa) ja pars tympanica. Pars squamosan uloke, processus zygomaticus, kiinnittyy otsaluun samannimiseen 
+    rakenteeseen muodostaen silmän ympärille silmäkaaren, arcus zygomaticuksen. Lisäksi siinä on nivelpinta alaleuan luuta varten. Välikorva ja sisäkorva sijaitsevat pars petrosan onteloiden sisällä.
+     Korvakäytävää puolestaan ympäröi pars tympanica. Ohimoluu on parillinen luu eli niitä on kaksi, vasen ja oikea.​​</p>`,
+    Takaraivoluu: `<h2>Takaraivoluu</h2><p>(lat. os occipitale) kuuluu kallon luihin (ossa cranii) ja se koostuu kolmesta yhteen liittyneestä osasta. Pars basilaris sijaitsee alimmaisena ja sen 
+    alaosassa on atlaksen kanssa artikuloiva condylus occipitalis. Pars lateralis sijaitsee pars basilariksen molemminpuolin ja siinä oleva uloke, processus paracondylaris, toimii pään lihasten
+     kiinnittymiskohtana. Squama occipitalis sijaitsee ylimpänä takaraivoluussa ja sen yläosassa on palpoitavissa oleva kyhmy, crista nuchae. Kaikki kolme takaraivoluun osaa osallistuvat 
+     niska-aukon (foramen magnum) muodostamiseen.​​</p>`,
+    Yläleukaluu: `<h2>Yläleukaluu</h2><p>Yläleuka (lat. maxilla) koostuu kahdesta, vasemmasta ja oikeasta, yläleuanluusta (lat. os maxillaris). Ylähampaat ovat kiinni yläleukaluissa. 
+    Suurimmat nenän sivuonteloista, vasen ja oikea poskiontelo (lat. sinus maxillaris), sijaitsevat yläleukaluissa.Yläleuka jää usein nykyisin pienemmäksi pehmeämmän ravinnon vuoksi, ja
+     syntyy purentavirheitä. Toinen syy yläleuan pieneksi jäämiseen voi olla hengittäminen suun kautta. Kitarisojen poisto voi auttaa nenähengitystä ja näin edistää yläleuan kasvua.​</p>`,
+    Alaleukaluu: `<h2>Alaleukaluu</h2><p>Alaleuanluu (mandibula) on selkäjänteisten luu, johon alahampaat ovat kiinnittyneet. Rungon takaa suuntautuvat ylöspäin alaleukaluun haarat. Vasen ja oikea yläleuanluu sijaitsevat alaleuanluuta vasten niveltymättä siihen. Ihmisellä alaleuan kärjessä on leukakyhmy. Alaleuanluu niveltyy korvakäytävien lähellä ohimoluihin. Kyseiset leukanivelet liikkuvat suuta aukoessa.​</p>`,
+    Kaulanikama: `<h2>Kaulanikama</h2><p>  Nikama (vertebra) on epäsäännöllisen muotoinen moniulokkeinen luu, joista selkäranka muodostuu. Nikaman osia ovat nikamasolmu, nikamakaari ja nikamaulokkeet. Nikaman sisällä kulkee selkäydinkanava. Nikamat sijaitsevat päällekkäin ja niveltyvät toisiinsa, mikä tekee selkärangasta taipuvan.​</p>`,
+    Rintanikama: `<h2>Rintanikama</h2><p></p>`,
+    Lanneranka: `<h2>Lanneranka</h2><p></p>`,
+    Ristiluu: `<h2>Ristiluu</h2><p></p>`,
+    Rintalasta: `<h2>Rintalasta</h2><p></p>`,
+    Kylkiluu: `<h2>Kylkiluu</h2><p></p>`,
+    Solisluu: `<h2>Solisluu</h2><p></p>`,
+    Lapaluu: `<h2>Lapaluu</h2><p></p>`,
+    Olkaluu: `<h2>Olkaluu</h2><p></p>`,
+    Varttinaluu: `<h2>Värttinäluu</h2><p></p>`,
+    Kyyarnluu: `<h2>Kyynärluu</h2><p></p>`,
+    Sormien: `<h2>Sormien luut</h2><p></p>`,
+    Lantion: `<h2>Lantion luu</h2><p></p>`,
+    Reisiluu: `<h2>Reisiluu</h2><p></p>`,
+    Polviluu: `<h2>Polviluu</h2><p></p>`,
+    Saariluu: `<h2>Sääriluu</h2><p></p>`,
+    Pohjeluu: `<h2>Pohjeluu</h2><p></p>`,
+    Jalkateran: `<h2>Jalkaterän luu</h2><p></p>`
   };
+  
 
   for (const id in info) {
     const btn = document.getElementById(id);
