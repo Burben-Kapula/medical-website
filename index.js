@@ -98,9 +98,22 @@ window.addEventListener("resize", () => {
 
 
 
-function showInfo(name){
-  document.getElementById('info-panel').innerHTML = '<h2>' + name + '</h2><p>Тут твій опис кістки...</p>';
-}
 
+document.addEventListener("DOMContentLoaded", () => {
+  const info = {
+    Otsaluu: `<h2>Otsaluu</h2><p>Otsaluu on pariton luu, joka muodostaa osan kalloa. Otsaluu koostuu kuudesta osasta. Sen tärkein tehtävä on suojella otsalohkoja.​</p>`,
+    Päälaenluu: `<h2>Päälaenluu</h2><p>Päälaenluut (lat. os parietale) ovat kaksi luuta kallossa, jotka muodostavat pääkallon sivut ja katon. Molemmat luut ovat noin nelikulmion muotoisia.​​</p>`,
+    Ohimoluu: `<h2>Ohimoluu</h2><p>Ohimoluu on kallon sivulla oleva luu, joka muodostaa osan otsan ja posken aluetta.​</p>`,
+    Takaraivoluu: `<h2>Takaraivoluu</h2><p>(lat. os occipitale) kuuluu kallon luihin (ossa cranii) ja se koostuu kolmesta yhteen liittyneestä osasta. Pars basilaris sijaitsee alimmaisena ja sen alaosassa on atlaksen kanssa artikuloiva condylus occipitalis. Pars lateralis sijaitsee pars basilariksen molemminpuolin ja siinä oleva uloke, processus paracondylaris, toimii pään lihasten kiinnittymiskohtana. Squama occipitalis sijaitsee ylimpänä takaraivoluussa ja sen yläosassa on palpoitavissa oleva kyhmy, crista nuchae. Kaikki kolme takaraivoluun osaa osallistuvat niska-aukon (foramen magnum) muodostamiseen.​​</p>`
 
+  };
 
+  for (const id in info) {
+    const btn = document.getElementById(id);
+    if (btn) {  // перевірка, щоб уникнути помилок
+      btn.onclick = () => {
+        document.getElementById("text").innerHTML = info[id];
+      };
+    }
+  }
+});
