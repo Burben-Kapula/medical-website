@@ -9,8 +9,25 @@ const h = window.innerHeight;
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0x000000);
 
-const camera = new THREE.PerspectiveCamera(30, w / h, 0.1, 1000);
-camera.position.set(0, 1, 3); // стартова позиція
+// Зменшуємо видиму область → модель здається більшою
+const zoom = 7; // чим більше, тим ближче / більша модель
+const camera = new THREE.OrthographicCamera(
+  w / -200 / zoom,
+  w / 200 / zoom,
+  h / 200 / zoom,
+  h / -200 / zoom,
+  0.1,
+  1000
+);
+
+camera.position.set(1, 0, 80);
+camera.lookAt(0, 0, 0);
+
+
+
+
+
+
 
 
 const renderer = new THREE.WebGLRenderer();
@@ -19,6 +36,8 @@ document.body.appendChild(renderer.domElement);
 
 const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
+
+
 
 // --- Цільові позиції ---
 let targetPos = new THREE.Vector3().copy(camera.position); // куди рухається камера
@@ -46,9 +65,17 @@ document.getElementById("button_legs").onclick = () => {
 const objLoader = new OBJLoader();
 objLoader.load("./assets/skeleton.obj", (object) => {
   object.scale.set(0.05, 0.05, 0.05);   // підганяємо під сцену
-  object.position.set(0, 0, 0);         // ставимо в центр
+
+  // 🔹 Ставимо модель зліва
+  object.position.set(-0.6, 0, 0);
+
   scene.add(object);
 });
+
+
+
+
+
 
 // --- Освітлення ---
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
