@@ -20,20 +20,7 @@
 
 
 
-<div id="info-panel" aria-label="Tiedot"
-     style="
-       position: absolute;
-       top: 0;
-       right: 0;
-       width: 720px;
-       height: 100%;
-       background: #ffffff;
-       box-shadow: -2px 0 8px rgba(0,0,0,0.2);
-       padding: 20px;
-       overflow-y: auto;
-       z-index: 5;
-       font-family: Arial, sans-serif;
-     ">
+<div id="info_panel" aria-label="Tiedot" class="info" onfocus="myFunction()">
   <!-- сюди  текст -->
       <p id="text"></p>
 
@@ -56,7 +43,6 @@
      ">
   <!-- сюди  текст --> скелет гріша
 </div>
-
 
 <!-- Ліва колонка -->
 <div id="left-column" style="position:absolute; top:290px; left:3%; display:flex; flex-direction:column; gap:10px;">
@@ -106,6 +92,8 @@
     <button id="button_head">⬆ Head</button>
     <button id="button_right">→ Oikea</button>
     <button id="button_legs">→ legs</button>
+    <button id="btn_close">close</button>
+
   </div>
 
   <script type="module" src="index.js"></script>

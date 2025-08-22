@@ -38,8 +38,31 @@ body {
     font-family: Arial, sans-serif;
   }
 
+.info {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 720px;
+      height: 100%;
+      background: #ffffff;
+      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+      padding: 20px;
+      overflow-y: auto;
+      z-index: 5;
+      font-family: Arial, sans-serif;
+      display: none;
 
 
+}
 
-
+.btn_close {
+    padding: 20px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  background: #0288d1;
+  color: white;
+  cursor: pointer;
+  transition: background 0.3s;
+}
   

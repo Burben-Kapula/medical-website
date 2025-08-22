@@ -1,12 +1,24 @@
-### Getting Started Coding Art with Three.js
+### README (suomeksi) ###
 
-Building upon the basics of javascript and Three.js, let's explore building our scene and play with animating the position, and rotation of our objects
-Featuring: 
- + basic setup
- + Normal Material
- + requestAnimationFrame
- + THREE.Vector3() methods (distanceTo and subVectors)
- + add key listeners and Orbit Controls
+Hei! Tämä sivusto on kehitetty kolmen hengen tiiminä:
+
+Maksym Kapula
+
+Maryna Kapula
+
+Amaliia Paasonen
+
+Sivuston tarkoitus on tarjota mahdollisuus tutustua 24 eri luuhun: näet niiden nimet sekä opit niiden latinankieliset vastineet.
 
 
-[YouTube »](https://youtu.be/b78_tqkBuLM)
+### README (українською) ###
+
+Вітаємо! Цей сайт був створений командою з трьох осіб:
+
+Максим Капула
+
+Марина Капула
+
+Amaliia Paasonen
+
+Мета сайту – надати можливість ознайомитися з 24 різними кістками: ви зможете побачити їхні назви та дізнатися латинські відповідники.
