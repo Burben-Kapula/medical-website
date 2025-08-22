@@ -1,5 +1,4 @@
 import * as THREE from "three";
-import getLayer from "./getLayer.js";
 import { OrbitControls } from "jsm/controls/OrbitControls.js";
 import { OBJLoader } from "jsm/loaders/OBJLoader.js"; // ✅ для skeleton.obj
 
@@ -58,15 +57,7 @@ dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
 
 // --- Фон ---
-const gradientBackground = getLayer({
-  hue: 1.5,
-  numSprites: 8,
-  opacity: 1,
-  radius: 10,
-  size: 24,
-  z: -15.5,
-});
-scene.add(gradientBackground);
+
 
 // --- Рендер ---
 function animate() {
@@ -95,6 +86,7 @@ window.addEventListener("resize", () => {
   camera.updateProjectionMatrix();
   renderer.setSize(window.innerWidth, window.innerHeight);
 });
+
 
 
 
@@ -135,13 +127,20 @@ document.addEventListener("DOMContentLoaded", () => {
     Jalkateran: `<h2>Jalkaterän luu</h2><p></p>`
   };
   
-
+  const btn_close = document.getElementById("btn_close");
+  if (btn_close){
+    btn_close.onclick = () => {
+      document.getElementById("info_panel").style.display = "none";  
+    } 
+  }
   for (const id in info) {
     const btn = document.getElementById(id);
     if (btn) {  // перевірка, щоб уникнути помилок
       btn.onclick = () => {
+        document.getElementById("info_panel").style.display = "block";  
         document.getElementById("text").innerHTML = info[id];
-      };
+      } 
+
     }
   }
 });
