@@ -30,35 +30,47 @@ const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
 
 // --- Цільові позиції ---
-let targetPos = new THREE.Vector3().copy(camera.position); // куди рухається камера
-let targetLook = new THREE.Vector3(0, 0.5, 0); // куди дивиться камера
+// --- Початкові координати камери ---
+const initPos = new THREE.Vector3(1, 0, 80);  // стартова позиція
+const initLook = new THREE.Vector3(0, 0, 0);  // стартовий напрямок
+
+camera.position.copy(initPos);
+camera.lookAt(initLook);
+
+let targetPos = new THREE.Vector3().copy(initPos); 
+let targetLook = new THREE.Vector3().copy(initLook);
 
 // --- Кнопки ---
 document.getElementById("button_right").onclick = () => {
-  targetPos.set(2, 0.5, 1.6); // права
-  targetLook.set(0, 0.5, 0); // дивимось на тулуб
+  targetPos.set(2, 0.5, 1.6);
+  targetLook.set(0, 2.5, 0);
 };
-document.getElementById("button_left").onclick = () => {
-  targetPos.set(-2, 0.9, -1.6); // ліва
-  targetLook.set(0, 0.5, 0); // дивимось на тулуб
+
+document.getElementById("button_back").onclick = () => {
+  targetPos.set(-1, 0, -3);
+  targetLook.set(-8, 1.5, 0);
 };
+
 document.getElementById("button_head").onclick = () => {
-  targetPos.set(1, 1.5, 0.2); // позиція камери
-  targetLook.set(0, 10, 2); // 🔹 дивимось на голову
+  targetPos.set(-1, 0.5, 0.6);
+  targetLook.set(-4, 0, 1.5);
 };
+
 document.getElementById("button_legs").onclick = () => {
-  targetPos.set(0, 0, 3); // позиція
-  targetLook.set(0, 0, 0); // дивимось на ноги
+  targetPos.set(0, 0, 3);
+  targetLook.set(0, -9, 3);
+};
+
+document.getElementById("button_front").onclick = () => {
+  targetPos.copy(initPos);   // 🔹 повертаємось у стартову позицію
+  targetLook.copy(initLook); // 🔹 і дивимось у стартовий напрямок
 };
 
 // --- Завантаження skeleton.obj ---
 const objLoader = new OBJLoader();
 objLoader.load("./assets/skeleton.obj", (object) => {
-  object.scale.set(0.05, 0.05, 0.05); // підганяємо під сцену
-
-  // 🔹 Ставимо модель зліва
+  object.scale.set(0.05, 0.05, 0.05);
   object.position.set(-0.6, 0, 0);
-
   scene.add(object);
 });
 
@@ -194,3 +206,30 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 });
+// назви кнопок по мовах
+const names = {
+  fi: {
+    Otsaluu:"Otsaluu", Päälaenluu:"Päälaenluu", Ohimoluu:"Ohimoluu", Takaraivoluu:"Takaraivoluu",
+    Yläleukaluu:"Yläleukaluu", Alaleukaluu:"Alaleukaluu", Kaulanikama:"Kaulanikama", Rintanikama:"Rintanikama",
+    Lanneranka:"Lanneranka", Ristiluu:"Ristiluu", Rintalasta:"Rintalasta", Kylkiluu:"Kylkiluu",
+    Solisluu:"Solisluu", Lapaluu:"Lapaluu", Olkaluu:"Olkaluu", Varttinaluu:"Värttinäluu", Kyyarnluu:"Kyynärluu",
+    Sormien:"Sormien luut", Lantion:"Lantion luu", Reisiluu:"Reisiluu", Polviluu:"Polviluu",
+    Saariluu:"Sääriluu", Pohjeluu:"Pohjeluu", Jalkateran:"Jalkaterän luu"
+  },
+  ua: {
+    Otsaluu:"Лобова кістка", Päälaenluu:"Тім'яна кістка", Ohimoluu:"Скронева кістка", Takaraivoluu:"Задня частина черепа",
+    Yläleukaluu:"Верхня щелепа", Alaleukaluu:"Нижня щелепа", Kaulanikama:"Шийний хребець", Rintanikama:"Грудний хребець",
+    Lanneranka:"Поперековий хребець", Ristiluu:"Крижова кістка", Rintalasta:"Груднина", Kylkiluu:"Ребро",
+    Solisluu:"Ключиця", Lapaluu:"Лопатка", Olkaluu:"Плечова кістка", Varttinaluu:"Променева кістка", Kyyarnluu:"Ліктьова кістка",
+    Sormien:"Кістки пальців", Lantion:"Кістка тазу", Reisiluu:"Стегнова кістка", Polviluu:"Колінна кістка",
+    Saariluu:"Гомілкова кістка", Pohjeluu:"Литкова кістка", Jalkateran:"Кістки стопи"
+  },
+  en: {
+    Otsaluu:"Frontal bone", Päälaenluu:"Parietal bone", Ohimoluu:"Temporal bone", Takaraivoluu:"Occipital bone",
+    Yläleukaluu:"Maxilla", Alaleukaluu:"Mandible", Kaulanikama:"Cervical vertebra", Rintanikama:"Thoracic vertebra",
+    Lanneranka:"Lumbar vertebra", Ristiluu:"Sacrum", Rintalasta:"Sternum", Kylkiluu:"Rib",
+    Solisluu:"Clavicle", Lapaluu:"Scapula", Olkaluu:"Humerus", Varttinaluu:"Radius", Kyyarnluu:"Ulna",
+    Sormien:"Finger bones", Lantion:"Pelvic bone", Reisiluu:"Femur", Polviluu:"Patella",
+    Saariluu:"Tibia", Pohjeluu:"Fibula", Jalkateran:"Foot bones"
+  }
+};
