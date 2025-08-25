@@ -207,6 +207,18 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 // назви кнопок по мовах
+document.getElementById('languageSelect').addEventListener('change', (e) => {
+  const selectedLang = e.target.value;
+  console.log("Selected language:", selectedLang);
+  // Тут можна підключити зміну текстів і кнопок на сайті
+});
+
+// всі кнопки
+const leftButtons = ["Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu","Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu","Rintalasta","Kylkiluu"];
+const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Varttinaluu","Kyyarnluu","Sormien","Lantion","Reisiluu","Polviluu","Saariluu","Pohjeluu","Jalkateran"];
+const allButtons = leftButtons.concat(rightButtons);
+
+// назви кнопок по мовах
 const names = {
   fi: {
     Otsaluu:"Otsaluu", Päälaenluu:"Päälaenluu", Ohimoluu:"Ohimoluu", Takaraivoluu:"Takaraivoluu",
@@ -233,3 +245,16 @@ const names = {
     Saariluu:"Tibia", Pohjeluu:"Fibula", Jalkateran:"Foot bones"
   }
 };
+// функція для оновлення назв кнопок
+function updateButtonNames(lang) {
+  allButtons.forEach(id => {
+    const panel = document.getElementById(id).parentElement;
+    panel.firstChild.textContent = names[lang][id] + " ";
+  });
+}
+
+// слухач select
+document.getElementById('languageSelect').addEventListener('change', (e)=>{
+  const lang = e.target.value;
+  updateButtonNames(lang);
+});
