@@ -177,6 +177,71 @@ document.addEventListener("DOMContentLoaded", () => {
      mahdollistavat kävelyn, juoksun ja tasapainon säätelyn.</p>`,
     };
 
+
+
+document.getElementById('languageSelect').addEventListener('change', (e) => {
+  const selectedLang = e.target.value;
+  console.log("Selected language:", selectedLang);
+  // Тут можна підключити зміну текстів і кнопок на сайті
+});
+
+// всі кнопки
+const leftButtons = ["Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu","Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu","Rintalasta","Kylkiluu"];
+const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Varttinaluu","Kyyarnluu","Sormien","Lantion","Reisiluu","Polviluu","Saariluu","Pohjeluu","Jalkateran"];
+const allButtons = leftButtons.concat(rightButtons);
+
+// назви кнопок по мовах
+const names = {
+  fi: {
+    Otsaluu:"Otsaluu", Päälaenluu:"Päälaenluu", Ohimoluu:"Ohimoluu", Takaraivoluu:"Takaraivoluu",
+    Yläleukaluu:"Yläleukaluu", Alaleukaluu:"Alaleukaluu", Kaulanikama:"Kaulanikama", Rintanikama:"Rintanikama",
+    Lanneranka:"Lanneranka", Ristiluu:"Ristiluu", Rintalasta:"Rintalasta", Kylkiluu:"Kylkiluu",
+    Solisluu:"Solisluu", Lapaluu:"Lapaluu", Olkaluu:"Olkaluu", Varttinaluu:"Värttinäluu", Kyyarnluu:"Kyynärluu",
+    Sormien:"Sormien luut", Lantion:"Lantion luu", Reisiluu:"Reisiluu", Polviluu:"Polviluu",
+    Saariluu:"Sääriluu", Pohjeluu:"Pohjeluu", Jalkateran:"Jalkaterän luu"
+  },
+  ua: {
+    Otsaluu:"Лобова кістка", Päälaenluu:"Тім'яна кістка", Ohimoluu:"Скронева кістка", Takaraivoluu:"Задня частина черепа",
+    Yläleukaluu:"Верхня щелепа", Alaleukaluu:"Нижня щелепа", Kaulanikama:"Шийний хребець", Rintanikama:"Грудний хребець",
+    Lanneranka:"Поперековий хребець", Ristiluu:"Крижова кістка", Rintalasta:"Груднина", Kylkiluu:"Ребро",
+    Solisluu:"Ключиця", Lapaluu:"Лопатка", Olkaluu:"Плечова кістка", Varttinaluu:"Променева кістка", Kyyarnluu:"Ліктьова кістка",
+    Sormien:"Кістки пальців", Lantion:"Кістка тазу", Reisiluu:"Стегнова кістка", Polviluu:"Колінна кістка",
+    Saariluu:"Гомілкова кістка", Pohjeluu:"Литкова кістка", Jalkateran:"Кістки стопи"
+  },
+  en: {
+    Otsaluu:"Frontal bone", Päälaenluu:"Parietal bone", Ohimoluu:"Temporal bone", Takaraivoluu:"Occipital bone",
+    Yläleukaluu:"Maxilla", Alaleukaluu:"Mandible", Kaulanikama:"Cervical vertebra", Rintanikama:"Thoracic vertebra",
+    Lanneranka:"Lumbar vertebra", Ristiluu:"Sacrum", Rintalasta:"Sternum", Kylkiluu:"Rib",
+    Solisluu:"Clavicle", Lapaluu:"Scapula", Olkaluu:"Humerus", Varttinaluu:"Radius", Kyyarnluu:"Ulna",
+    Sormien:"Finger bones", Lantion:"Pelvic bone", Reisiluu:"Femur", Polviluu:"Patella",
+    Saariluu:"Tibia", Pohjeluu:"Fibula", Jalkateran:"Foot bones"
+  }
+};
+
+// функція для оновлення назв кнопок
+function updateButtonNames(lang) {
+  allButtons.forEach(id => {
+    const panel = document.getElementById(id).parentElement;
+    panel.firstChild.textContent = names[lang][id] + " ";
+  });
+}
+
+// слухач select
+document.getElementById('languageSelect').addEventListener('change', (e)=>{
+  const lang = e.target.value;
+  updateButtonNames(lang);
+});
+
+
+
+
+
+
+
+
+
+
+
   const btn_close = document.getElementById("btn_close");
   if (btn_close) {
     btn_close.onclick = () => {
@@ -193,4 +258,20 @@ document.addEventListener("DOMContentLoaded", () => {
       };
     }
   }
+});
+
+
+
+
+
+allButtons.forEach(id => {
+  document.getElementById(id).addEventListener('click', () => {
+    if(currentLang === 'ua') {
+      document.getElementById('info-panel').innerHTML = text_ua[id];
+    } else if(currentLang === 'fi') {
+      document.getElementById('info-panel').innerHTML = text_fi[id];
+    } else {
+      document.getElementById('info-panel').innerHTML = text_en[id];
+    }
+  });
 });
