@@ -70,7 +70,7 @@ document.getElementById("button_front").onclick = () => {
 const objLoader = new OBJLoader();
 objLoader.load("./assets/skeleton.obj", (object) => {
   object.scale.set(0.05, 0.05, 0.05);
-  object.position.set(-0.6, 0, 0);
+  object.position.set(-0.6, -0.3, 0);
   scene.add(object);
 });
 
