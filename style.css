@@ -39,21 +39,25 @@ body {
   }
 
 .info {
-      position: absolute;
-      top: 0;
-      right: 0;
-      width: 720px;
-      height: 100%;
-      background: #ffffff;
-      box-shadow: -2px 0 8px rgba(0,0,0,0.2);
-      padding: 20px;
-      overflow-y: auto;
-      z-index: 5;
-      font-family: Arial, sans-serif;
-      display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 720px;
+    height: 100%;
+    background: #ffffff;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.2);
+    padding: 20px;
+    overflow-y: auto;
+    z-index: 5;
+    font-family: Arial, sans-serif;
+    display: none;
 
-
+    /* Красивый текст */
+    text-align: justify;   /* выравнивание текста по ширине */
+    line-height: 1.5;      /* удобочитаемый интерлиньяж */
+    word-wrap: break-word;  /* длинные слова не вылезают за блок */
 }
+
 
 .btn_close {
     padding: 20px 20px;
