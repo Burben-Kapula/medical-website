@@ -42,7 +42,7 @@ body {
     position: absolute;
     top: 0;
     right: 0;
-    width: 720px;
+    width: 570px;
     height: 100%;
     background: #ffffff;
     box-shadow: -2px 0 8px rgba(0,0,0,0.2);
@@ -70,3 +70,28 @@ body {
   transition: background 0.3s;
 }
   
+
+
+.panel {
+  display: flex;
+  justify-content: space-between; /* текст ліворуч, кнопка (стрілка) праворуч */
+  align-items: center;
+}
+
+.panel button {
+  font-size: 22px;
+  border: none;
+  
+  background: #4b4b4b;
+  color: white;
+  cursor: pointer;
+  width: 30px;             /* ширина */
+  height: 34px;            /* висота — така сама, щоб квадрат */
+  padding: 0;              /* прибираємо відступи, щоб форма була квадратною */
+  transition: background 0.3s;
+}
+
+
+.panel button:hover {
+  background: #0277bd;
+}

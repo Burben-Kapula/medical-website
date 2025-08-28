@@ -278,10 +278,13 @@ document.getElementById('languageSelect').addEventListener('change', (e) => {
   updateButtonNames(currentLang);
 });
 
-// Функція для відображення тексту при кліку на кнопку
+// Функція для відображення тексту при кліку на кнопку стрілки
 allButtons.forEach(id => {
   const btn = document.getElementById(id);
   if(btn){
+
+     
+
     btn.onclick = () => {
       document.getElementById("info_panel").style.display = "block";
       if(currentLang === "fi") document.getElementById("text").innerHTML = text_fi[id];
@@ -324,13 +327,33 @@ const allButtons = leftButtons.concat(rightButtons);
 
 // назви кнопок по мовах
 const names = {
-  fi: {
-    Otsaluu:"Otsaluu", Päälaenluu:"Päälaenluu", Ohimoluu:"Ohimoluu", Takaraivoluu:"Takaraivoluu",
-    Yläleukaluu:"Yläleukaluu", Alaleukaluu:"Alaleukaluu", Kaulanikama:"Kaulanikama", Rintanikama:"Rintanikama",
-    Lanneranka:"Lanneranka", Ristiluu:"Ristiluu", Rintalasta:"Rintalasta", Kylkiluu:"Kylkiluu",
-    Solisluu:"Solisluu", Lapaluu:"Lapaluu", Olkaluu:"Olkaluu", Varttinaluu:"Värttinäluu", Kyyarnluu:"Kyynärluu",
-    Sormien:"Sormien luut", Lantion:"Lantion luu", Reisiluu:"Reisiluu", Polviluu:"Polviluu",
-    Saariluu:"Sääriluu", Pohjeluu:"Pohjeluu", Jalkateran:"Jalkaterän luu"
+  fi: 
+  {
+    Otsaluu: "Otsaluu",            // Лобова кістка
+    Päälaenluu: "Päälaenluu",      // Тім'яна кістка
+    Ohimoluu: "Ohimoluu",          // Скронева кістка
+    Takaraivoluu: "Takaraivoluu",  // Потилична кістка
+    Yläleukaluu: "Yläleukaluu",    // Верхня щелепа
+    Alaleukaluu: "Alaleukaluu",    // Нижня щелепа
+    Kaulanikama: "Kaulanikama",    // Шийний відділ хребта
+    Rintanikama: "Rintanikama",    // Грудний відділ хребта
+    Lanneranka: "Lanneranka",      // Поперековий відділ хребта
+    Ristiluu: "Ristiluu",          // Крижова кістка
+    Häntäluu: "Häntäluu",          // Копчиковий хребець
+    Rintalasta: "Rintalasta",      // Груднина
+    Kylkiluu: "Kylkiluu",          // Ребро
+    Solisluu: "Solisluu",          // Ключиця
+    Lapaluu: "Lapaluu",            // Лопатка
+    Olkaluu: "Olkaluu",            // Плечова кістка
+    Värttinäluu: "Värttinäluu",    // Променева кістка
+    Kyynärluu: "Kyynärluu",        // Ліктьова кістка
+    Sormien: "Sormien luut",       // Кістки пальців рук
+    Lantion: "Lantion luut",       // Кістки таза
+    Reisiluu: "Reisiluu",          // Стегнова кістка
+    Polviluu: "Polviluu",          // Колінна кістка
+    Sääriluu: "Sääriluu",          // Гомілкова кістка
+    Pohjeluu: "Pohjeluu",          // Литкова кістка
+    Jalkateran: "Jalkaterän luut" // Кістки стопи
   },
 
 ua: {
