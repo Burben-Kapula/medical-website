@@ -70,34 +70,13 @@ ctrls.minDistance = 1;
 ctrls.maxDistance = 200;
 
 
-// --- Завантаження skeleton.obj ---
-// const loader = new GLTFLoader();
-// loader.load(
-//   "./assets/skeleton_new.glb", // або .gltf
-//   (gltf) => {
-//     const model = gltf.scene;
-//     model.scale.set(0.05, 0.05, 0.05); // зменшення
-//     scene.add(model);
-//   },
-//   (xhr) => {
-//     console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
-//   },
-//   (error) => {
-//     console.error("Помилка завантаження:", error);
-//   }
-// );
 
-// const loader = new STLLoader();
-// loader.load('./assets/skeletonik.stl', function (geometry) {
-//     const material = new THREE.MeshPhongMaterial({color: 0x607d8b, specular: 0x111111, shininess: 200});
-//     const mesh = new THREE.Mesh(geometry, material);
-//     mesh.rotation.x = -0.5 * Math.PI;
-//     scene.add(mesh);
-// });
+
+
 const objLoader = new OBJLoader();
-objLoader.load("./assets/skelet_model.obj", (object) => {
+objLoader.load("./assets/skelet_final_model_new_new.obj", (object) => {
   object.scale.set(0.05, 0.05, 0.05);
-  object.position.set(-0.6, -0.3, 0);
+  object.position.set(-0.3, -0.3, 0);
   scene.add(object);
 });
 
