@@ -1,15 +1,47 @@
 import * as THREE from "three";
 import { OrbitControls } from "jsm/controls/OrbitControls.js";
 import { OBJLoader } from "jsm/loaders/OBJLoader.js"; // ✅ для skeleton.obj
+import { GLTFLoader } from "jsm/loaders/GLTFLoader.js";
+import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/STLLoader.js';
 
 // --- Сцена, камера, рендер ---
 const w = window.innerWidth;
 const h = window.innerHeight;
 const scene = new THREE.Scene();
-scene.background = new THREE.Color(0x000000);
 
-// Зменшуємо видиму область → модель здається більшою
-const zoom = 7; // чим більше, тим ближче / більша модель
+// Ліве світло
+// const lightLeft = new THREE.DirectionalLight(0xffffff, 1);
+// lightLeft.position.set(-5, 5, 0);
+// scene.add(lightLeft);
+
+// // Праве світло
+// const lightRight = new THREE.DirectionalLight(0xffffff, 1);
+// lightRight.position.set(5, 5, 0);
+// scene.add(lightRight);
+
+// // Переднє світло
+// const lightFront = new THREE.DirectionalLight(0xffffff, 1);
+// lightFront.position.set(0, 5, 5);
+// scene.add(lightFront);
+
+// // Заднє світло
+// const lightBack = new THREE.DirectionalLight(0xffffff, 1);
+// lightBack.position.set(0, 5, -5);
+// scene.add(lightBack);
+
+
+// // Нижнє світло
+// const lightBottom = new THREE.DirectionalLight(0xffffff, 0.1);
+// lightBottom.position.set(0, -5, 0);
+// scene.add(lightBottom);
+
+
+// М’яке загальне світло (Ambient)
+// const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
+// scene.add(ambientLight);
+
+
+const zoom = 7;
 const camera = new THREE.OrthographicCamera(
   w / -200 / zoom,
   w / 200 / zoom,
@@ -19,6 +51,9 @@ const camera = new THREE.OrthographicCamera(
   1000
 );
 
+
+// scene.background = new THREE.Color(0xffffff); // <-- білий фон
+
 camera.position.set(1, 0, 80);
 camera.lookAt(0, 0, 0);
 
@@ -26,49 +61,41 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(w, h);
 document.body.appendChild(renderer.domElement);
 
+// --- Контроли ---
 const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
+ctrls.dampingFactor = 0.05;
+ctrls.screenSpacePanning = true;
+ctrls.minDistance = 1;
+ctrls.maxDistance = 200;
 
-// --- Цільові позиції ---
-// --- Початкові координати камери ---
-const initPos = new THREE.Vector3(1, 0, 80);  // стартова позиція
-const initLook = new THREE.Vector3(0, 0, 0);  // стартовий напрямок
-
-camera.position.copy(initPos);
-camera.lookAt(initLook);
-
-let targetPos = new THREE.Vector3().copy(initPos); 
-let targetLook = new THREE.Vector3().copy(initLook);
-
-// --- Кнопки ---
-document.getElementById("button_right").onclick = () => {
-  targetPos.set(2, 0.5, 1.6);
-  targetLook.set(0, 2.5, 0);
-};
-
-document.getElementById("button_back").onclick = () => {
-  targetPos.set(-1, 0, -3);
-  targetLook.set(-8, 1.5, 0);
-};
-
-document.getElementById("button_head").onclick = () => {
-  targetPos.set(-1, 0.5, 0.6);
-  targetLook.set(-4, 0, 1.5);
-};
-
-document.getElementById("button_legs").onclick = () => {
-  targetPos.set(0, 0, 3);
-  targetLook.set(0, -9, 3);
-};
-
-document.getElementById("button_front").onclick = () => {
-  targetPos.copy(initPos);   // 🔹 повертаємось у стартову позицію
-  targetLook.copy(initLook); // 🔹 і дивимось у стартовий напрямок
-};
 
 // --- Завантаження skeleton.obj ---
+// const loader = new GLTFLoader();
+// loader.load(
+//   "./assets/skeleton_new.glb", // або .gltf
+//   (gltf) => {
+//     const model = gltf.scene;
+//     model.scale.set(0.05, 0.05, 0.05); // зменшення
+//     scene.add(model);
+//   },
+//   (xhr) => {
+//     console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+//   },
+//   (error) => {
+//     console.error("Помилка завантаження:", error);
+//   }
+// );
+
+// const loader = new STLLoader();
+// loader.load('./assets/skeletonik.stl', function (geometry) {
+//     const material = new THREE.MeshPhongMaterial({color: 0x607d8b, specular: 0x111111, shininess: 200});
+//     const mesh = new THREE.Mesh(geometry, material);
+//     mesh.rotation.x = -0.5 * Math.PI;
+//     scene.add(mesh);
+// });
 const objLoader = new OBJLoader();
-objLoader.load("./assets/skeleton.obj", (object) => {
+objLoader.load("./assets/skelet_model.obj", (object) => {
   object.scale.set(0.05, 0.05, 0.05);
   object.position.set(-0.6, -0.3, 0);
   scene.add(object);
@@ -82,35 +109,26 @@ const dirLight = new THREE.DirectionalLight(0xffffff, 1);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
 
-// --- Фон ---
-
 // --- Рендер ---
 function animate() {
   requestAnimationFrame(animate);
-
-  // 🔹 Плавний рух камери
-  camera.position.lerp(targetPos, 0.05);
-
-  // 🔹 Плавний поворот камери
-  let currentLook = new THREE.Vector3();
-  currentLook.lerpVectors(
-    camera.getWorldDirection(new THREE.Vector3()).add(camera.position),
-    targetLook,
-    0.05
-  );
-  camera.lookAt(currentLook);
-
-  renderer.render(scene, camera);
   ctrls.update();
+  renderer.render(scene, camera);
 }
 animate();
 
 // --- Ресайз ---
 window.addEventListener("resize", () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  camera.left   = w / -200 / zoom;
+  camera.right  = w / 200 / zoom;
+  camera.top    = h / 200 / zoom;
+  camera.bottom = h / -200 / zoom;
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize(w, h);
 });
+
 
 document.addEventListener("DOMContentLoaded", () => {
   const text_fi = {
@@ -294,10 +312,6 @@ allButtons.forEach(id => {
   }
 });
 
-// Закриття панелі
-document.getElementById("btn_close").onclick = () => {
-  document.getElementById("info_panel").style.display = "none";
-};
 
 
 allButtons.forEach(id => {
@@ -315,13 +329,7 @@ allButtons.forEach(id => {
     }
 });
 
-// Закриття панелі
-const btn_close = document.getElementById("btn_close");
-if (btn_close) {
-    btn_close.onclick = () => {
-        document.getElementById("info_panel").style.display = "none";
-    };
-}
+
 });
 // назви кнопок по мовах
 document.getElementById('languageSelect').addEventListener('change', (e) => {
