@@ -112,6 +112,8 @@ window.addEventListener("resize", () => {
 document.addEventListener("DOMContentLoaded", () => {
   const text_fi = {
     Otsaluu: `<h2>Otsaluu</h2><p>Otsaluu on pariton luu, joka muodostaa osan kalloa. Otsaluu koostuu kuudesta osasta. Sen tärkein tehtävä on suojella otsalohkoja.​</p>`,
+
+
     Päälaenluu: `<h2>Päälaenluu</h2><p>Päälaenluut (lat. os parietale) ovat kaksi luuta kallossa, jotka muodostavat pääkallon sivut ja katon. Molemmat luut ovat noin nelikulmion muotoisia.​​</p>`,
     Ohimoluu: `<h2>Ohimoluu</h2><p>Ohimoluu (lat. os temporale) kuuluu kallon luihin, ja se sijaitsee kallon sivuilla sulkien sisäänsä korvakäytävän, välikorvan ja sisäkorvan. Ohimoluu muodostuu 
     kolmesta toisiinsa liittyneestä osasta: pars squamosa, ohimoluun kallio-osa (pars petrosa) ja pars tympanica. Pars squamosan uloke, processus zygomaticus, kiinnittyy otsaluun samannimiseen 
@@ -192,6 +194,7 @@ Kaularangan keskellä on selkäydinkanava, jossa sijaitsee selkäydin.​</p>`,
     Jalkateran: `<h2>Jalkaterän luu</h2><p>Jalkaterän luut muodostavat koko jalkaterän luurangon. Ne sisältävät nilkan luut, jalkapöydän luut ja varpaiden luut. Jalkaterän luut tukevat kehon painoa,
      mahdollistavat kävelyn, juoksun ja tasapainon säätelyn.</p>`,
     };
+
 
 
 let text_ua = {
@@ -363,6 +366,10 @@ const names = {
     Jalkateran: "Jalkaterän luut" // Кістки стопи
   },
 
+
+
+
+
 ua: {
     Otsaluu: "Лобова кістка",
     Päälaenluu: "Тім'яна кістка",
@@ -413,3 +420,15 @@ document.getElementById('languageSelect').addEventListener('change', (e)=>{
   const lang = e.target.value;
   updateButtonNames(lang);
 });
+
+
+
+const allBones = [
+  "Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu",
+  "Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu",
+  "Häntäluu","Rintalasta","Kylkiluu","Solisluu","Lapaluu",
+  "Olkaluu","Värttinäluu","Kyynärluu","Sormien luut","Lantion luut",
+  "Reisiluu","Polviluu","Sääriluu","Pohjeluu","Jalkaterän luut"
+];
+
+
