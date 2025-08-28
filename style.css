@@ -29,7 +29,7 @@ body {
 }
  .panel {
     width: 220px;
-    height: 40px;
+    height: 34px;
     background: #ffffff;
     box-shadow: -2px 0 8px rgba(0,0,0,0.2);
     display: flex;
@@ -52,10 +52,10 @@ body {
     font-family: Arial, sans-serif;
     display: none;
 
-    /* Красивый текст */
-    text-align: justify;   /* выравнивание текста по ширине */
-    line-height: 1.5;      /* удобочитаемый интерлиньяж */
-    word-wrap: break-word;  /* длинные слова не вылезают за блок */
+    /* Красивий текст */
+    text-align: justify;   
+    line-height: 1.5;      
+    word-wrap: break-word;  /
 }
 
 
