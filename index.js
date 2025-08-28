@@ -127,8 +127,15 @@ document.addEventListener("DOMContentLoaded", () => {
     Alaleukaluu: `<h2>Alaleukaluu</h2><p>Alaleuanluu (mandibula) on selkäjänteisten luu, johon alahampaat ovat kiinnittyneet. Rungon takaa suuntautuvat ylöspäin alaleukaluun haarat. Vasen 
     ja oikea yläleuanluu sijaitsevat alaleuanluuta vasten niveltymättä siihen. Ihmisellä alaleuan kärjessä on leukakyhmy. Alaleuanluu niveltyy korvakäytävien lähellä ohimoluihin. Kyseiset 
     leukanivelet liikkuvat suuta aukoessa.​</p>`,
-    Kaulanikama: `<h2>Kaulanikama</h2><p>  Nikama (vertebra) on epäsäännöllisen muotoinen moniulokkeinen luu, joista selkäranka muodostuu. Nikaman osia ovat nikamasolmu, nikamakaari ja nikamaulokkeet. 
-    Nikaman sisällä kulkee selkäydinkanava. Nikamat sijaitsevat päällekkäin ja niveltyvät toisiinsa, mikä tekee selkärangasta taipuvan.​</p>`,
+    Kaulanikama: `<h2>Kaulanikama</h2><p>  Kaularanka on selkärangan ylin osa, joka ylhäällä kannattelee luista kalloa ja alaosastaan jatkuu rintarankana.
+
+Kaularanka muodostuu seitsemästä nikamasta ja kuudesta välilevystä, jotka liittyvät toisiinsa nivelsiteiden ja nivelpintojen välityksellä.
+
+Kaularangan vasemmalla ja oikealla reunalla kulkee nikamavaltimot osittain luisten nikamavaltimokanavien sisällä.
+
+Kaularangan tukevuus syntyy nikamista, välilevyistä ja kaarinivelistä. Lihaksisto koordinoi nikamien liikettä ja asentoa ja näin vaikuttaa tukevuuteen.
+
+Kaularangan keskellä on selkäydinkanava, jossa sijaitsee selkäydin.​</p>`,
     Rintanikama: `<h2>Rintanikama</h2><p>Rintanikama on yksi selkärangan osista, tarkemmin sanottuna rintarangan eli thorakaalisen osan nikama. Ihmisellä rintaranka koostuu yleensä kahdesta­toista
      nikamasta, jotka muodostavat keskiosan selkärangasta. Rintanikamat kiinnittyvät kylkiluihin ja tukevat rintakehää, suojaten sydäntä ja keuhkoja sekä mahdollistavat selän ja vartalon liikkeet.</p>`,
     Lanneranka: `<h2>Lanneranka</h2><p>Lanneranka on selkärangan alaosa, eli yleensä viisi nikamaa, jotka muodostavat alaselän osan. Lannerangan nikamat ovat suurempia kuin rinta- ja kaulanikamat,
