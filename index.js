@@ -9,36 +9,36 @@ const w = window.innerWidth;
 const h = window.innerHeight;
 const scene = new THREE.Scene();
 
-// Ліве світло
-// const lightLeft = new THREE.DirectionalLight(0xffffff, 1);
-// lightLeft.position.set(-5, 5, 0);
-// scene.add(lightLeft);
+// // Ліве світло
+const lightLeft = new THREE.DirectionalLight(0xffffff, -0.15);
+lightLeft.position.set(-5, 5, 0);
+scene.add(lightLeft);
 
-// // Праве світло
-// const lightRight = new THREE.DirectionalLight(0xffffff, 1);
-// lightRight.position.set(5, 5, 0);
-// scene.add(lightRight);
+// // // Праве світло
+const lightRight = new THREE.DirectionalLight(0xffffff, -0.35);
+lightRight.position.set(5, 5, 0);
+scene.add(lightRight);
 
 // // Переднє світло
-// const lightFront = new THREE.DirectionalLight(0xffffff, 1);
-// lightFront.position.set(0, 5, 5);
-// scene.add(lightFront);
+const lightFront = new THREE.DirectionalLight(0xffffff, -0.35);
+lightFront.position.set(0, 5, 5);
+scene.add(lightFront);
 
 // // Заднє світло
-// const lightBack = new THREE.DirectionalLight(0xffffff, 1);
-// lightBack.position.set(0, 5, -5);
-// scene.add(lightBack);
+const lightBack = new THREE.DirectionalLight(0xffffff, -0.15);
+lightBack.position.set(0, 5, -5);
+scene.add(lightBack);
 
 
 // // Нижнє світло
-// const lightBottom = new THREE.DirectionalLight(0xffffff, 0.1);
-// lightBottom.position.set(0, -5, 0);
-// scene.add(lightBottom);
+const lightBottom = new THREE.DirectionalLight(0xffffff, -0.1);
+lightBottom.position.set(0, -5, 0);
+scene.add(lightBottom);
 
 
 // М’яке загальне світло (Ambient)
-// const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
-// scene.add(ambientLight);
+const ambientLight = new THREE.AmbientLight(0xffffff, -0.15);
+scene.add(ambientLight);
 
 
 const zoom = 7;
@@ -74,7 +74,7 @@ ctrls.maxDistance = 200;
 
 
 const objLoader = new OBJLoader();
-objLoader.load("./assets/skelet_final_model_new_new.obj", (object) => {
+objLoader.load("./assets/skelewwttt.obj", (object) => {
   object.scale.set(0.05, 0.05, 0.05);
   object.position.set(-0.3, -0.3, 0);
   scene.add(object);
