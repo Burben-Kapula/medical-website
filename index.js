@@ -194,6 +194,8 @@ Kaularangan keskellä on selkäydinkanava, jossa sijaitsee selkäydin.​</p>`,
     };
 
 
+
+
 let text_ua = {
   Otsaluu: `<h2>Лобова кістка</h2><p>Ло́бна кістка також лобова́ кістка (лат. os frontale) — одна чи декілька кісток мозкового черепа. Вони з'єднуються з носовими кістками спереду, слізною і заочними кістками по боках, тім'яними ззаду. У більшості тварин лобні кістки парні, тоді як у представників роду Homo вони формують непарну, зрослу структуру.</p>`,
   Päälaenluu: `<h2>Тім'яна кістка</h2><p>Тім'яна́ кістка (лат. os parietale) — парна кістка мозкового черепа. Має вигляд чотирикутної пластинки, посередині кістка має тім'яний горб (tuber parietale). Між тім'яними горбами міряють ширину мозкового черепа, вони відповідають антропометричним тім'яним точкам (euryon).
@@ -276,6 +278,18 @@ const text_en = {
   Pohjeluu: `<h2>Fibula</h2><p>The fibula is located on the side of the lower leg.</p>`,
   Jalkateran: `<h2>Foot bones</h2><p>The foot bones form the skeleton of the foot.</p>`
 };
+
+
+
+for (let key in text_fi) {
+  text_fi[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+}
+for (let key in text_ua) {
+  text_ua[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+}
+for (let key in text_en) {
+  text_en[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+}
 
 // Функція для оновлення назв кнопок
 let currentLang = "fi"; // початкова мова
