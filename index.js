@@ -343,12 +343,12 @@ document.getElementById('languageSelect').addEventListener('change', (e) => {
 
 // всі кнопки
 const leftButtons = ["Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu","Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu","Rintalasta","Kylkiluu"];
-const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Varttinaluu","Kyyarnluu","Sormien","Lantion","Reisiluu","Polviluu","Saariluu","Pohjeluu","Jalkateran"];
+const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormien","Lantion","Reisiluu","Polviluu","Sääriluu","Pohjeluu","Jalkateran"];
 const allButtons = leftButtons.concat(rightButtons);
 
 // назви кнопок по мовах
 const names = {
-  fi: 
+  fi:
   {
     Otsaluu: "Otsaluu",            // Лобова кістка
     Päälaenluu: "Päälaenluu",      // Тім'яна кістка
@@ -374,7 +374,7 @@ const names = {
     Polviluu: "Polviluu",          // Колінна кістка
     Sääriluu: "Sääriluu",          // Гомілкова кістка
     Pohjeluu: "Pohjeluu",          // Литкова кістка
-    Jalkateran: "Jalkaterän luut" // Кістки стопи
+      Jalkateran: "Jalkaterän luut" // Кістки стопи
   },
 
 ua: {
@@ -394,13 +394,13 @@ ua: {
     Solisluu: "Ключиця",
     Lapaluu: "Лопатка",
     Olkaluu: "Плечова кістка",
-    Varttinaluu: "Променева кістка",
-    Kyyarnluu: "Ліктьова кістка",
+    Värttinäluu: "Променева кістка",
+    Kyynärluu: "Ліктьова кістка",
     Sormien: "Кістки пальців рук",
     Lantion: "Кістки таза",
     Reisiluu: "Стегнова кістка",
     Polviluu: "Колінна кістка",
-    Saariluu: "Гомілкова кістка",
+    Sääriluu: "Гомілкова кістка",
     Pohjeluu: "Литкова кістка",
     Jalkateran: "Кістки стопи"
 },
@@ -409,9 +409,9 @@ ua: {
     Otsaluu:"Frontal bone", Päälaenluu:"Parietal bone", Ohimoluu:"Temporal bone", Takaraivoluu:"Occipital bone",
     Yläleukaluu:"Maxilla", Alaleukaluu:"Mandible", Kaulanikama:"Cervical vertebra", Rintanikama:"Thoracic vertebra",
     Lanneranka:"Lumbar vertebra", Ristiluu:"Sacrum", Rintalasta:"Sternum", Kylkiluu:"Rib",
-    Solisluu:"Clavicle", Lapaluu:"Scapula", Olkaluu:"Humerus", Varttinaluu:"Radius", Kyyarnluu:"Ulna",
+    Solisluu:"Clavicle", Lapaluu:"Scapula", Olkaluu:"Humerus", Värttinäluu:"Radius", Kyynärluu:"Ulna",
     Sormien:"Finger bones", Lantion:"Pelvic bone", Reisiluu:"Femur", Polviluu:"Patella",
-    Saariluu:"Tibia", Pohjeluu:"Fibula", Jalkateran:"Foot bones"
+      Sääriluu:"Tibia", Pohjeluu:"Fibula", Jalkateran:"Foot bones"
   }
 };
 // функція для оновлення назв кнопок
