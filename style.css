@@ -24,19 +24,26 @@ body {
     cursor: pointer;
     transition: background 0.3s;
 }
-#controls button:hover {
-    background: #0277bd;
-}
+
+
 .panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     width: 220px;
     height: 34px;
     background: #ffffff;
     box-shadow: -2px 0 8px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
     font-family: Arial, sans-serif;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s;
 }
+
+.panel:hover {
+    background: #0288d1;
+    color: white;
+}
+
 
 .info {
     position: absolute;
@@ -71,25 +78,18 @@ body {
 }
 
 
-
-.panel {
-    display: flex;
-    justify-content: space-between; /* текст ліворуч, кнопка (стрілка) праворуч */
-    align-items: center;
-}
-
 .panel button {
     font-size: 22px;
     border: none;
-
-    background: #4b4b4b;
-    color: white;
+    background: transparent;
+    color: inherit;
     cursor: pointer;
-    width: 30px;             /* ширина */
-    height: 34px;            /* висота — така сама, щоб квадрат */
-    padding: 0;              /* прибираємо відступи, щоб форма була квадратною */
-    transition: background 0.3s;
+    width: 30px;
+    height: 34px;
+    padding: 0;
+    transition: color 0.3s;
 }
+
 
 
 .panel button:hover {
