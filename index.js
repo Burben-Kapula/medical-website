@@ -189,7 +189,7 @@ Kaularangan keskellä on selkäydinkanava, jossa sijaitsee selkäydin.​</p>`,
      Luiden väliin jää vaihtelevan kokoinen aukko (spatium interossium cruris), jossa kulkee luut toisiinsa sitova sidekudoskalvo (membrana interossea cruris). Pohjeluu sijaitsee alempana kuin sääriluu eikä
       näin ollen kiinnity reisiluuhun (femur). Naudalla ja pienillä märehtijöillä pohjeluu on surkastunut lähes kokonaan, mutta hevosella vain osittain. Nilkkaluista pohjeluu niveltyy telaluuhun (talus),
        mutta kiinnittyy nivelsiteillä myös kantaluuhun (calcaneus).​</p>`,
-    Jalkateran: `<h2>Jalkaterän luu</h2><p>Jalkaterän luut muodostavat koko jalkaterän luurangon. Ne sisältävät nilkan luut, jalkapöydän luut ja varpaiden luut. Jalkaterän luut tukevat kehon painoa,
+    Jalkateränluut: `<h2>Jalkaterän luu</h2><p>Jalkaterän luut muodostavat koko jalkaterän luurangon. Ne sisältävät nilkan luut, jalkapöydän luut ja varpaiden luut. Jalkaterän luut tukevat kehon painoa,
      mahdollistavat kävelyn, juoksun ja tasapainon säätelyn.</p>`,
     };
 
@@ -237,7 +237,7 @@ let text_ua = {
   Polviluu:`<h2>Колінна кістка</h2><p>Наколі́нок, надколінок, надколінник, колінна чашечка (лат. patella) — найбільша сесамоподібна кістка. За формою нагадує заокруглений трикутник, верхівка якого обернена вниз, а основа — вгору.</p>`,
   Sääriluu:`<h2>Великогомілкова кістка</h2><p>Великогомі́лко́ва кі́стка (лат. tibia), заст. суре́ля — найбільша і основна з двох кісток гомілки, розташована зі сторони, ближчої до осі тіла. Латинська назва первісно означала «дудка, флейта, авлос».</p>`,
   Pohjeluu:`<h2>Малогомілкова кістка</h2><p>Малогомі́лко́ва кістка (лат. fibula) — менша з кісток гомілки, майже не несе фізичного навантаження при ході. Одна з основних функцій малогомілкової кістки — участь у формуванні колінного та надп'ятково-гомілкового суглобів. Складається із тіла (діафіза) та двох епіфізів (проксимальний, дистальний). На проксимальному кінці розташована головка. Виросток на дистальному епіфізі утворює латеральну кісточку.</p>`,
-  Jalkateran:`<h2>Кістки стопи</h2><p>Кістки стопи людини включають 26 кісток і утворюють три відділи:
+  Jalkateränluut:`<h2>Кістки стопи</h2><p>Кістки стопи людини включають 26 кісток і утворюють три відділи:
 
 Заплесно (лат. tarsus) — 7 кісток проксимального відділу стопи, які з'єднуються з кістками плесна.
 Надп'яткова (таранна) (лат. talus);
@@ -276,7 +276,7 @@ const text_en = {
   Polviluu: `<h2>Patella</h2><p>The patella protects the knee.</p>`,
   Saariluu: `<h2>Tibia</h2><p>The tibia is located in the lower part of the leg.</p>`,
   Pohjeluu: `<h2>Fibula</h2><p>The fibula is located on the side of the lower leg.</p>`,
-  Jalkateran: `<h2>Foot bones</h2><p>The foot bones form the skeleton of the foot.</p>`
+  Jalkateränluut: `<h2>Foot bones</h2><p>The foot bones form the skeleton of the foot.</p>`
 };
 
 
@@ -343,7 +343,7 @@ document.getElementById('languageSelect').addEventListener('change', (e) => {
 
 // всі кнопки
 const leftButtons = ["Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu","Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu","Rintalasta","Kylkiluu"];
-const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormienluut","Lantionluut","Reisiluu","Polviluu","Sääriluu","Pohjeluu","Jalkater"];
+const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormienluut","Lantionluut","Reisiluu","Polviluu","Sääriluu","Pohjeluu","Jalkateränluut"];
 const allButtons = leftButtons.concat(rightButtons);
 
 // назви кнопок по мовах
@@ -374,7 +374,7 @@ const names = {
     Polviluu: "Polviluu",          // Колінна кістка
     Sääriluu: "Sääriluu",          // Гомілкова кістка
     Pohjeluu: "Pohjeluu",          // Литкова кістка
-      Jalkateran: "Jalkaterän luut" // Кістки стопи
+    Jalkateränluut: "Jalkateränluut" // Кістки стопи
   },
 
 ua: {
