@@ -172,7 +172,7 @@ Kaularangan keskellä on selkäydinkanava, jossa sijaitsee selkäydin.​</p>`,
     Sormien: `<h2>Sormien luut</h2><p>Sormien luut ovat luita, jotka muodostavat sormien luisen tukirangan. Ihmisen kaikissa sormissa on kolme luuta paitsi peukalossa, jossa on vain kaksi.​
     Sormiluut ovat sormen tyvijäsen (lat. phalanx proximalis), sormen keskijäsen (phalanx media, puuttuu peukalosta) sekä sormen kärkijäsen (phalanx distalis).[1] Sormiluut ovat pitkulaisia, ja niiden
      osia ovat tyvi (basis) proksimaalisesti, pää (caput) distaalisesti ja näiden välissä runko (corpus).​</p>`,
-    Lantion: `<h2>Lantion luu</h2><p> Lonkkaluu (lat. os coxae) on suuri, litteä ja epäsäännöllisen muotoinen luu, joka on osa luista lantiorengasta. Oikean- ja vasemmanpuoleinen lonkkaluu muodostavat 
+    Lantionluut: `<h2>Lantion luu</h2><p> Lonkkaluu (lat. os coxae) on suuri, litteä ja epäsäännöllisen muotoinen luu, joka on osa luista lantiorengasta. Oikean- ja vasemmanpuoleinen lonkkaluu muodostavat 
     yhdessä lantion sivu- ja etuseinät.​</p>`,
     Reisiluu: `<h2>Reisiluu</h2><p> Reisiluu (lat. femur) on ihmiskehon pisin ja vahvin luu. Se sijaitsee lonkkanivelen ja polvinivelen välissä. Reisiluun anatominen vastine eturaajassa on olkaluu.​
     Reisiluun yläpään pallomainen osa, jossa on lonkkamaljaan niveltyvä nivelpinta on nimeltään reisiluun pää (caput femoris). Se pää kiinnittyy reisiluun varteen ohuehkolla reisiluunkaulalla (collum femoris),
@@ -343,7 +343,7 @@ document.getElementById('languageSelect').addEventListener('change', (e) => {
 
 // всі кнопки
 const leftButtons = ["Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu","Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu","Rintalasta","Kylkiluu"];
-const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormien","Lantion","Reisiluu","Polviluu","Sääriluu","Pohjeluu","Jalkateran"];
+const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormien","Lantionluut","Reisiluu","Polviluu","Sääriluu","Pohjeluu","Jalkater"];
 const allButtons = leftButtons.concat(rightButtons);
 
 // назви кнопок по мовах
@@ -369,7 +369,7 @@ const names = {
     Värttinäluu: "Värttinäluu",    // Променева кістка
     Kyynärluu: "Kyynärluu",        // Ліктьова кістка
     Sormien: "Sormien luut",       // Кістки пальців рук
-    Lantion: "Lantion luut",       // Кістки таза
+    Lantionluut: "Lantionluut",       // Кістки таза
     Reisiluu: "Reisiluu",          // Стегнова кістка
     Polviluu: "Polviluu",          // Колінна кістка
     Sääriluu: "Sääriluu",          // Гомілкова кістка
@@ -397,7 +397,7 @@ ua: {
     Värttinäluu: "Променева кістка",
     Kyynärluu: "Ліктьова кістка",
     Sormien: "Кістки пальців рук",
-    Lantion: "Кістки таза",
+    Lantionluut: "Кістки таза",
     Reisiluu: "Стегнова кістка",
     Polviluu: "Колінна кістка",
     Sääriluu: "Гомілкова кістка",
