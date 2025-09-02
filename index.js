@@ -1,8 +1,10 @@
 import * as THREE from "three";
 import { OrbitControls } from "jsm/controls/OrbitControls.js";
 import { OBJLoader } from "jsm/loaders/OBJLoader.js"; // ✅ для skeleton.obj
-import { GLTFLoader } from "jsm/loaders/GLTFLoader.js";
-import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/loaders/STLLoader.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.150.0/examples/jsm/loaders/GLTFLoader.js';
+
+let mouse, model;
+let isHovered = false;
 
 // --- Сцена, камера, рендер ---
 const w = window.innerWidth;
@@ -79,6 +81,8 @@ objLoader.load("./assets/skelewwttt.obj", (object) => {
   object.position.set(-0.3, -0.3, 0);
   scene.add(object);
 });
+
+
 
 // --- Освітлення ---
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
@@ -434,3 +438,18 @@ if (close_button) {
         document.getElementById("info_panel").style.display = "none";
     };
 }
+const meme_cat = document.querySelector('.meme_cat');
+const gif = document.querySelector('.gif');
+let left_panel = document.getElementById("left-panel");
+
+meme_cat.addEventListener('mouseenter', () => {
+    gif.style.opacity = '1';      // показати
+    gif.style.transform = 'scale(1)'; // повернути нормальний розмір
+    left_panel.style.height = '250px';
+});
+
+meme_cat.addEventListener('mouseleave', () => {
+    gif.style.opacity = '0';      // сховати
+    gif.style.transform = 'scale(0.8)'; // зменшити
+    left_panel.style.height = '150px';
+});

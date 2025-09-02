@@ -19,6 +19,6 @@ Sivuston tarkoitus on tarjota mahdollisuus tutustua 24 eri luuhun: näet niiden 
 
 Марина Капула
 
-Amaliia Paasonen
+Амалііа Паасонен
 
 Мета сайту – надати можливість ознайомитися з 24 різними кістками: ви зможете побачити їхні назви та дізнатися латинські відповідники.

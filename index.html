@@ -1,107 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robot Bobby Threejs Template</title>
     <link rel="stylesheet" href="style.css">
 
-
-
     <script type="importmap">
-			{
-				"imports": {
-					"three": "https://cdn.jsdelivr.net/npm/three@0.131/build/three.module.js",
-          "jsm/": "https://cdn.jsdelivr.net/npm/three@0.131/examples/jsm/"
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.131/build/three.module.js",
+            "jsm/": "https://cdn.jsdelivr.net/npm/three@0.131/examples/jsm/"
+          }
         }
-			}
-		</script>
-  </head>
+    </script>
+</head>
 
+<body>
 <div id="info_panel" aria-label="Tiedot" class="info" onfocus="myFunction()">
-  <!-- сюди  текст -->
-      <p id="text"></p>
-    <button onclick="myFunction() " id="close_button">Close</button>
+    <p id="text"></p>
+    <button onclick="myFunction()" id="close_button">Close</button>
 </div>
 
-// --- Тут панель з інформацією ---
-<div id="left-panel" aria-label="Lisätiedot" 
+<!-- Тут панель з інформацією -->
+<div id="left-panel" aria-label="Lisätiedot"
      style="
-       position: fixed;
-       top: 0;
-       left: 0;
-       width: 390px;
-       height: auto;
-       background: #ffffff;
-       box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-       padding: 20px;
-       overflow-y: auto;
-       z-index: 5;
-       font-family: Arial, sans-serif;
-       font-size: 14px;
-       line-height: 1.4;
-     ">
-  <p><strong>Sivuston tekijät:</strong> Maksym Kapula, Maryna Kapula, Amaliia Paasonen</p>
-  <p><strong>Luurankomalli:</strong> ladattu sivustolta 
-     <a href="https://www.artec3d.com/3d-models/human-skeleton-hd">Human Skeleton HD</a>
-       free3d.com
-     </a> 
-     ja integroitu Blenderin kautta verkkosivulle</p>
-  <p><strong>Tiedot luista:</strong> Wikipedia</p>
-  
+           position: fixed;
+           top: 0;
+           left: 0;
+           width: 390px;
+           height: 150px;
+           background: #ffffff;
+           box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+           padding: 20px;
+           overflow-y: auto;
+           z-index: 5;
+           font-family: Arial, sans-serif;
+           font-size: 14px;
+           line-height: 1.4;
+         ">
+    <p><strong>Sivuston tekijät:</strong> Maksym Kapula, Maryna Kapula, Amaliia Paasonen</p>
+    <p><strong>Luurankomalli:</strong> ladattu sivustolta
+        <a href="https://www.artec3d.com/3d-models/human-skeleton-hd">Human Skeleton HD</a> free3d.com
+    </p>
+    <p><strong>Tiedot luista:</strong> Wikipedia</p>
+    <div class="meme_cat" id="meme_cat">
+        <img src="image/maxwell-the-cat.gif" alt="cute_cat_gif" class="gif">
+    </div>
 </div>
-
-
 
 <!-- Ліва колонка -->
 <div id="left-column" style="position:absolute; top:58px; left:65%; display:flex; flex-direction:column; gap:10px;">
-  <div class="panel">Otsaluu <button id="Otsaluu">➡</button></div>
-  <div class="panel">Päälaenluu <button id="Päälaenluu">➡</button></div>
-  <div class="panel">Ohimoluu <button id="Ohimoluu">➡</button></div>
-  <div class="panel">Takaraivoluu <button id="Takaraivoluu">➡</button></div>
-  <div class="panel">Yläleukaluu <button id="Yläleukaluu">➡</button></div>
-  <div class="panel">Alaleukaluu <button id="Alaleukaluu">➡</button></div>
-  <div class="panel">Kaulanikama <button id="Kaulanikama">➡</button></div>
-  <div class="panel">Rintanikama <button id="Rintanikama">➡</button></div>
-  <div class="panel">Lanneranka <button id="Lanneranka">➡</button></div>
-  <div class="panel">Ristiluu <button id="Ristiluu">➡</button></div>
-  <div class="panel">Rintalasta <button id="Rintalasta">➡</button></div>
-  <div class="panel">Kylkiluu <button id="Kylkiluu">➡</button></div>
+    <div class="panel">Otsaluu <button id="Otsaluu">➡</button></div>
+    <div class="panel">Päälaenluu <button id="Päälaenluu">➡</button></div>
+    <div class="panel">Ohimoluu <button id="Ohimoluu">➡</button></div>
+    <div class="panel">Takaraivoluu <button id="Takaraivoluu">➡</button></div>
+    <div class="panel">Yläleukaluu <button id="Yläleukaluu">➡</button></div>
+    <div class="panel">Alaleukaluu <button id="Alaleukaluu">➡</button></div>
+    <div class="panel">Kaulanikama <button id="Kaulanikama">➡</button></div>
+    <div class="panel">Rintanikama <button id="Rintanikama">➡</button></div>
+    <div class="panel">Lanneranka <button id="Lanneranka">➡</button></div>
+    <div class="panel">Ristiluu <button id="Ristiluu">➡</button></div>
+    <div class="panel">Rintalasta <button id="Rintalasta">➡</button></div>
+    <div class="panel">Kylkiluu <button id="Kylkiluu">➡</button></div>
 </div>
 
 <!-- Права колонка -->
 <div id="right-column" style="position:absolute; top:585px; left:65%; display:flex; flex-direction:column; gap:10px;">
-  <div class="panel">Solisluu <button id="Solisluu">➡</button></div>
-  <div class="panel">Lapaluu <button id="Lapaluu">➡</button></div>
-  <div class="panel">Olkaluu <button id="Olkaluu">➡</button></div>
-  <div class="panel">Värttinäluu <button id="Värttinäluu">➡</button></div>
-  <div class="panel">Kyynärluu <button id="Kyynärluu">➡</button></div>
-  <div class="panel">Sormien luut <button id="Sormienluut">➡</button></div>
-  <div class="panel">Lantion luut <button id="Lantionluut">➡</button></div>
-  <div class="panel">Reisiluu <button id="Reisiluu">➡</button></div>
-  <div class="panel">Polviluu <button id="Polviluu">➡</button></div>
-  <div class="panel">Sääriluu <button id="Sääriluu">➡</button></div>
-  <div class="panel">Pohjeluu <button id="Pohjeluu">➡</button></div>
-  <div class="panel">Jalkaterän luut <button id="Jalkateränluut">➡</button></div>
+    <div class="panel">Solisluu <button id="Solisluu">➡</button></div>
+    <div class="panel">Lapaluu <button id="Lapaluu">➡</button></div>
+    <div class="panel">Olkaluu <button id="Olkaluu">➡</button></div>
+    <div class="panel">Värttinäluu <button id="Värttinäluu">➡</button></div>
+    <div class="panel">Kyynärluu <button id="Kyynärluu">➡</button></div>
+    <div class="panel">Sormien luut <button id="Sormienluut">➡</button></div>
+    <div class="panel">Lantion luut <button id="Lantionluut">➡</button></div>
+    <div class="panel">Reisiluu <button id="Reisiluu">➡</button></div>
+    <div class="panel">Polviluu <button id="Polviluu">➡</button></div>
+    <div class="panel">Sääriluu <button id="Sääriluu">➡</button></div>
+    <div class="panel">Pohjeluu <button id="Pohjeluu">➡</button></div>
+    <div class="panel">Jalkaterän luut <button id="Jalkateränluut">➡</button></div>
 </div>
-
 
 <!-- вибір мови -->
 <select id="languageSelect" style="position:fixed; bottom:10px; left:10px; padding:5px 10px; border-radius:5px; cursor:pointer; box-shadow:1px 1px 5px rgba(0,0,0,0.2);">
-  <option value="fi">Finnish</option>
-  <option value="ua">Ukrainian</option>
-  <option value="en">English</option>
+    <option value="fi">Finnish</option>
+    <option value="ua">Ukrainian</option>
+    <option value="en">English</option>
 </select>
 
 
+
+<!-- Підключення скрипту -->
 <script type="module" src="index.js"></script>
-
-
-
-
-<body>
-
-
-  <script type="module" src="index.js"></script>
 </body>
 </html>

@@ -1,16 +1,19 @@
-body {
+/* Скидаємо відступи та padding для всього документа */
+html, body {
     margin: 0;
+    padding: 0;
     overflow: hidden; /* щоб не було скролу */
+    height: 100%;
 }
 
 /* контейнер для кнопок */
 #controls {
-    position: fixed;     /* завжди поверх сцени */
-    bottom: 20px;        /* відступ знизу */
-    left: 50%;           /* центр по горизонталі */
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
     transform: translateX(-50%);
     display: flex;
-    gap: 10px;           /* відстань між кнопками */
+    gap: 10px;
 }
 
 /* стилі кнопок */
@@ -24,7 +27,6 @@ body {
     cursor: pointer;
     transition: background 0.3s;
 }
-
 
 .panel {
     display: flex;
@@ -44,7 +46,6 @@ body {
     color: white;
 }
 
-
 .info {
     position: absolute;
     top: 0;
@@ -59,12 +60,10 @@ body {
     font-family: Arial, sans-serif;
     display: none;
 
-    /* Красивий текст */
     text-align: justify;
     line-height: 1.5;
-    word-wrap: break-word;  /
+    word-wrap: break-word;
 }
-
 
 .btn_close {
     padding: 20px 20px;
@@ -76,7 +75,6 @@ body {
     cursor: pointer;
     transition: background 0.3s;
 }
-
 
 .panel button {
     font-size: 22px;
@@ -90,8 +88,30 @@ body {
     transition: color 0.3s;
 }
 
-
-
 .panel button:hover {
     background: #0277bd;
+}
+
+.meme_cat {
+    width: 200px;
+    height: 150px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    margin-bottom: -150px;
+
+}
+
+.gif {
+    opacity: 0; /* спочатку невидимий */
+    transform: scale(0.8); /* трохи зменшений */
+    transition: all 0.3s ease; /* плавна анімація */
+    position: absolute; /* щоб не розтягував контейнер */
+}
+
+.zone:hover .gif {
+    display: block;
 }
