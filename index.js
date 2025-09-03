@@ -430,18 +430,39 @@ if (close_button) {
         document.getElementById("info_panel").style.display = "none";
     };
 }
-const meme_cat = document.querySelector('.meme_cat');
-const gif = document.querySelector('.gif');
-let left_panel = document.getElementById("left-panel");
 
-meme_cat.addEventListener('mouseenter', () => {
-    gif.style.opacity = '1';      // показати
-    gif.style.transform = 'scale(1)'; // повернути нормальний розмір
-    left_panel.style.height = '250px';
+
+
+// тут функції які довзволяють появі кота та приберають її
+
+const meme_cat = document.getElementById('meme_cat'); // вибирає перший елемент з класом meme_cat
+const gif = document.getElementById('gif');
+const border_but_div = document.getElementById('border_but_div');
+const border = document.getElementById('border');
+
+
+// перша лінія появи яка покаже другу
+border_but_div.addEventListener("mouseenter", () => {
+    border.style.display = "block";
+})
+// друга лінія яка покаже div в якому кіт
+border.addEventListener("mouseenter", () => {
+    meme_cat.style.display = "block";
+})
+// покаже кота
+meme_cat.addEventListener("mouseenter", () => {
+    gif.style.display = "block";
+});
+// забере кота коли курсор не на ньому
+meme_cat.addEventListener("mouseleave", () => {
+    gif.style.display = "none";
 });
 
-meme_cat.addEventListener('mouseleave', () => {
-    gif.style.opacity = '0';      // сховати
-    gif.style.transform = 'scale(0.8)'; // зменшити
-    left_panel.style.height = '150px';
-});
+// кнопка закриття div де знаходиться кіт
+const meme_button = document.getElementById("meme_button");
+if (meme_button) {
+    meme_button.onclick = () => {
+        document.getElementById("meme_cat").style.display = "none";
+    };
+}
+

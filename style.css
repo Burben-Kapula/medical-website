@@ -91,27 +91,51 @@ html, body {
 .panel button:hover {
     background: #0277bd;
 }
+/* тут стиль кота */
+.border_but_div {
+    position: absolute;
+    width: 300px;
+    height: 20px;
+    top: 150px;
+
+}
+
+.border {
+    position: absolute;
+    width: 300px;
+    height: 10px;
+    display: none;
+    color: white;
+    text-align: center;
+    line-height: 30px; /* щоб текст був по центру вертикально */
+    top: 70px;
+}
 
 .meme_cat {
     width: 200px;
     height: 150px;
     position: relative;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     cursor: pointer;
     background: transparent;
-    margin-bottom: -150px;
-
+    top: 40px;
 }
 
 .gif {
-    opacity: 0; /* спочатку невидимий */
-    transform: scale(0.8); /* трохи зменшений */
-    transition: all 0.3s ease; /* плавна анімація */
-    position: absolute; /* щоб не розтягував контейнер */
+    transition: all 0.3s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
 }
 
-.zone:hover .gif {
-    display: block;
+
+.meme_button_div {
+    top: 30px;
 }
+
+
