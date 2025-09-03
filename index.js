@@ -53,8 +53,8 @@ const camera = new THREE.OrthographicCamera(
   1000
 );
 
-
-// scene.background = new THREE.Color(0xffffff); // <-- білий фон
+//тут бек граунд
+scene.background = new THREE.Color(0xffffff); // <-- білий фон
 
 camera.position.set(1, 0, 80);
 camera.lookAt(0, 0, 0);
