@@ -30,16 +30,19 @@ html, body {
 
 .panel {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end; /* кнопки притиснуті до правого краю */
     align-items: center;
     width: 220px;
     height: 34px;
     background: #ffffff;
     box-shadow: -2px 0 8px rgba(0,0,0,0.2);
     font-family: Arial, sans-serif;
-    border-radius: 8px;
+    border-radius: 0px;
+    padding-right: 10px; /* відступ справа від краю панелі */
     transition: background 0.3s, color 0.3s;
 }
+
+
 
 .panel:hover {
     background: #0288d1;
@@ -76,20 +79,22 @@ html, body {
     transition: background 0.3s;
 }
 
-.panel button {
-    font-size: 22px;
-    border: none;
-    background: transparent;
-    color: inherit;
-    cursor: pointer;
-    width: 30px;
-    height: 34px;
-    padding: 0;
-    transition: color 0.3s;
+.panel {
+    position: relative; /* для кнопки всередині */
+    width: 220px;       /* ширина блоку */
+    padding-left: -10x; /* зсуває текст лівіше */
 }
 
-.panel button:hover {
-    background: #0277bd;
+.panel button {
+    position: absolute; /* накриває весь блок */
+    
+    top: 0;
+    left: 0;
+    width: 100%;        /* на всю ширину блоку */
+    height: 100%;       /* на всю висоту блоку */
+    background: transparent; /* прозора */
+    border: none;
+    cursor: pointer;
 }
 /* тут стиль кота */
 .border_but_div {
