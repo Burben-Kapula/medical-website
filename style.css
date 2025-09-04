@@ -32,7 +32,7 @@ html, body {
     display: flex;
     justify-content: flex-end; /* кнопки притиснуті до правого краю */
     align-items: center;
-    width: 220px;
+    width: 110px;
     height: 34px;
     background: #ffffff;
     box-shadow: -2px 0 8px rgba(0,0,0,0.2);
@@ -40,6 +40,9 @@ html, body {
     border-radius: 0px;
     padding-right: 10px; /* відступ справа від краю панелі */
     transition: background 0.3s, color 0.3s;
+    position: relative; /* для кнопки всередині */
+    
+    padding-left: -10x; /* зсуває текст лівіше */
 }
 
 
@@ -79,11 +82,7 @@ html, body {
     transition: background 0.3s;
 }
 
-.panel {
-    position: relative; /* для кнопки всередині */
-    width: 220px;       /* ширина блоку */
-    padding-left: -10x; /* зсуває текст лівіше */
-}
+
 
 .panel button {
     position: absolute; /* накриває весь блок */
