@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
        lanne-suoliluulihas (musculus iliopsoas) jänne. Kolmas samankaltainen uloke on kolmas sarvennoinen (trochanter tertius), joka esiintyy toisinaan pienen sarvennoisen korkeudella reisiluun takapinnalla
         ja johon kiinnittyy osa isosta pakaralihaksesta (musculus gluteus maximus).​
     ​</p>`,
-    Polviluu: `<h2>Polviluu</h2><p>Polvilumpio (lat. patella) on kolmionmuotoinen luu, joka sijaitsee nelipäisen reisilihaksen jänteessä. Se liikkuu pitkin reisiluun alaosan etupintaa polven koukistuessa 
+      Polvilumpio: `<h2>Polviluu</h2><p>Polvilumpio (lat. patella) on kolmionmuotoinen luu, joka sijaitsee nelipäisen reisilihaksen jänteessä. Se liikkuu pitkin reisiluun alaosan etupintaa polven koukistuessa 
     ja ojentuessa. Polvilumpio yhdistää nelipäisen reisilihaksen jänteet yhdellä alapuolisella jänteellä sääriluuhun. Kyseisiä jänteitä tarvitaan jalan ojentamiseen.​</p>`,
     Sääriluu: `<h2>Sääriluu</h2><p>Sääriluu (lat. tibia) on suurempi kahdesta säären luusta. Sääriluu niveltyy yläpäästään reisiluuhun (femur) ja alapäästään telaluuhun (talus). Sääriluu niveltyy myös
      ulkosivullaan kulkevaan pohjeluuhun (fibula).​</p>`,
@@ -230,7 +230,7 @@ let text_ua = {
     Lantionluut:`<h2>Кістки таза</h2><p>Таз (лат. pelvis) — пояс скелета нижньої кінцівки, який складається з двох тазових кісток та крижової, які міцно між собою сполучаються і становлять міцну опору для вільних нижніх кінцівок. Таз є частиною тулуба.
   Український термін таз являє собою кальку латинського pelvis, що означає як «анатомічний таз», так і «миска», «балія», «таз»: з огляду на його характерну чашоподібну форму.</p>`,
   Reisiluu:`<h2>Стегнова кістка</h2><p>Стегнова́ кі́стка (лат. os femoris) — єдина кістка стегна. Найбільша і найдовша трубчаста кістка в організмі людини. Як і всі довгі трубчасті кістки, має тіло та два кінці. З віком кісткова тканина втрачає міцність, через що часто відбувається перелом шийки стегна.</p>`,
-  Polviluu:`<h2>Колінна кістка</h2><p>Наколі́нок, надколінок, надколінник, колінна чашечка (лат. patella) — найбільша сесамоподібна кістка. За формою нагадує заокруглений трикутник, верхівка якого обернена вниз, а основа — вгору.</p>`,
+    Polvilumpio:`<h2>Колінна кістка</h2><p>Наколі́нок, надколінок, надколінник, колінна чашечка (лат. patella) — найбільша сесамоподібна кістка. За формою нагадує заокруглений трикутник, верхівка якого обернена вниз, а основа — вгору.</p>`,
   Sääriluu:`<h2>Великогомілкова кістка</h2><p>Великогомі́лко́ва кі́стка (лат. tibia), заст. суре́ля — найбільша і основна з двох кісток гомілки, розташована зі сторони, ближчої до осі тіла. Латинська назва первісно означала «дудка, флейта, авлос».</p>`,
   Pohjeluu:`<h2>Малогомілкова кістка</h2><p>Малогомі́лко́ва кістка (лат. fibula) — менша з кісток гомілки, майже не несе фізичного навантаження при ході. Одна з основних функцій малогомілкової кістки — участь у формуванні колінного та надп'ятково-гомілкового суглобів. Складається із тіла (діафіза) та двох епіфізів (проксимальний, дистальний). На проксимальному кінці розташована головка. Виросток на дистальному епіфізі утворює латеральну кісточку.</p>`,
     Jalkateränluut:`<h2>Кістки стопи</h2><p>Кістки стопи людини включають 26 кісток і утворюють три відділи:
@@ -269,7 +269,7 @@ const text_en = {
     Sormienluut: `<h2>Finger bones</h2><p>The finger bones form the skeleton of the fingers.</p>`,
     Lantionluut: `<h2>Pelvic bone</h2><p>The pelvic bone forms the pelvic ring.</p>`,
   Reisiluu: `<h2>Femur</h2><p>The femur is the longest and strongest bone in the body.</p>`,
-  Polviluu: `<h2>Patella</h2><p>The patella protects the knee.</p>`,
+    Polvilumpio: `<h2>Patella</h2><p>The patella protects the knee.</p>`,
     Sääriluu: `<h2>Tibia</h2><p>The tibia is located in the lower part of the leg.</p>`,
   Pohjeluu: `<h2>Fibula</h2><p>The fibula is located on the side of the lower leg.</p>`,
   Jalkateränluut: `<h2>Foot bones</h2><p>The foot bones form the skeleton of the foot.</p>`
@@ -339,7 +339,7 @@ document.getElementById('languageSelect').addEventListener('change', (e) => {
 
 // всі кнопки
 const leftButtons = ["Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu","Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu","Rintalasta","Kylkiluu"];
-const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormienluut","Lantionluut","Reisiluu","Polviluu","Sääriluu","Pohjeluu","Jalkateränluut"];
+const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormienluut","Lantionluut","Reisiluu","Polvilumpio","Sääriluu","Pohjeluu","Jalkateränluut"];
 const allButtons = leftButtons.concat(rightButtons);
 
 // назви кнопок по мовах
@@ -349,7 +349,7 @@ const names = {
     Otsaluu: "Otsaluu",            // Лобова кістка
     Päälaenluu: "Päälaenluu",      // Тім'яна кістка
     Ohimoluu: "Ohimoluu",          // Скронева кістка
-    Takaraivoluu: "Takaraivoluu",  // Потилична кістка
+    Takaraivoluu: "Takaraivon kyhmy",  // Потилична кістка
     Yläleukaluu: "Yläleukaluu",    // Верхня щелепа
     Alaleukaluu: "Alaleukaluu",    // Нижня щелепа
     Kaulanikama: "Kaulanikama",    // Шийний відділ хребта
@@ -367,7 +367,7 @@ const names = {
     Sormienluut: "Sormienluut",       // Кістки пальців рук
     Lantionluut: "Lantionluut",       // Кістки таза
     Reisiluu: "Reisiluu",          // Стегнова кістка
-    Polviluu: "Polviluu",          // Колінна кістка
+    Polvilumpio: "Polviluu",          // Колінна кістка
     Sääriluu: "Sääriluu",          // Гомілкова кістка
     Pohjeluu: "Pohjeluu",          // Литкова кістка
       Jalkateränluut: "Jalkateränluut" // Кістки стопи
@@ -395,7 +395,7 @@ ua: {
     Sormienluut: "Кістки пальців рук",
     Lantionluut: "Кістки таза",
     Reisiluu: "Стегнова кістка",
-    Polviluu: "Колінна кістка",
+    Polvilumpio: "Колінна кістка",
     Sääriluu: "Гомілкова кістка",
     Pohjeluu: "Литкова кістка",
     Jalkateränluut: "Кістки стопи"
@@ -406,7 +406,7 @@ ua: {
     Yläleukaluu:"Maxilla", Alaleukaluu:"Mandible", Kaulanikama:"Cervical vertebra", Rintanikama:"Thoracic vertebra",
     Lanneranka:"Lumbar vertebra", Ristiluu:"Sacrum", Rintalasta:"Sternum", Kylkiluu:"Rib",
     Solisluu:"Clavicle", Lapaluu:"Scapula", Olkaluu:"Humerus", Värttinäluu:"Radius", Kyynärluu:"Ulna",
-      Sormienluut:"Finger bones", Lantion:"Pelvic bone", Reisiluu:"Femur", Polviluu:"Patella",
+      Sormienluut:"Finger bones", Lantion:"Pelvic bone", Reisiluu:"Femur", Polvilumpio:"Patella",
       Sääriluu:"Tibia", Pohjeluu:"Fibula", Jalkateränluut:"Foot bones"
   }
 };
