@@ -351,28 +351,28 @@ const names = {
     Otsaluu: "Otsaluu",            // Лобова кістка
     Päälaenluu: "Päälaenluu",      // Тім'яна кістка
     Ohimoluu: "Ohimoluu",          // Скронева кістка
-    Takaraivoluu: "Takaraivon kyhmy",  // Потилична кістка
+    Takaraivoluu: "Takaraivoluu",  // Потилична кістка
     Yläleukaluu: "Yläleukaluu",    // Верхня щелепа
     Alaleukaluu: "Alaleukaluu",    // Нижня щелепа
-    Kaulanikama: "Kaulanikama",    // Шийний відділ хребта
-    Rintanikama: "Rintanikama",    // Грудний відділ хребта
-    Lanneranka: "Lanneranka",      // Поперековий відділ хребта
+    Kaulanikama: "Kaulanikamat",    // Шийний відділ хребта
+    Rintanikama: "Rintanikamat",    // Грудний відділ хребта
+    Lanneranka: "Lannenikamat",      // Поперековий відділ хребта
     Ristiluu: "Ristiluu",          // Крижова кістка
     Häntäluu: "Häntäluu",          // Копчиковий хребець
     Rintalasta: "Rintalasta",      // Груднина
-    Kylkiluu: "Kylkiluu",          // Ребро
+    Kylkiluu: "Kylkiluut",          // Ребро
     Solisluu: "Solisluu",          // Ключиця
     Lapaluu: "Lapaluu",            // Лопатка
     Olkaluu: "Olkaluu",            // Плечова кістка
     Värttinäluu: "Värttinäluu",    // Променева кістка
     Kyynärluu: "Kyynärluu",        // Ліктьова кістка
-    Sormienluut: "Sormienluut",       // Кістки пальців рук
-    Lantionluut: "Lantionluut",       // Кістки таза
+    Sormienluut: "Sormiluut",       // Кістки пальців рук
+    Lantionluut: "Lonkkaluu",       // Кістки таза
     Reisiluu: "Reisiluu",          // Стегнова кістка
-    Polvilumpio: "Polviluu",          // Колінна кістка
+    Polvilumpio: "Polvilumpio",          // Колінна кістка
     Sääriluu: "Sääriluu",          // Гомілкова кістка
     Pohjeluu: "Pohjeluu",          // Литкова кістка
-      Jalkateränluut: "Jalkateränluut" // Кістки стопи
+      Jalkateränluut: "Jalkaterän luut" // Кістки стопи
   },
 
 ua: {
