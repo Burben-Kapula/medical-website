@@ -269,7 +269,7 @@ The temporal bones are overlaid by the sides of the head known as the temples wh
     Värttinäluu: `<h2>Radius</h2><p>The radius is located in the forearm. The radius or radial bone (pl.: radii or radiuses) is one of the two large bones of the forearm, the other being the ulna. It extends from the lateral side of the elbow to the thumb side of the wrist and runs parallel to the ulna. The ulna is longer than the radius, but the radius is thicker. The radius is a long bone, prism-shaped and slightly curved longitudinally.</p>`,
     Kyynärluu: `<h2>Ulna</h2><p>The ulna or ulnar bone (pl.: ulnae or ulnas)[3] is a long bone in the forearm stretching from the elbow to the wrist. It is on the same side of the forearm as the little finger, running parallel to the radius, the forearm's other long bone. Longer and thinner than the radius, the ulna is considered to be the smaller long bone of the lower arm. The corresponding bone in the lower leg is the fibula.</p>`,
     Sormienluut: `<h2>Finger bones</h2><p>The finger bones form the skeleton of the fingers.</p>`,
-    Lantionluut: `<h2>Pelvic bone</h2><p>The pelvic bone forms the pelvic ring.</p>`,
+    Lantionluut: `<h2>Pelvic bone</h2><p>The hip bone (os coxae, innominate bone, pelvic bone or coxal bone is a large flat bone, constricted in the center and expanded above and below. In some vertebrates (including humans before puberty) it is composed of three parts: the ilium, ischium, and the pubis.</p>`,
   Reisiluu: `<h2>Femur</h2><p>The femur is the longest and strongest bone in the body.</p>`,
     Polvilumpio: `<h2>Patella</h2><p>The patella protects the knee.</p>`,
     Sääriluu: `<h2>Tibia</h2><p>The tibia is located in the lower part of the leg.</p>`,
