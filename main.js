@@ -168,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
     Sormienluut: `<h2>Sormiluut</h2><p>Sormien luut ovat luita, jotka muodostavat sormien luisen tukirangan. Ihmisen kaikissa sormissa on kolme luuta paitsi peukalossa, jossa on vain kaksi.​
     Sormiluut ovat sormen tyvijäsen (lat. phalanx proximalis), sormen keskijäsen (phalanx media, puuttuu peukalosta) sekä sormen kärkijäsen (phalanx distalis).[1] Sormiluut ovat pitkulaisia, ja niiden
      osia ovat tyvi (basis) proksimaalisesti, pää (caput) distaalisesti ja näiden välissä runko (corpus).​</p>`,
-    Lantionluut: `<h2>Lonkkaluu</h2><p> Lonkkaluu (lat. os coxae) on suuri, litteä ja epäsäännöllisen muotoinen luu, joka on osa luista lantiorengasta. Oikean- ja vasemmanpuoleinen lonkkaluu muodostavat 
+    Lantionluut: `<h2>Lonkkaluut</h2><p> Lonkkaluu (lat. os coxae) on suuri, litteä ja epäsäännöllisen muotoinen luu, joka on osa luista lantiorengasta. Oikean- ja vasemmanpuoleinen lonkkaluu muodostavat 
     yhdessä lantion sivu- ja etuseinät.​</p>`,
     Reisiluu: `<h2>Reisiluu</h2><p> Reisiluu (lat. femur) on ihmiskehon pisin ja vahvin luu. Se sijaitsee lonkkanivelen ja polvinivelen välissä. Reisiluun anatominen vastine eturaajassa on olkaluu.​
     Reisiluun yläpään pallomainen osa, jossa on lonkkamaljaan niveltyvä nivelpinta on nimeltään reisiluun pää (caput femoris). Se pää kiinnittyy reisiluun varteen ohuehkolla reisiluunkaulalla (collum femoris),
@@ -351,28 +351,28 @@ const names = {
     Otsaluu: "Otsaluu",            // Лобова кістка
     Päälaenluu: "Päälaenluu",      // Тім'яна кістка
     Ohimoluu: "Ohimoluu",          // Скронева кістка
-    Takaraivoluu: "Takaraivoluu",  // Потилична кістка
+    Takaraivoluu: "Takaraivon kyhmy",  // Потилична кістка
     Yläleukaluu: "Yläleukaluu",    // Верхня щелепа
     Alaleukaluu: "Alaleukaluu",    // Нижня щелепа
-    Kaulanikama: "Kaulanikamat",    // Шийний відділ хребта
-    Rintanikama: "Rintanikamat",    // Грудний відділ хребта
-    Lanneranka: "Lannenikamat",      // Поперековий відділ хребта
+    Kaulanikama: "Kaulanikama",    // Шийний відділ хребта
+    Rintanikama: "Rintanikama",    // Грудний відділ хребта
+    Lanneranka: "Lanneranka",      // Поперековий відділ хребта
     Ristiluu: "Ristiluu",          // Крижова кістка
     Häntäluu: "Häntäluu",          // Копчиковий хребець
     Rintalasta: "Rintalasta",      // Груднина
-    Kylkiluu: "Kylkiluut",          // Ребро
+    Kylkiluu: "Kylkiluu",          // Ребро
     Solisluu: "Solisluu",          // Ключиця
     Lapaluu: "Lapaluu",            // Лопатка
     Olkaluu: "Olkaluu",            // Плечова кістка
     Värttinäluu: "Värttinäluu",    // Променева кістка
     Kyynärluu: "Kyynärluu",        // Ліктьова кістка
-    Sormienluut: "Sormiluut",       // Кістки пальців рук
-    Lantionluut: "Lonkkaluu",       // Кістки таза
+    Sormienluut: "Sormienluut",       // Кістки пальців рук
+    Lantionluut: "Lantionluut",       // Кістки таза
     Reisiluu: "Reisiluu",          // Стегнова кістка
-    Polvilumpio: "Polvilumpio",          // Колінна кістка
+    Polvilumpio: "Polviluu",          // Колінна кістка
     Sääriluu: "Sääriluu",          // Гомілкова кістка
     Pohjeluu: "Pohjeluu",          // Литкова кістка
-      Jalkateränluut: "Jalkaterän luut" // Кістки стопи
+      Jalkateränluut: "Jalkateränluut" // Кістки стопи
   },
 
 ua: {
