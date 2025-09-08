@@ -473,4 +473,11 @@ if (close_button_all) {
         document.getElementById("left-panel").style.display = "none";
     };
 }
+const show_left_panel = document.getElementById("show_left_panel");
+if (show_left_panel) {
+    show_left_panel.onclick = () => {
+        document.getElementById("left-panel").style.display = "block";
+    };
+}
+
 
