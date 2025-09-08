@@ -1,10 +1,13 @@
-/* Скидаємо відступи та padding для всього документа */
 html, body {
     margin: 0;
     padding: 0;
+    border: 0;
+    background-color: #936543; 
     overflow: hidden; /* щоб не було скролу */
     height: 100%;
 }
+
+
 
 /* контейнер для кнопок */
 #controls {
@@ -141,5 +144,7 @@ html, body {
 .meme_button_div {
     top: 30px;
 }
+
+
 
 
