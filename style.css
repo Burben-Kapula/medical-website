@@ -1,9 +1,11 @@
 /* Скидаємо відступи та padding для всього документа */
-html, body {
-    margin: 0;
+ html, body {
+    margin: 0px;
     padding: 0;
     overflow: hidden; /* щоб не було скролу */
     height: 100%;
+     background-color: #936543;
+
 }
 
 /* контейнер для кнопок */

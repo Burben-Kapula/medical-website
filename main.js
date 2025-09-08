@@ -467,4 +467,10 @@ if (meme_button) {
         document.getElementById("meme_cat").style.display = "none";
     };
 }
+const close_button_all = document.getElementById("close_button_all");
+if (close_button_all) {
+    close_button_all.onclick = () => {
+        document.getElementById("left-panel").style.display = "none";
+    };
+}
 
