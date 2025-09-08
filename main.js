@@ -268,18 +268,48 @@ The temporal bones are overlaid by the sides of the head known as the temples wh
   Olkaluu: `<h2>Humerus</h2><p>The humerus is the main bone of the upper limb. The humerus (/ˈhjuːmərəs/; pl.: humeri) is a long bone in the arm that runs from the shoulder to the elbow. It connects the scapula and the two bones of the lower arm, the radius and ulna, and consists of three sections. The humeral upper extremity consists of a rounded head, a narrow neck, and two short processes (tubercles, sometimes called tuberosities). The shaft is cylindrical in its upper portion, and more prismatic below. The lower extremity consists of 2 epicondyles, 2 processes (trochlea and capitulum), and 3 fossae (radial fossa, coronoid fossa, and olecranon fossa). As well as its true anatomical neck, the constriction below the greater and lesser tubercles of the humerus is referred to as its surgical neck due to its tendency to fracture, thus often becoming the focus of surgeons.</p>`,
     Värttinäluu: `<h2>Radius</h2><p>The radius is located in the forearm. The radius or radial bone (pl.: radii or radiuses) is one of the two large bones of the forearm, the other being the ulna. It extends from the lateral side of the elbow to the thumb side of the wrist and runs parallel to the ulna. The ulna is longer than the radius, but the radius is thicker. The radius is a long bone, prism-shaped and slightly curved longitudinally.</p>`,
     Kyynärluu: `<h2>Ulna</h2><p>The ulna or ulnar bone (pl.: ulnae or ulnas)[3] is a long bone in the forearm stretching from the elbow to the wrist. It is on the same side of the forearm as the little finger, running parallel to the radius, the forearm's other long bone. Longer and thinner than the radius, the ulna is considered to be the smaller long bone of the lower arm. The corresponding bone in the lower leg is the fibula.</p>`,
-    Sormienluut: `<h2>Finger bones</h2><p>The finger bones form the skeleton of the fingers.</p>`,
+    Sormienluut: `<h2>Finger bones</h2><p>Finger Bones (Phalanges)
+
+The fingers of the hand are made up of phalanges, which are small tubular bones. Each finger (except the thumb) has three phalanges:
+
+Proximal phalanx – the bone nearest to the hand.
+
+Middle phalanx – the central bone of the finger.
+
+Distal phalanx – the bone at the fingertip.
+
+The thumb is unique because it has only two phalanges: a proximal phalanx and a distal phalanx.
+
+The phalanges provide structure, support, and flexibility for the fingers, enabling fine motor movements such as grasping and manipulating objects.T</p>`,
     Lantionluut: `<h2>Pelvic bone</h2><p>The hip bone (os coxae, innominate bone, pelvic bone or coxal bone is a large flat bone, constricted in the center and expanded above and below. In some vertebrates (including humans before puberty) it is composed of three parts: the ilium, ischium, and the pubis.</p>`,
-    Reisiluu: `<h2>Femur</h2><p>The femur is the longest and strongest bone in the body.</p>`,
-    Polvilumpio: `<h2>Patella</h2><p>The patella protects the knee.</p>`,
-    Sääriluu: `<h2>Tibia</h2><p>The tibia is located in the lower part of the leg.</p>`,
-  Pohjeluu: `<h2>Fibula</h2><p>The fibula is located on the side of the lower leg.</p>`,
-  Jalkateränluut: `<h2>Foot bones</h2><p>The foot bones form the skeleton of the foot.</p>`
+    Reisiluu: `<h2>Femur</h2><p>The femur (/ˈfiːmər/; pl.: femurs or femora /ˈfɛmərə/),[1][2] or thigh bone is the only bone in the thigh — the region of the lower limb between the hip and the knee. In many four-legged animals the femur is the upper bone of the hindleg.
+
+The top of the femur fits into a socket in the pelvis called the hip joint, and the bottom of the femur connects to the shinbone (tibia) and kneecap (patella) to form the knee. In humans the femur is the largest and thickest bone in the body.</p>`,
+    Polvilumpio: `<h2>Patella</h2><p>The patella (pl.: patellae or patellas), also known as the kneecap, is a flat, rounded triangular bone which articulates with the femur (thigh bone) and covers and protects the anterior articular surface of the knee joint. The patella is found in many tetrapods, such as mice, cats, birds, and dogs, but not in whales, or most reptiles.
+
+In humans, the patella is the largest sesamoid bone (i.e., embedded within a tendon or a muscle) in the body. Babies are born with a patella of soft cartilage which begins to ossify into bone at about four years of age.</p>`,
+    Sääriluu: `<h2>Tibia</h2><p>The tibia (/ˈtɪbiə/; pl.: tibiae /ˈtɪbii/ or tibias), also known as the shinbone or shankbone, is the larger, stronger, and anterior (frontal) of the two bones in the leg below the knee in vertebrates (the other being the fibula, behind and to the outside of the tibia); it connects the knee with the ankle. The tibia is found on the medial side of the leg next to the fibula and closer to the median plane. The tibia is connected to the fibula by the interosseous membrane of leg, forming a type of fibrous joint called a syndesmosis with very little movement. The tibia is named for the flute tibia. It is the second largest bone in the human body, after the femur. The leg bones are the strongest long bones as they support the rest of the body.</p>`,
+    Pohjeluu: `<h2>Fibula</h2><p>The fibula (pl.: fibulae or fibulas) or calf bone is a leg bone on the lateral side of the tibia, to which it is connected above and below. It is the smaller of the two bones and, in proportion to its length, the most slender of all the long bones. Its upper extremity is small, placed toward the back of the head of the tibia, below the knee joint and excluded from the formation of this joint. Its lower extremity inclines a little forward, so as to be on a plane anterior to that of the upper end; it projects below the tibia and forms the lateral part of the ankle joint.</p>`,
+    Jalkateränluut: `<h2>Foot bones</h2><p>Main groups of foot bones
+Toes (Phalanges)
+Each small toe has 3 bones.
+The big toe has only 2 bones.
+Middle part (Metatarsals)
+5 long bones that connect the toes to the ankle.
+Back part (Tarsal bones)
+Heel bone (Calcaneus) – the biggest bone, forms the heel.
+Ankle bone (Talus) – sits on top of the heel bone, connects to the leg.
+Navicular, Cuboid, and 3 Cuneiform bones – small bones that help shape 
+the arch of the foot.
+👉 In total, the foot has 26 bones:
+14 toe bones
+5 metatarsals
+7 tarsal bones</p>`
 };
 
 
 
-for (let key in text_fi) {
+    for (let key in text_fi) {
   text_fi[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
 }
 for (let key in text_ua) {
