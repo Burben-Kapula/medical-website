@@ -42,7 +42,7 @@ html, body {
     transition: background 0.3s, color 0.3s;
     position: relative; /* для кнопки всередині */
     
-    padding-left: -10x; /* зсуває текст лівіше */
+    padding-left: -10px; /* зсуває текст лівіше */
 }
 
 
