@@ -5,7 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Robot Bobby Threejs Template</title>
     <link rel="stylesheet" href="style.css">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
     <script type="importmap">
         {
           "imports": {
@@ -17,9 +19,9 @@
 </head>
 
 <body>
-<div id="info_panel" aria-label="Tiedot" class="info" onfocus="myFunction()">
+<div id="info_panel" aria-label="Tiedot" class="info" >
     <p id="text"></p>
-    <button onclick="myFunction()" id="close_button">Close</button>
+    <button  id="close_button" class="classic_button">X</button>
 </div>
 
 <!-- Тут панель з інформацією -->
@@ -40,7 +42,7 @@
            font-size: 14px;
            line-height: 1.4;
          ">
-    <button id="close_button_all">Close</button>
+    <button id="close_button_all" class="classic_button">X</button>
     <p><strong>Sivuston tekijät:</strong> Maksym Kapula, Maryna Kapula, Amaliia Paasonen</p>
     <p><strong>Luurankomalli:</strong> ladattu sivustolta
         <a href="https://www.artec3d.com/3d-models/human-skeleton-hd">Human Skeleton HD</a>
@@ -62,7 +64,7 @@
     </div>
 
 </div>
-<button id = "show_left_panel" class = "show_left_panel">show left panel</button>
+<button id = "show_left_panel" class = "not_classic_button">show left panel</button>
 <!-- Ліва колонка -->
 <div id="left-column" style="position:absolute; top:58px; left:68.7%; display:flex; flex-direction:column; gap:2px;">
     <div class="panel">Otsaluu <button id="Otsaluu"></button></div>
@@ -102,9 +104,21 @@ border-radius:5px; cursor:pointer; box-shadow:1px 1px 5px rgba(0,0,0,0.2);">
     <option value="ua">Ukrainian</option>
     <option value="en">English</option>
 </select>
+<div id="controls_overlay">
+    <div id ="controls_camera" class="controls_camera">
+        <p class="text_controlls">Shift + vasen hiiren näppäin (siirrä kameraa)</p>
+        <p class="text_controlls">Vieritysrulla (lähennä ja loitonna)</p>
+        <p class="text_controlls">Vasen hiiren näppäin (käännä kulmaa)</p>
+        <button class="close_for_controls" id="close_for_controls">X</button>
+    </div>
+</div>
 
-
-
+<div class="footer" id="footer">
+    <footer>
+        <p class="text_footer">Jos ilmenee ongelma, lähetä viesti siihen.</p>
+        <button class="find_problem" id="find_problem">Lähettää</button>
+    </footer>
+</div>
 <!-- Підключення скрипту -->
 <script type="module" src="main.js"></script> 
 </body>
