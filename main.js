@@ -54,8 +54,8 @@ const camera = new THREE.OrthographicCamera(
   1000
 );
 
-//тут бек граунд
-scene.background = new THREE.Color(0x33333936543); // <-- білий фон
+
+
 
 camera.position.set(1, 0, 80);
 camera.lookAt(0, 0, 0);
@@ -350,30 +350,30 @@ const text_sv = {
   Jalkateränluut: `<h2>Fotben</h2><p>Längst fram på människans fot sitter fem tår, och längst bak sitter hälen. Tåvalken är den delen av foten där tårna möter foten. Hålfoten är delen på insidan av foten mellan hälen och tåvalken.</p>`
 };
 const text_de = {
-  Otsaluu: `<h2>Stirnbein</h2><p></p>`,
-  Päälaenluu: `<h2>Scheitelbein</h2><p></p>`,
-  Ohimoluu: `<h2>Schläfenbein</h2><p></p>`,
-  Takaraivoluu: `<h2>Hinterhauptsbein</h2><p></p>`,
-  Yläleukaluu: `<h2>Oberkiefer</h2><p></p>`,
-  Alaleukaluu: `<h2>Unterkiefer</h2><p></p>`,
-  Kaulanikama: `<h2>Halswirbel</h2><p></p>`,
-  Rintanikama: `<h2>Brustwirbel</h2><p></p>`,
-  Lanneranka: `<h2>Lendenwirbel</h2><p></p>`,
-  Ristiluu: `<h2>Kreuzbein</h2><p></p>`,
-  Rintalasta: `<h2>Brustbein</h2><p></p>`,
-  Kylkiluu: `<h2>Rippen</h2><p></p>`,
-  Solisluu: `<h2>Schlüsselbein</h2><p></p>`,
-  Lapaluu: `<h2>Schulterblatt</h2><p></p>`,
-  Olkaluu: `<h2>Oberarmknochen</h2><p></p>`,
-  Värttinäluu: `<h2>Speiche</h2><p></p>`,
-  Kyynärluu: `<h2>Elle</h2><p></p>`,
-  Sormienluut: `<h2>Fingerknochen</h2><p></p>`,
-  Lantionluut: `<h2>Beckenknochen</h2><p></p>`,
-  Reisiluu: `<h2>Oberschenkelknochen</h2><p></p>`,
-  Polvilumpio: `<h2>Kniescheibe</h2><p></p>`,
-  Sääriluu: `<h2>Schienbein</h2><p></p>`,
-  Pohjeluu: `<h2>Wadenbein</h2><p></p>`,
-  Jalkateränluut:`<h2>Fußknochen</h2><p></p>`
+  Otsaluu: `<h2>Stirnbein</h2><p>Das paarige Stirnbein (lat. Os frontale) ist ein Teil des Hirnschädels. Es bildet das vordere Schädeldach und damit die vordere obere Wand der Schädelhöhle, bei Wiederkäuern einen Großteil des Schädeldachs. Die Stirnbeine beider Seiten sind in der Medianebene über eine Schädelnaht, die Sutura frontalis („Stirnnaht“), miteinander verbunden. Das Stirnbein der Säugetiere besteht aus drei Abschnitten, der Stirnbeinschuppe (Squama frontalis), der Augenhöhlenplatte (Pars orbita) und der Schläfenfläche (Facies temporalis).</p>`,
+  Päälaenluu: `<h2>Scheitelbein</h2><p>Das paarige Scheitelbein (lateinisch Os parietale) ist ein Teil des Hirnschädels. Es bildet das Schädeldach und die Seitenwand der knöchernen Gehirnkapsel. Bei Wiederkäuern wird, aufgrund des sehr großen Stirnbeins, nur der Seitenteil des Schädeldachs vom Scheitelbein gebildet.</p>`,
+  Ohimoluu: `<h2>Schläfenbein</h2><p>Das Schläfenbein (lateinisch Os temporale) ist einer der Knochen des Hirnschädels. Es liegt seitlich im hinteren Schädelbereich. Das Schläfenbein beinhaltet Mittel- und Innenohr und bildet die Gelenkspfanne des Kiefergelenks.</p>`,
+  Takaraivoluu: `<h2>Hinterhauptsbein</h2><p>Das Hinterhauptbein (auch Hinterhauptsbein oder Hinterhaupthöcker; lat. Os occipitale oder kurz Occiput) ist der am Halsübergang gelegene Teil des Hirnschädels. Es bildet den hinteren Abschluss der Schädelhöhle und mit dem Atlas das erste Kopfgelenk.</p>`,
+  Yläleukaluu: `<h2>Oberkiefer</h2><p>Der Oberkiefer (lat. Maxilla) ist ein paariger Knochen des Gesichtsschädels. Er bildet den Boden der Augenhöhle (Orbita), den Boden und die Seitenwand der Nasenhöhle (Cavum nasi) sowie einen Teil des Gaumens und damit das Dach der Mundhöhle (Cavum oris proprium). Der Oberkiefer enthält auch die Kieferhöhle (Sinus maxillaris).</p>`,
+  Alaleukaluu: `<h2>Unterkiefer</h2><p>Der Unterkiefer oder die Kinnlade (lat. Mandibula von mandere „kauen“) ist ein Knochen des Gesichtsschädels. Er ist bei Säugetieren der bewegliche der beiden Kieferknochen.</p>`,
+  Kaulanikama: `<h2>Halswirbel</h2><p>Als Halswirbel (lateinisch Vertebrae cervicales) werden das kopfseitige (kraniale) Ende der Wirbelsäule von Wirbeltieren und die besonders beweglichen Wirbel zwischen der Brustwirbelsäule und dem Kopf bezeichnet. Dieser Abschnitt wird Halswirbelsäule genannt. Der kranial letzte vor dem Cranium gelegene Halswirbel wird als Atlas bezeichnet.</p>`,
+  Rintanikama: `<h2>Brustwirbel</h2><p>Die Brustwirbel (lat. Vertebrae thoracicae) sind die knöchernen Elemente der Brustwirbelsäule. Diese Wirbel sind charakterisiert durch ihre Kontaktflächen zu den Rippen (Facies costalis). Der Mensch besitzt 12 Brustwirbel. Sie werden von oben nach unten durchnummeriert. Bezeichnet werden sie nach der lateinischen Schreibweise mit Th1 bis Th12 (Th = thorakal = zugehörig zum Brustkorb).</p>`,
+  Lanneranka: `<h2>Lendenwirbel</h2><p>Die Lendenwirbel (Vertebrae lumbales)[1] bilden den Lendenabschnitt der Wirbelsäule, der auch als Lendenwirbelsäule bezeichnet wird. Der Mensch besitzt fünf, Huftiere zumeist sechs und Raubtiere sieben Lendenwirbel. Bei Vögeln sind die Lendenwirbel mit dem Kreuzbein zum Synsacrum verwachsen.</p>`,
+  Ristiluu: `<h2>Kreuzbein</h2><p>Das Kreuzbein (lateinisch Os sacrum, genannt auch Sakrum) ist ein Knochen der Landwirbeltiere. Beim erwachsenen Menschen ist es in etwa keilförmig. Es entwickelt sich durch Verschmelzung (Synostose) aus den ursprünglich einzelnen, zusammenwachsenden Wirbeln, den Kreuzwirbeln (Sakralwirbel). Beim Heranwachsenden findet diese Verschmelzung (vorher ein knorpeliger Verbund) bis zum Ende der Wachstumsphase statt. Das Kreuzbein umschließt den hinteren Abschnitt des Wirbelkanals und bildet mit beiden Hüftbeinen den Beckengürtel. Kaudal (schwanzwärts) – also bei Tieren nach hinten und beim Menschen nach unten – schließt sich das Steißbein (Os coccygis) bzw. die Schwanzwirbelsäule an. Das Kreuzbein-Steißbein-Gelenk kann auch als Knorpelhaft ausgebildet sein und ab einem Alter von 30 Jahren verknöchern.</p>`,
+  Rintalasta: `<h2>Brustbein</h2><p>Das Brustbein oder lateinisch Sternum (latinisiert von altgriechisch στέρνον sternon, ‚Brust, Herz, Gemüt‘) ist ein platter, schwertförmiger Knochen in der vorderen Mitte des Brustkorbs, an dem die Rippen bzw. deren knorpelige Verlängerungen ansetzen. Das Brustbein des Mannes ist dabei schlanker als das der Frau. Die Längsdurchtrennung des Brustbeins bei Operationen wird als Sternotomie bezeichnet.</p>`,
+  Kylkiluu: `<h2>Rippen</h2><p>Rippen bezeichnet im Computerjargon das Kopieren von einer Datenquelle auf ein anderes Speichermedium, meist auf eine Festplatte. Das Verb leitet sich vom englischen „to rip“ ab, das in diesem Zusammenhang so viel wie „(herunter-)reißen“ bedeutet. Der Jargon-File-Eintrag für rip gibt einen Ursprung des Begriffs im Amiga-Slang an, wo er verwendet wurde, um die Extraktion von Multimedia-Inhalten aus Programmen zu bezeichnen.</p>`,
+  Solisluu: `<h2>Schlüsselbein</h2><p>Das Schlüsselbein (lateinisch die Clavicula, eingedeutscht auch Klavikula, altgr. κλείς, Genitiv κλειδός [kleidos]) ist einer der drei ursprünglichen Knochen des Schultergürtels bei Reptilien, Vögeln und Säugetieren. Bei Knochenfischen ist das Schlüsselbein als Hautverknöcherung bereits angedeutet, bei heutigen Amphibien fehlt es.</p>`,
+  Lapaluu: `<h2>Schulterblatt</h2><p>Das Schulterblatt (lateinisch die Scapula[1]) bildet beim Menschen den hinteren, bei Tieren den oberen Teil des knöchernen Schultergürtels. Es handelt sich beim Menschen und den übrigen Säugetieren um einen platten, dreieckigen Knochen. Bei Vögeln ist er schmal und säbelförmig. Er dient der Befestigung eines Armes (einer Vordergliedmaße bei Vierbeinern, eines Flügels bei Vögeln) sowie als Muskelursprung und -ansatz. Die Verbindung zum Brustkorb erfolgt rein muskulös (sogenannte Synsarkose, von griechisch syn ‚zusammen‘, sarkos ‚Fleisch‘). Zu Oberarmknochen (Humerus) und Schlüsselbein (Clavicula) – bei Vögeln auch zum Coracoid – besteht eine gelenkige Verbindung. Sie dient der Stabilisation des Schultergelenks und passt sich dank ihrer Verschieblichkeit den Oberarmbewegungen an. Bei Schlachttieren wird das Schulterblatt gewerbsmäßig auch als „Schaufelknochen“ bezeichnet.</p>`,
+  Olkaluu: `<h2>Oberarmknochen</h2><p>Der Oberarmknochen (lateinisch Os humeri oder kurz Humerus; früher auch Achselbein[1] genannt) ist einer der längsten und kräftigsten Röhrenknochen der am Land lebenden Wirbeltiere und bildet die knöcherne Grundlage des Oberarmes. Beim Menschen entspricht die fünffache Länge des Oberarmknochens etwa der Körpergröße.</p>`,
+  Värttinäluu: `<h2>Radius</h2><p>Der Radius (lat.-anat. für Speiche) ist ein Knochen des Unterarmes. Die Speiche ist daumenseitig gelegen, bei Säugetieren kräftiger als die Elle, der sie dort gegenüberliegt, und ein typischer Röhrenknochen.</p>`,
+  Kyynärluu: `<h2>Ulna</h2><p>Die Ulna (lat.-anat. für Elle) ist neben dem Radius (Speiche) einer der beiden Knochen des Unterarmes. Die Elle ist kleinfingerseitig gelegen, weniger kräftig als die Speiche und ein typischer Röhrenknochen.</p>`,
+  Sormienluut: `<h2>Fingerknochen</h2><p>Die Fingerknochen (lat. Ossa digiti manus) sind die knöchernen Stützelemente der Finger. Bei Säugetieren hat jeder vollausgebildete Finger drei knöcherne Stützelemente, die als Phalanx proximalis, media und distalis („körpernaher, mittlerer und körperferner Fingergliedknochen“), auch Phalanx I, II und III; (von altgr. phalanx „Schlachtreihe von Kriegern“ „Baumstamm“, „Walze“, oder „Rolle“) bezeichnet werden. Der menschliche Daumen besitzt nur zwei Phalangen. Die Verbindungen zwischen Mittelhandknochen und Phalanx proximalis und den Fingergliedknochen untereinander sind die Fingergelenke</p>`,
+  Lantionluut: `<h2>Beckenknochen</h2><p>Das Becken (lateinisch Pelvis) ist bei Landwirbeltieren der Körperabschnitt unterhalb des Bauchs und oberhalb der Beine, bei vierfüßigen Säugetieren der Teil zwischen Bauch und Schwanz. Man unterscheidet beim Menschen zwischen einem großen und einem kleinen Becken (Pelvis major und Pelvis minor). Das große Becken liegt zwischen beiden Darmbeinschaufeln oberhalb der Beckeneingangslinie (Linea terminalis) und gehört eigentlich zum Bauchraum.</p>`,
+  Reisiluu: `<h2>Oberschenkelknochen</h2><p>Der Oberschenkelknochen, in der medizinischen Fachsprache Os femoris oder kurz das Femur, ist der kräftigste Röhrenknochen und bildet die knöcherne Grundlage des Oberschenkels. Er ist der längste Knochen des menschlichen Körpers.</p>`,
+  Polvilumpio: `<h2>Kniescheibe</h2><p>Die Kniescheibe (lateinisch Patella) ist ein flacher, scheibenförmiger, von vorne betrachtet dreieckiger Knochen, der vor dem Kniegelenk liegt, an dessen Gelenkflächen er beteiligt ist. Die Kniescheibe fungiert als Sesambein in der Sehne des Musculus quadriceps femoris (vierköpfiger Oberschenkelmuskel). Sie schützt das Kniegelenk und vervielfacht die Kraftentwicklung des Quadrizeps durch die Verlängerung des Hebelarmes. Die Verknöcherung der Kniescheibe erfolgt beim Menschen über mehrere Ossifikationszentren ab dem dritten Lebensjahr.</p>`,
+  Sääriluu: `<h2>Schienbein</h2><p>Das Schienbein (lateinisch Tibia) ist neben dem Wadenbein (Fibula) einer der beiden Knochen des Unterschenkels. Das Schienbein ist der kräftigere der beiden Knochen und ein typischer Röhrenknochen. Das lateinische Wort tibia ist die Bezeichnung einer Knochenflöte und der lateinische Name des in der griechischen Antike als Aulos bekannten Blasinstruments.</p>`,
+  Pohjeluu: `<h2>Wadenbein</h2><p>Das Wadenbein (lat. Fibula (f.) „Heftnadel“, „Spange“) ist neben dem Schienbein (Tibia), an dem es seitlich außen anliegt, einer der beiden Knochen des Unterschenkels. Das Wadenbein ist der dünnere der beiden Knochen und ein typischer Röhrenknochen.</p>`,
+  Jalkateränluut:`<h2>Fußknochen</h2><p>Der Knöchel (lateinisch Malleolus, ‚Hämmerchen‘, Diminutiv von lateinisch malleus, ‚Hammer‘), genannt auch Fußknöchel (älter auch Enkel, verwandt mit mittelhochdeutsch anke ‚Gelenk‘[1]), ist ein Knochenhöcker am unteren Ende des Unterschenkels. Er bildet den oberen Teil des Sprunggelenks, des Verbindungsgelenks zwischen Fuß und Bein, und gehört medizinisch-anatomisch betrachtet zum Bein und nicht zum Fuß.</p>`
 }
 const text_ru = {
   "Otsaluu": `<h2>Лобная кость</h2><p>Ло́бная кость (лат. os frontale) — непарная кость мозгового отдела черепа; участвует в образовании переднего отдела свода черепа и передней черепной ямки его основания. Она состоит из четырёх частей: вертикально расположенной чешуи (лат. squama), двух горизонтальных глазничных частей (лат. pars orbitalis) и дугообразной носовой части (лат. pars nasalis)</p>`,
@@ -594,8 +594,8 @@ ua: {
     Solisluu: "Schlüsselbein",
     Lapaluu: "Schulterblatt",
     Olkaluu: "Oberarmknochen",
-    Värttinäluu: "Speiche",
-    Kyynärluu: "Elle",
+    Värttinäluu: "Radius",
+    Kyynärluu: "Ulna",
     Sormienluut: "Fingerknochen",
     Lantionluut: "Beckenknochen",
     Reisiluu: "Oberschenkelknochen",
