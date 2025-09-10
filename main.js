@@ -323,7 +323,32 @@ the arch of the foot.
 7 tarsal bones</p>`
 };
 
-
+const text_sv = {
+  Otsaluu: ``,
+  Päälaenluu: ``,
+  Ohimoluu: ``,
+  Takaraivoluu: ``,
+  Yläleukaluu: ``,
+  Alaleukaluu: ``,
+  Kaulanikama: ``,
+  Rintanikama: ``,
+  Lanneranka: ``,
+  Ristiluu: ``,
+  Rintalasta: ``,
+  Kylkiluu: ``,
+  Solisluu: ``,
+  Lapaluu: ``,
+  Olkaluu: ``,
+  Värttinäluu: ``,
+  Kyynärluu: ``,
+  Sormienluut: ``,
+  Lantionluut: ``,
+  Reisiluu: ``,
+  Polvilumpio: ``,
+  Sääriluu: ``,
+  Pohjeluu: ``,
+  Jalkateränluut: ``
+};
 
     for (let key in text_fi) {
   text_fi[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
@@ -333,6 +358,9 @@ for (let key in text_ua) {
 }
 for (let key in text_en) {
   text_en[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+}
+for (let key in text_sv) { 
+  text_sv[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
 }
 
 // Функція для оновлення назв кнопок
@@ -366,12 +394,15 @@ allButtons.forEach(id => {
     if (btn) {
         btn.onclick = () => {
             document.getElementById("info_panel").style.display = "block";
-            if (currentLang === "fi")
+            if (currentLang === "fi") {
                 document.getElementById("text").innerHTML = text_fi[id];
-            else if (currentLang === "ua")
+            } else if (currentLang === "ua") {
                 document.getElementById("text").innerHTML = text_ua[id];
-            else
+            } else if (currentLang === "sv") {
+                document.getElementById("text").innerHTML = text_sv[id];
+            } else {
                 document.getElementById("text").innerHTML = text_en[id];
+            }
         };
     }
 });
