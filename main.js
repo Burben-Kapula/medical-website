@@ -6,6 +6,7 @@ import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.150.0/examples/
 let mouse, model;
 let isHovered = false;
 
+
 // --- Сцена, камера, рендер ---
 const w = window.innerWidth;
 const h = window.innerHeight;
@@ -73,6 +74,21 @@ ctrls.maxDistance = 200;
 
 
 
+
+const colorButtons = document.querySelectorAll('.color-btn');
+colorButtons.forEach(button => {
+    const color = button.dataset.color;
+    if (!color) return;
+    button.style.backgroundColor = color;
+    button.style.width = '40px';
+    button.style.height = '40px';
+    button.style.border = '1px solid #000';
+    button.style.borderRadius = '5px';
+    button.style.cursor = 'pointer';
+    button.addEventListener('click', () => {
+        scene.background = new THREE.Color(color);
+    });
+});
 
 
 const objLoader = new OBJLoader();
@@ -509,7 +525,6 @@ if (show_left_panel) {
         document.getElementById("left-panel").style.display = "block";
     };
 }
-
 
 window.onload = function() {
     document.getElementById("controls_overlay").style.display = "block";
