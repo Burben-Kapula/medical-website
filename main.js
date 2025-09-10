@@ -349,6 +349,60 @@ const text_sv = {
   Pohjeluu: `<h2>Vadben</h2><p>adbenet (latin: fibula) är det smalare och yttre av de två långa rörben som bildar underbenets skelett hos människan. Ordet Fibula kommer från latin och kan översättas till spänne eller brosch.</p>`,
   Jalkateränluut: `<h2>Fotben</h2><p>Längst fram på människans fot sitter fem tår, och längst bak sitter hälen. Tåvalken är den delen av foten där tårna möter foten. Hålfoten är delen på insidan av foten mellan hälen och tåvalken.</p>`
 };
+const text_de = {
+  Otsaluu: `<h2>Stirnbein</h2><p></p>`,
+  Päälaenluu: `<h2>Scheitelbein</h2><p></p>`,
+  Ohimoluu: `<h2>Schläfenbein</h2><p></p>`,
+  Takaraivoluu: `<h2>Hinterhauptsbein</h2><p></p>`,
+  Yläleukaluu: `<h2>Oberkiefer</h2><p></p>`,
+  Alaleukaluu: `<h2>Unterkiefer</h2><p></p>`,
+  Kaulanikama: `<h2>Halswirbel</h2><p></p>`,
+  Rintanikama: `<h2>Brustwirbel</h2><p></p>`,
+  Lanneranka: `<h2>Lendenwirbel</h2><p></p>`,
+  Ristiluu: `<h2>Kreuzbein</h2><p></p>`,
+  Rintalasta: `<h2>Brustbein</h2><p></p>`,
+  Kylkiluu: `<h2>Rippen</h2><p></p>`,
+  Solisluu: `<h2>Schlüsselbein</h2><p></p>`,
+  Lapaluu: `<h2>Schulterblatt</h2><p></p>`,
+  Olkaluu: `<h2>Oberarmknochen</h2><p></p>`,
+  Värttinäluu: `<h2>Speiche</h2><p></p>`,
+  Kyynärluu: `<h2>Elle</h2><p></p>`,
+  Sormienluut: `<h2>Fingerknochen</h2><p></p>`,
+  Lantionluut: `<h2>Beckenknochen</h2><p></p>`,
+  Reisiluu: `<h2>Oberschenkelknochen</h2><p></p>`,
+  Polvilumpio: `<h2>Kniescheibe</h2><p></p>`,
+  Sääriluu: `<h2>Schienbein</h2><p></p>`,
+  Pohjeluu: `<h2>Wadenbein</h2><p></p>`,
+  Jalkateränluut:`<h2>Fußknochen</h2><p></p>`
+}
+const text_ru = {
+  "Otsaluu": `<h2>Лобная кость</h2><p></p>`,
+  "Päälaenluu": `<h2>Теменная кость</h2><p></p>`,
+  "Ohimoluu": `<h2>Височная кость</h2><p></p>`,
+  "Takaraivoluu": `<h2>Затылочная кость</h2><p></p>`,
+  "Yläleukaluu": `<h2>Верхняя челюсть</h2><p></p>`,
+  "Alaleukaluu": `<h2>Нижняя челюсть</h2><p></p>`,
+  "Kaulanikama": `<h2>Шейный позвонок</h2><p></p>`,
+  "Rintanikama": `<h2>Грудной позвонок</h2><p></p>`,
+  "Lanneranka": `<h2>Поясничный позвонок</h2><p></p>`,
+  "Ristiluu": `<h2>Крестец</h2><p></p>`,  
+  "Rintalasta": `<h2>Грудина</h2><p></p>`,
+  "Kylkiluu": `<h2>Ребро</h2><p></p>`,
+  "Solisluu": `<h2>Ключица</h2><p></p>`,
+  "Lapaluu": `<h2>Лопатка</h2><p></p>`,
+  "Olkaluu": `<h2>Плечевая кость</h2><p></p>`,
+  "Värttinäluu": `<h2>Лучевая кость</h2><p></p>`,
+  "Kyynärluu": `<h2>Локтевая кость</h2><p></p>`,
+  "Sormienluut": `<h2>Кости пальцев</h2><p></p>`,
+  "Lantionluut": `<h2>Тазовая кость</h2><p></p>`,
+  "Reisiluu": `<h2>Бедренная кость</h2><p></p>`,
+  "Polvilumpio": `<h2>Коленная чашечка</h2><p></p>`,
+  "Sääriluu": `<h2>Большеберцовая кость</h2><p></p>`,
+  "Pohjeluu": `<h2>Малоберцовая кость</h2><p></p>`,
+  "Jalkateränluut": `<h2>Кости стопы</h2><p></p>`
+};
+  
+
 
     for (let key in text_fi) {
   text_fi[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
@@ -362,6 +416,12 @@ for (let key in text_en) {
 for (let key in text_sv) { 
   text_sv[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
 }
+for (let key in text_de) {
+  text_de[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+}
+for (let key in text_ru) {
+  text_ru[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+} 
 
 // Функція для оновлення назв кнопок
 let currentLang = "fi"; // початкова мова
