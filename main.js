@@ -487,6 +487,32 @@ ua: {
     Solisluu:"Clavicle", Lapaluu:"Scapula", Olkaluu:"Humerus", Värttinäluu:"Radius", Kyynärluu:"Ulna",
       Sormienluut:"Finger bones", Lantionluut:"Pelvic bone", Reisiluu:"Femur", Polvilumpio:"Patella",
       Sääriluu:"Tibia", Pohjeluu:"Fibula", Jalkateränluut:"Foot bones"
+  }, 
+  sv: {
+    Otsaluu: "Pannben",
+    Päälaenluu: "Hjässben",
+    Ohimoluu: "Tinningben",
+    Takaraivoluu: "Nackben",
+    Yläleukaluu: "Överkäke",
+    Alaleukaluu: "Underkäke",
+    Kaulanikama: "Halskota",
+    Rintanikama: "Bröstkota",
+    Lanneranka: "Ländrygg",
+    Ristiluu: "Korsben",
+    Rintalasta: "Bröstben",
+    Kylkiluu: "Revben",
+    Solisluu: "Nyckelben",
+    Lapaluu: "Skulderblad",
+    Olkaluu: "Överarmsben",
+    Värttinäluu: "Strålben",
+    Kyynärluu: "Armbågsben",
+    Sormienluut: "Fingerben",
+    Lantionluut: "Bäckenben",
+    Reisiluu: "Lårben",
+    Polvilumpio: "Knäskål",
+    Sääriluu: "Skenben",
+    Pohjeluu: "Underben",
+    Jalkateränluut: "Fotben"
   }
 };
 // функція для оновлення назв кнопок
