@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
        lanne-suoliluulihas (musculus iliopsoas) jänne. Kolmas samankaltainen uloke on kolmas sarvennoinen (trochanter tertius), joka esiintyy toisinaan pienen sarvennoisen korkeudella reisiluun takapinnalla
         ja johon kiinnittyy osa isosta pakaralihaksesta (musculus gluteus maximus).​
     ​</p>`,
-      Polvilumpio: `<h2>Polviluu</h2><p>Polvilumpio (lat. patella) on kolmionmuotoinen luu, joka sijaitsee nelipäisen reisilihaksen jänteessä. Se liikkuu pitkin reisiluun alaosan etupintaa polven koukistuessa 
+      Polvilumpio: `<h2>Polvilumpio</h2><p>Polvilumpio (lat. patella) on kolmionmuotoinen luu, joka sijaitsee nelipäisen reisilihaksen jänteessä. Se liikkuu pitkin reisiluun alaosan etupintaa polven koukistuessa 
     ja ojentuessa. Polvilumpio yhdistää nelipäisen reisilihaksen jänteet yhdellä alapuolisella jänteellä sääriluuhun. Kyseisiä jänteitä tarvitaan jalan ojentamiseen.​</p>`,
     Sääriluu: `<h2>Sääriluu</h2><p>Sääriluu (lat. tibia) on suurempi kahdesta säären luusta. Sääriluu niveltyy yläpäästään reisiluuhun (femur) ja alapäästään telaluuhun (talus). Sääriluu niveltyy myös
      ulkosivullaan kulkevaan pohjeluuhun (fibula).​</p>`,
@@ -201,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
      Luiden väliin jää vaihtelevan kokoinen aukko (spatium interossium cruris), jossa kulkee luut toisiinsa sitova sidekudoskalvo (membrana interossea cruris). Pohjeluu sijaitsee alempana kuin sääriluu eikä
       näin ollen kiinnity reisiluuhun (femur). Naudalla ja pienillä märehtijöillä pohjeluu on surkastunut lähes kokonaan, mutta hevosella vain osittain. Nilkkaluista pohjeluu niveltyy telaluuhun (talus),
        mutta kiinnittyy nivelsiteillä myös kantaluuhun (calcaneus).​</p>`,
-    Jalkateränluut: `<h2>Jalkaterän luu</h2><p>Jalkaterän luut muodostavat koko jalkaterän luurangon. Ne sisältävät nilkan luut, jalkapöydän luut ja varpaiden luut. Jalkaterän luut tukevat kehon painoa,
+    Jalkateränluut: `<h2>Jalkaterän luut</h2><p>Jalkaterän luut muodostavat koko jalkaterän luurangon. Ne sisältävät nilkan luut, jalkapöydän luut ja varpaiden luut. Jalkaterän luut tukevat kehon painoa,
      mahdollistavat kävelyn, juoksun ja tasapainon säätelyn.</p>`,
     };
 
@@ -346,7 +346,7 @@ const text_sv = {
   Reisiluu: `<h2>Lårben</h2><p>Lårben (latin: femur) är det längsta, tyngsta och starkaste benet i människans skelett, och bildar benstomme i Låret. Lårbenet är ledat mot bäckenet (pelvis) i höftleden (art. coxae) och mot skenbenet (tibia) och knäskålen (patella) i knäleden (art. genus).</p>`,
   Polvilumpio: `<h2>Knäskål</h2><p>Patella eller knäskålen är ett tjockt triangulärt ben som skyddar framsidan av knät. Patella är kroppens största sesamben och sitter i quadriceps sena vilket ger en större hävarm för muskeln.</p>`,
   Sääriluu: `<h2>Skenben</h2><p>Skenbenet (latin: tibia), även kallat smalbenet, är ett ben i människans skelett som tillsammans med det mindre vadbenet (fibula) utgör underbenets (crus) skelett.</p>`,
-  Pohjeluu: `<h2>Vadben</h2><p>adbenet (latin: fibula) är det smalare och yttre av de två långa rörben som bildar underbenets skelett hos människan. Ordet Fibula kommer från latin och kan översättas till spänne eller brosch.</p>`,
+  Pohjeluu: `<h2>Vadben</h2><p>Vadbenet (latin: fibula) är det smalare och yttre av de två långa rörben som bildar underbenets skelett hos människan. Ordet Fibula kommer från latin och kan översättas till spänne eller brosch.</p>`,
   Jalkateränluut: `<h2>Fotben</h2><p>Längst fram på människans fot sitter fem tår, och längst bak sitter hälen. Tåvalken är den delen av foten där tårna möter foten. Hålfoten är delen på insidan av foten mellan hälen och tåvalken.</p>`
 };
 const text_de = {
@@ -376,30 +376,30 @@ const text_de = {
   Jalkateränluut:`<h2>Fußknochen</h2><p></p>`
 }
 const text_ru = {
-  "Otsaluu": `<h2>Лобная кость</h2><p></p>`,
-  "Päälaenluu": `<h2>Теменная кость</h2><p></p>`,
-  "Ohimoluu": `<h2>Височная кость</h2><p></p>`,
-  "Takaraivoluu": `<h2>Затылочная кость</h2><p></p>`,
-  "Yläleukaluu": `<h2>Верхняя челюсть</h2><p></p>`,
-  "Alaleukaluu": `<h2>Нижняя челюсть</h2><p></p>`,
-  "Kaulanikama": `<h2>Шейный позвонок</h2><p></p>`,
-  "Rintanikama": `<h2>Грудной позвонок</h2><p></p>`,
-  "Lanneranka": `<h2>Поясничный позвонок</h2><p></p>`,
-  "Ristiluu": `<h2>Крестец</h2><p></p>`,  
-  "Rintalasta": `<h2>Грудина</h2><p></p>`,
-  "Kylkiluu": `<h2>Ребро</h2><p></p>`,
-  "Solisluu": `<h2>Ключица</h2><p></p>`,
-  "Lapaluu": `<h2>Лопатка</h2><p></p>`,
-  "Olkaluu": `<h2>Плечевая кость</h2><p></p>`,
-  "Värttinäluu": `<h2>Лучевая кость</h2><p></p>`,
-  "Kyynärluu": `<h2>Локтевая кость</h2><p></p>`,
-  "Sormienluut": `<h2>Кости пальцев</h2><p></p>`,
-  "Lantionluut": `<h2>Тазовая кость</h2><p></p>`,
-  "Reisiluu": `<h2>Бедренная кость</h2><p></p>`,
-  "Polvilumpio": `<h2>Коленная чашечка</h2><p></p>`,
-  "Sääriluu": `<h2>Большеберцовая кость</h2><p></p>`,
-  "Pohjeluu": `<h2>Малоберцовая кость</h2><p></p>`,
-  "Jalkateränluut": `<h2>Кости стопы</h2><p></p>`
+  "Otsaluu": `<h2>Лобная кость</h2><p>Ло́бная кость (лат. os frontale) — непарная кость мозгового отдела черепа; участвует в образовании переднего отдела свода черепа и передней черепной ямки его основания. Она состоит из четырёх частей: вертикально расположенной чешуи (лат. squama), двух горизонтальных глазничных частей (лат. pars orbitalis) и дугообразной носовой части (лат. pars nasalis)</p>`,
+  "Päälaenluu": `<h2>Теменная кость</h2><p>Теменна́я кость (лат. os parietále) — парная кость мозгового отдела черепа. Правая и левая теменные кости соединены между собой швом и образуют верхнюю и боковую части свода черепа. Теменные кости также соединяются швами с лобной, затылочной, височной и клиновидной костями.</p>`,
+  "Ohimoluu": `<h2>Височная кость</h2><p>Висо́чная кость (лат. os temporale) — парная кость, участвующая в образовании основания черепа и боковой стенки свода. В ней располагается орган слуха и равновесия, внутренняя сонная артерия, часть сигмовидного синуса, преддверно-улитковый и лицевой нервы, узел тройничного нерва, ветви блуждающего и языкоглоточного нерва.</p>`,
+  "Takaraivoluu": `<h2>Затылочная кость</h2><p>Заты́лочная кость (лат. os occipitale) — непарная кость мозгового отдела черепа человека, расположенная в задне-нижней части черепа. Образует заднюю часть свода черепа и участвует в образовании основания черепа. Состоит из четырёх частей. Затылочная кость соединяется швами с теменными и височными костями, а также образует сочленения с клиновидной костью и с первым шейным позвонком (атлантом). Имеет двойное (мембранозное и хрящевое) происхождение.</p>`,
+  "Yläleukaluu": `<h2>Верхняя челюсть</h2><p>Верхняя челюсть (лат. maxilla) — парная кость, относящаяся к лицевому отделу черепа. У человека воздухоносная, так как в ней находится обширная полость — верхнечелюстная (гайморова) пазуха (sinus maxillaris). Имеет тело верхней челюсти (corpus maxillae), 4 отростка: лобный отросток (processus frontalis), альвеолярный отросток (processus alveolaris), небный отросток (processus palatinus), скуловой отросток (processus zygomaticus). Поверхности верхней челюсти: передняя поверхность (facies anterior), носовая поверхность (facies nasalis), подвисочная поверхность (facies infratemporalis), глазничная поверхность (facies orbitalis)</p>`,
+  "Alaleukaluu": `<h2>Нижняя челюсть</h2><p>Ни́жняя че́люсть (лат. mandibula) — непарная костная структура, образующая нижний отдел лицевого черепа. Является единственной подвижной костью в черепе взрослого человека.</p>`,
+  "Kaulanikama": `<h2>Шейные позвонки</h2><p>Ше́йные позвонки́ (лат. vertebrae cervicales) — семь (редко шесть или восемь) позвонков, составляющих шейный отдел позвоночника человека.</p>`,
+  "Rintanikama": `<h2>Грудные позвонки</h2><p>Грудные позвонки (лат. vertebrae thoracales) — элемент грудного отдела позвоночника. Грудные позвонки участвуют в формировании задней стенки грудной полости</p>`,
+  "Lanneranka": `<h2>Поясничные позвонки</h2><p>Поясни́чные позвонки́ (лат. vertebrae lumbales) — пять нижних позвонков у человека с 20-го по 24-й, считая сверху. Поясничный отдел позвоночника соединяется ниже с крестцом (нижний поясничный позвонок L5 соединяется с верхним крестцовым позвонком S1), выше — с грудным отделом позвоночника (L1 соединяется с нижним грудным позвонком Th12).</p>`,
+  "Ristiluu": `<h2>Крестец</h2><p>Кресте́ц (лат. os sacrum, дословно «священная кость») — часть позвоночника наземных позвоночных, обеспечивающая его соединение с тазом. Расположена между поясничными и хвостовыми (у человека — копчиковыми) позвонками.</p>`,  
+  "Rintalasta": `<h2>Грудина</h2><p>Груди́на, или грудна́я кость (лат. sternum, от др.-греч. στέρνον — «грудина», «грудь») — элемент скелета многих наземных позвоночных. Даёт опору плечевому поясу. У земноводных и рептилий грудина обычно хрящевая, у птиц костная. У летающих и некоторых роющих животных имеет срединный выступ для прикрепления грудных мышц — киль.</p>`,
+  "Kylkiluu": `<h2>Ребро</h2><p>Ребро́ (лат. costa, др.-греч. πλευρά) — одна из парных дугообразных плоских костей, идущих от позвоночника к грудине и составляющих грудную клетку у позвоночных животных</p>`,
+  "Solisluu": `<h2>Ключица</h2><p>Клю́чица (лат. clavicula) — в анатомии человека — небольшая трубчатая кость S-образной формы из пояса верхней конечности, соединяющая лопатку с грудиной и укрепляющая плечевой пояс.</p>`,
+  "Lapaluu": `<h2>Лопатка</h2><p>Лопа́тка (лат. scapula), в анатомии — кость пояса верхних конечностей, обеспечивающая сочленение плечевой кости с ключицей.</p>`,
+  "Olkaluu": `<h2>Плечевая кость</h2><p>Плечева́я кость (лат. humerus) — типичная длинная трубчатая кость, скелетная основа плеча. Относится к скелету свободной верхней конечности.</p>`,
+  "Värttinäluu": `<h2>Лучевая кость</h2><p>Лучевая кость (лат. radius) — парная кость в составе предплечья, расположенная рядом с локтевой костью (os ulna).</p>`,
+  "Kyynärluu": `<h2>Локтевая кость</h2><p>Локтевая кость (лат. ulna) — парная трубчатая кость предплечья. Имеет тело (диафиз) и два эпифиза.</p>`,
+  "Sormienluut": `<h2>Кости пальцев</h2><p>Скелет кисти составляют кости запястья, кости пясти и кости пальцев (фаланги). Запястье состоит из восьми коротких губчатых костей, расположенных в два ряда, по четыре в каждом ряду</p>`,
+  "Lantionluut": `<h2>Тазовая кость</h2><p>Тазовая кость (лат. os coxae) — это обозначение для парной кости правой и левой, которые относятся к поясу нижних конечностей, а вместе с крестцом и копчиком образуют таз. Используется также название безымянные кости. Каждая из тазовых костей в свою очередь образована тремя составляющими: подвздошной костью, седалищной костью и лобковой костью, которые соединяются посредством хряща в области вертлужной впадины, служащей местом соединения тазовой кости с бедренной. В возрасте 14-16 лет эти три кости срастаются, образуя единую тазовую кость.</p>`,
+  "Reisiluu": `<h2>Бедренная кость</h2><p>Бе́дренная кость (лат. femur, os femoris) — самая большая трубчатая кость в теле человека. Тело её имеет цилиндрическую форму и несколько изогнуто спереди; по его задней поверхности тянется шероховатая линия (лат. linea aspera), которая служит для прикрепления мышц. К низу тело расширяется.</p>`,
+  "Polvilumpio": `<h2>Коленная чашечка</h2><p>Надколенник (коленная чашечка) — самая крупная сесамовидная кость скелета человека. Располагается она в толще сухожилия четырёхглавой мышцы бедра, хорошо прощупывается через кожу, при разогнутом колене легко смещается в стороны, а также вверх и вниз. Верхний край надколенника скруглён и именуется основанием надколенника. Нижний край немного вытянут и образует верхушку надколенника. Передняя поверхность кости шероховата. Задняя суставная поверхность при помощи вертикально расположенного гребешка разделяется на две неравные части: меньшую — медиальную и большую — латеральную. У человека центр окостенения появляется в хрящевом надколеннике между 3 и 6 годами</p>`,
+  "Sääriluu": `<h2>Большеберцовая кость</h2><p>Большеберцовая кость (лат. os tibia) — крупная, расположенная медиально кость голени, вторая по размерам кость в теле человека (после бедренной), наиболее толстая часть голени. Её верхний эпифиз сочленяется с бедренной костью, образуя коленный сустав, нижний — с таранной костью предплюсны. Большеберцовая кость соединяется с малоберцовой межберцовым суставом, межкостной перепонкой голени и междуберцовым синдесмозом. Нижний эпифиз большеберцовой кости переходит в медиальную лодыжку (malleolus medialis); суставные поверхности медиальной лодыжки и нижнего эпифиза большеберцовой кости сочленяются с таранной костью</p>`,
+  "Pohjeluu": `<h2>Малоберцовая кость</h2><p>Малоберцовая кость (лат. os fibula) — длинная тонкая трубчатая кость голени. Состоит из тела и двух концов — верхнего и нижнего. Тело малоберцовой кости имеет трёхгранную призматическую форму, скручено вокруг продольной оси и изогнуто кзади. Три поверхности малоберцовой кости — латеральная, медиальная и задняя — отделяются одна от другой тремя краями, или гребнями. Передний край в виде наиболее острого гребня отделяет латеральную поверхность от медиальной; медиальный гребень находится между задней и медиальной поверхностями. На задней поверхности тела есть питательное отверстие, ведущее в дистально направленный питательный канал. На медиальной поверхности располагается межкостный край.</p>`,
+  "Jalkateränluut": `<h2>Кости стопы</h2><p>Кости стопы протягиваются от кончиков пальцев до пятки, объединяясь в теле стопы. Передний отдел стопы состоит из плюсны и пальцев, а задний — образован костями предплюсны.</p>`
 };
   
 
@@ -506,10 +506,10 @@ const names = {
       Sormienluut: "Sormienluut",       // Кістки пальців рук
     Lantionluut: "Lantionluut",       // Кістки таза
       Reisiluu: "Reisiluu",          // Стегнова кістка
-    Polvilumpio: "Polviluu",          // Колінна кістка
+    Polvilumpio: "Polvilumpio",          // Колінна кістка
     Sääriluu: "Sääriluu",          // Гомілкова кістка
     Pohjeluu: "Pohjeluu",          // Литкова кістка
-      Jalkateränluut: "Jalkateränluut" // Кістки стопи
+      Jalkateränluut: "Jalkaterän luut" // Кістки стопи
   },
 
 ua: {
@@ -607,9 +607,9 @@ ua: {
     Takaraivoluu: "Затылочная кость",
     Yläleukaluu: "Верхняя челюсть",
     Alaleukaluu: "Нижняя челюсть",
-    Kaulanikama: "Шейный позвонок",
-    Rintanikama: "Грудной позвонок",
-    Lanneranka: "Поясничный отдел",
+    Kaulanikama: "Шейные позвонки",
+    Rintanikama: "Грудные позвонки",
+    Lanneranka: "Поясничные позвонки",
     Ristiluu: "Крестец",
     Rintalasta: "Грудина",
     Kylkiluu: "Ребро",
@@ -619,7 +619,7 @@ ua: {
     Värttinäluu: "Лучевая кость",
     Kyynärluu: "Локтевая кость",
     Sormienluut: "Кости пальцев",
-    Lantionluut: "Тазовые кости",
+    Lantionluut: "Тазовая кость",
     Reisiluu: "Бедренная кость",
     Polvilumpio: "Коленная чашечка",
     Sääriluu: "Большеберцовая кость",
