@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8" />
+    <title>Форма з відправкою через mailto</title>
+    <style>
+        #feedbackForm {
+            display: none;
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            width: 300px;
+        }
+        input, textarea {
+            width: 100%;
+            margin-top: 5px;
+            margin-bottom: 10px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+<button id="showFormBtn">Повідомити про баг</button>
+
+<div id="feedbackForm">
+    <label for="emailInput">Ваша пошта:</label><br />
+    <input type="email" id="emailInput" placeholder="example@mail.com" required /><br />
+
+    <label for="messageInput">Повідомлення:</label><br />
+    <textarea id="messageInput" rows="4" placeholder="Опишіть проблему" required></textarea><br />
+
+    <button id="sendBtn">Відправити</button>
+</div>
+
+<script>
+    const showFormBtn = document.getElementById('showFormBtn');
+    const feedbackForm = document.getElementById('feedbackForm');
+    const sendBtn = document.getElementById('sendBtn');
+    const emailInput = document.getElementById('emailInput');
+    const messageInput = document.getElementById('messageInput');
+
+    showFormBtn.addEventListener('click', () => {
+        feedbackForm.style.display = 'block';
+        showFormBtn.style.display = 'none';
+    });
+
+    sendBtn.addEventListener('click', () => {
+        if (!emailInput.value || !messageInput.value) {
+            alert('Будь ласка, заповніть всі поля.');
+            return;
+        }
+
+        const mailtoLink = "mailto:maksym.kapula@gmail.com"
+            + "?subject=" + encodeURIComponent("Повідомлення про баг")
+            + "&body=" + encodeURIComponent("Від: " + emailInput.value + "\n\nПовідомлення:\n" + messageInput.value);
+
+        window.open(mailtoLink);
+
+    });
+</script>
+
+</body>
+</html>

@@ -214,45 +214,4 @@
     margin: 5px;
 }
 
-.background_for_form {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* напівпрозорий чорний */
-    z-index: 999; /* поверх всього */
-    display: none;
-}
 
-
-.form{
-    width: auto;
-    height: auto;
-    background-color: white;
-    border-radius: 8px;
-    padding: 10px;
-    top: 50%;
-    left: 50%;
-    position: absolute;
-    font-size: 18px;
-    display: none;
-}
-input{
-    height: 30px;
-    width: 300px;
-    box-shadow: 10px 10px 5px grey;
-
-}
-.form_input_for_gmail{
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0px 0px 5px 2px grey;
-
-}
-.form_input_for_text{
-    border-radius: 8px;
-    border: none;
-    box-shadow: 0px 0px 5px 2px grey;
-
-}
