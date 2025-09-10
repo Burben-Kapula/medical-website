@@ -324,7 +324,7 @@ the arch of the foot.
 };
 
 const text_sv = {
-  Otsaluu: `<h2>Pannben</h2><p></p>`,
+  Otsaluu: `<h2>Pannben</h2><p>Pannben (latin: os frontale) är, i människans skelett, ett ben på kraniets framsida som består av två delar: en vertikal del (squama frontalis) som motsvarar pannan, och en horisontell eller orbital del (pars orbitalis) som utgör ögon- och näshålornas tak.</p>`,
   Päälaenluu: `<h2>Hjässben</h2><p></p>`,
   Ohimoluu: `<h2>inningben</h2><p></p>`,
   Takaraivoluu: `<h2>Nackben</h2><p></p>`,

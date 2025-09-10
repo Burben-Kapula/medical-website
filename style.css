@@ -191,7 +191,7 @@
 
 }
 .close_for_controls {
-    background: #eee;
+    background: #ee;
     border: none;
     border-radius: 4px;
     padding: 3px 10px;
@@ -218,7 +218,7 @@
     left: 50%;
     width: auto;
     height: auto;
-    background-color: #9C7659;
+ background-color: rgba(102, 102, 102, 0.5);
     border-radius: 8px;
     text-align: center;
     color: white;
