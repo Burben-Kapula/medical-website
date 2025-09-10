@@ -460,6 +460,10 @@ allButtons.forEach(id => {
                 document.getElementById("text").innerHTML = text_ua[id];
             } else if (currentLang === "sv") {
                 document.getElementById("text").innerHTML = text_sv[id];
+            } else if (currentLang === "de") {
+                document.getElementById("text").innerHTML = text_de[id];
+            } else if (currentLang === "ru") {
+                document.getElementById("text").innerHTML = text_ru[id];
             } else {
                 document.getElementById("text").innerHTML = text_en[id];
             }
