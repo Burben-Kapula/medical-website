@@ -97,6 +97,7 @@
     border: none;
     cursor: pointer;
 }
+
 /* тут стиль кота */
 .border_but_div {
     position: absolute;
@@ -230,4 +231,8 @@
     margin: 5px;
 }
 
+.panel {
+    border-radius: 8px; 
+    overflow: hidden;   
+}
 
