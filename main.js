@@ -510,6 +510,7 @@ if (show_left_panel) {
     };
 }
 
+
 window.onload = function() {
     document.getElementById("controls_overlay").style.display = "block";
     document.getElementById("controls_camera").style.display = "block";
@@ -518,6 +519,17 @@ document.getElementById("close_for_controls").onclick = function() {
     document.getElementById("controls_overlay").style.display = "none";
     document.getElementById("controls_camera").style.display = "none";
 };
-document.getElementById("find_problem").addEventListener("click", function() {
+document.getElementById("find_problem").addEventListener("click", function () {
     window.location.href = "mailto:maksym.kapula@gmail.com";
 });
+
+document.getElementById("find_problem").onclick = function () {
+    document.getElementById("background_for_form").style.display = "block";
+    document.getElementById("form").style.display = "block";
+};
+document.getElementById("submit").onclick = function () {
+    document.getElementById("background_for_form").style.display = "none";
+    document.getElementById("form").style.display = "none";
+};
+
+
