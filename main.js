@@ -572,9 +572,59 @@ ua: {
     Sääriluu: "Schienbein",
     Pohjeluu: "Wadenbein",
     Jalkateränluut: "Fußknochen"
+    
+  },
+  fa: {
+  Otsaluu: "استخوان پیشانی",
+  Päälaenluu: "استخوان آهیانه",
+  Ohimoluu: "استخوان گیجگاهی",
+  Takaraivoluu: "استخوان پس‌سری",
+  Yläleukaluu: "استخوان فک بالا",
+  Alaleukaluu: "استخوان فک پایین",
+  Kaulanikama: "مهره گردنی",
+  Rintanikama: "مهره سینه‌ای",
+  Lanneranka: "مهره کمری",
+  Ristiluu: "استخوان خاجی",
+  Rintalasta: "استخوان جناغ",
+  Kylkiluu: "دنده",
+  Solisluu: "استخوان ترقوه",
+  Lapaluu: "استخوان کتف",
+  Olkaluu: "استخوان بازو",
+  Värttinäluu: "استخوان زند زبرین",
+  Kyynärluu: "استخوان زند"
   },
 
+  ar: {
+  Otsaluu: "عظم الجبهة",
+  Päälaenluu: "العظم الجداري",
+  Ohimoluu: "العظم الصدغي",
+  Takaraivoluu: "العظم القذالي",
+  Yläleukaluu: "عظم الفك العلوي",
+  Alaleukaluu: "عظم الفك السفلي",
+  Kaulanikama: "الفقرات العنقية",
+  Rintanikama: "الفقرات الصدرية",
+  Lanneranka: "الفقرات القطنية",
+  Ristiluu: "العجز",
+  Rintalasta: "عظم القص",
+  Kylkiluu: "الأضلاع",
+  Solisluu: "عظم الترقوة",
+  Lapaluu: "لوح الكتف",
+  Olkaluu: "عظم العضد",
+  Värttinäluu: "عظم الكعبرة",
+  Kyynärluu: "عظم الزند",
+  Sormienluut: "عظام الأصابع",
+  Lantionluut: "عظام الحوض",
+  Reisiluu: "عظم الفخذ",
+  Polvilumpio: "صابونة الركبة",
+  Sääriluu: "عظم الساق (القصبة)",
+  Pohjeluu: "عظم الشظية",
+  Jalkateränluut: "عظام القدم"
+}
+
+
+
 };
+
 // функція для оновлення назв кнопок
 function updateButtonNames(lang) {
   allButtons.forEach(id => {
