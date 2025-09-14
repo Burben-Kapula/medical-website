@@ -392,6 +392,12 @@ for (let key in text_sv) {
 for (let key in text_de) {
   text_de[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
 }
+for (let key in text_fa) {
+  text_fa[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+}
+for (let key in text_ar) {
+  text_ar[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
+}
 
 
 // Функція для оновлення назв кнопок
@@ -413,6 +419,10 @@ allButtons.forEach(id => {
       document.getElementById("info_panel").style.display = "block";
       if(currentLang === "fi") document.getElementById("text").innerHTML = text_fi[id];
       else if(currentLang === "ua") document.getElementById("text").innerHTML = text_ua[id];
+      else if (currentLang === "de") document.getElementById("text").innerHTML = text_de[id];
+      else if (currentLang === "sv") document.getElementById("text").innerHTML = text_sv[id];
+      else if (currentLang === "fa") document.getElementById("text").innerHTML = text_fa[id];
+      else if (currentLang === "ar") document.getElementById("text").innerHTML = text_ar[id];
       else document.getElementById("text").innerHTML = text_en[id];
     };
   }
@@ -433,6 +443,10 @@ allButtons.forEach(id => {
                 document.getElementById("text").innerHTML = text_sv[id];
             } else if (currentLang === "de") {
                 document.getElementById("text").innerHTML = text_de[id];
+            } else if (currentLang === "fa") {
+                document.getElementById("text").innerHTML = text_fa[id];
+            } else if (currentLang === "ar") {
+                document.getElementById("text").innerHTML = text_ar[id];
             } else {
                 document.getElementById("text").innerHTML = text_en[id];
             }
@@ -572,8 +586,9 @@ ua: {
     Sääriluu: "Schienbein",
     Pohjeluu: "Wadenbein",
     Jalkateränluut: "Fußknochen"
-    
+
   },
+  
   fa: {
   Otsaluu: "استخوان پیشانی",
   Päälaenluu: "استخوان آهیانه",
