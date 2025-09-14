@@ -374,6 +374,59 @@ const text_de = {
   Sääriluu: `<h2>Schienbein</h2><p>Das Schienbein (lateinisch Tibia) ist neben dem Wadenbein (Fibula) einer der beiden Knochen des Unterschenkels. Das Schienbein ist der kräftigere der beiden Knochen und ein typischer Röhrenknochen. Das lateinische Wort tibia ist die Bezeichnung einer Knochenflöte und der lateinische Name des in der griechischen Antike als Aulos bekannten Blasinstruments.</p>`,
   Pohjeluu: `<h2>Wadenbein</h2><p>Das Wadenbein (lat. Fibula (f.) „Heftnadel“, „Spange“) ist neben dem Schienbein (Tibia), an dem es seitlich außen anliegt, einer der beiden Knochen des Unterschenkels. Das Wadenbein ist der dünnere der beiden Knochen und ein typischer Röhrenknochen.</p>`,
   Jalkateränluut:`<h2>Fußknochen</h2><p>Der Knöchel (lateinisch Malleolus, ‚Hämmerchen‘, Diminutiv von lateinisch malleus, ‚Hammer‘), genannt auch Fußknöchel (älter auch Enkel, verwandt mit mittelhochdeutsch anke ‚Gelenk‘[1]), ist ein Knochenhöcker am unteren Ende des Unterschenkels. Er bildet den oberen Teil des Sprunggelenks, des Verbindungsgelenks zwischen Fuß und Bein, und gehört medizinisch-anatomisch betrachtet zum Bein und nicht zum Fuß.</p>`
+};
+const text_fa = {
+  Otsaluu: `<h2>استخوان پیشانی</h2><p></p>`,
+  Päälaenluu: `<h2>استخوان آهیانه</h2><p></p>`,
+  Ohimoluu: `<h2>استخوان گیجگاهی</h2><p></p>`,
+  Takaraivoluu: `<h2>استخوان پس‌سری</h2><p></p>`,
+  Yläleukaluu: `<h2>استخوان فک بالا</h2><p></p>`,
+  Alaleukaluu: `<h2>استخوان فک پایین</h2><p></p>`,
+  Kaulanikama: `<h2>مهره گردنی</h2><p></p>`,
+  Rintanikama: `<h2>مهره سینه‌ای</h2><p></p>`,
+  Lanneranka: `<h2>مهره کمری</h2><p></p>`,
+  Ristiluu: `<h2>استخوان خاجی</h2><p></p>`,
+  Rintalasta: `<h2>استخوان جناغ</h2><p></p>`,
+  Kylkiluu: `<h2>دنده</h2><p></p>`,
+  Solisluu: `<h2>استخوان ترقوه</h2><p></p>`,
+  Lapaluu: `<h2>استخوان کتف</h2><p></p>`,
+  Olkaluu: `<h2>استخوان بازو</h2><p></p>`,
+  Värttinäluu: `<h2>استخوان زند زبرین</h2><p></p>`,
+  Kyynärluu: `<h2>استخوان زند</h2><p></p>`,
+  Sormienluut: `<h2>استخوان‌های انگشتان</h2><p></p>`,
+  Lantionluut: `<h2>استخوان‌های لگن</h2><p></p>`,
+  Reisiluu: `<h2>استخوان ران</h2><p></p>`,
+  Polvilumpio: `<h2>کشکک زانو</h2><p></p>`,
+  Sääriluu: `<h2>استخوان ساق پا</h2><p></p>`,
+  Pohjeluu: `<h2>استخوان نازک نی</h2><p></p>`,
+  Jalkateränluut: `<h2>استخوان‌های پا</h2><p></p>`
+};
+
+const text_ar = {
+  Otsaluu: `<h2>عظم الجبهة</h2><p></p>`,
+  Päälaenluu: `<h2>العظم الجداري</h2><p></p>`,
+  Ohimoluu: `<h2>العظم الصدغي</h2><p></p>`,
+  Takaraivoluu: `<h2>العظم القذالي</h2><p></p>`,
+  Yläleukaluu: `<h2>عظم الفك العلوي</h2><p></p>`,
+  Alaleukaluu: `<h2>عظم الفك السفلي</h2><p></p>`,
+  Kaulanikama: `<h2>الفقرات العنقية</h2><p></p>`,
+  Rintanikama: `<h2>الفقرات الصدرية</h2><p></p>`,
+  Lanneranka: `<h2>الفقرات القطنية</h2><p></p>`,
+  Ristiluu: `<h2>العجز</h2><p></p>`,
+  Rintalasta: `<h2>عظم القص</h2><p></p>`,
+  Kylkiluu: `<h2>الأضلاع</h2><p></p>`,
+  Solisluu: `<h2>عظم الترقوة</h2><p></p>`,
+  Lapaluu: `<h2>لوح الكتف</h2><p></p>`,
+  Olkaluu: `<h2>عظم العضد</h2><p></p>`,
+  Värttinäluu: `<h2>عظم الكعبرة</h2><p></p>`,
+  Kyynärluu: `<h2>عظم الزند</h2><p></p>`,
+  Sormienluut: `<h2>عظام الأصابع</h2><p></p>`,
+  Lantionluut: `<h2>عظام الحوض</h2><p></p>`,
+  Reisiluu: `<h2>عظم الفخذ</h2><p></p>`,
+  Polvilumpio: `<h2>صابونة الركبة</h2><p></p>`,
+  Sääriluu: `<h2>عظم الساق (القصبة)</h2><p></p>`,
+  Pohjeluu: `<h2>عظم الشظية</h2><p></p>`,
+  Jalkateränluut: `<h2>عظام القدم</h2><p></p>`
 }
 
 
@@ -606,7 +659,14 @@ ua: {
   Lapaluu: "استخوان کتف",
   Olkaluu: "استخوان بازو",
   Värttinäluu: "استخوان زند زبرین",
-  Kyynärluu: "استخوان زند"
+  Kyynärluu: "استخوان زند",
+  Sormienluut: "استخوان‌های انگشتان",
+  Lantionluut: "استخوان‌های لگن",
+  Reisiluu: "استخوان ران",
+  Polvilumpio: "کشکک زانو",
+  Sääriluu: "استخوان ساق پا",
+  Pohjeluu: "استخوان نازک نی",
+  Jalkateränluut: "استخوان‌های پا"
   },
 
   ar: {
