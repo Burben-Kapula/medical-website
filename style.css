@@ -34,7 +34,7 @@
     display: flex;
     justify-content: flex-end; /* кнопки притиснуті до правого краю */
     align-items: center;
-    width: 130px;
+    width: 180px;
     height: 34px;
     background: #ffffff;
     box-shadow: -2px 0 8px rgba(0,0,0,0.2);
