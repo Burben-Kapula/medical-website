@@ -7,43 +7,43 @@ let mouse, model;
 let isHovered = false;
 
 
-// --- Сцена, камера, рендер ---
+// --- Сцена, камера, рендер --- --- Kohtaus, Kamera, Renderöinti ---
 const w = window.innerWidth;
 const h = window.innerHeight;
 const scene = new THREE.Scene();
 
-// // Ліве світло
+// // Ліве світло Vasen valo
 const lightLeft = new THREE.DirectionalLight(0xffffff, -0.15);
 lightLeft.position.set(-5, 5, 0);
 scene.add(lightLeft);
 
-// // // Праве світло
+// // // Праве світло oikean valo
 const lightRight = new THREE.DirectionalLight(0xffffff, -0.35);
 lightRight.position.set(5, 5, 0);
 scene.add(lightRight);
 
-// // Переднє світло
+// // Переднє світло seuran valo
 const lightFront = new THREE.DirectionalLight(0xffffff, -0.35);
 lightFront.position.set(0, 5, 5);
 scene.add(lightFront);
 
-// // Заднє світло
+// // Заднє світло taka valo
 const lightBack = new THREE.DirectionalLight(0xffffff, -0.15);
 lightBack.position.set(0, 5, -5);
 scene.add(lightBack);
 
 
-// // Нижнє світло
+// // Нижнє світло ala valo
 const lightBottom = new THREE.DirectionalLight(0xffffff, -0.1);
 lightBottom.position.set(0, -5, 0);
 scene.add(lightBottom);
 
 
-// М’яке загальне світло (Ambient)
+// М’яке загальне світло (Ambient) Pehmeä yleisvalo (Ympäröivä)
 const ambientLight = new THREE.AmbientLight(0xffffff, -0.15);
 scene.add(ambientLight);
 
-
+// zoom
 const zoom = 7;
 const camera = new THREE.OrthographicCamera(
   w / -200 / zoom,
@@ -56,7 +56,7 @@ const camera = new THREE.OrthographicCamera(
 
 
 
-
+// modelli paikka
 camera.position.set(1, 0, 80);
 camera.lookAt(0, 0, 0);
 
@@ -64,7 +64,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(w, h);
 document.body.appendChild(renderer.domElement);
 
-// --- Контроли ---
+// --- Контроли --- --- Ohjaimet ---
 const ctrls = new OrbitControls(camera, renderer.domElement);
 ctrls.enableDamping = true;
 ctrls.dampingFactor = 0.05;
@@ -74,7 +74,7 @@ ctrls.maxDistance = 200;
 
 
 
-
+// painikkeiden värien vaihtaminen
 const colorButtons = document.querySelectorAll('.color-btn');
 colorButtons.forEach(button => {
     const color = button.dataset.color;
@@ -90,7 +90,7 @@ colorButtons.forEach(button => {
     });
 });
 
-
+//Mallikuormaaja
 const objLoader = new OBJLoader();
 objLoader.load("./assets/skelewwttt.obj", (object) => {
   object.scale.set(0.05, 0.05, 0.05);
@@ -100,7 +100,7 @@ objLoader.load("./assets/skelewwttt.obj", (object) => {
 
 
 
-// --- Освітлення ---
+// --- Освітлення ---// --- Valaistus ---
 const hemiLight = new THREE.HemisphereLight(0xffffff, 0x444444);
 scene.add(hemiLight);
 
@@ -108,7 +108,7 @@ const dirLight = new THREE.DirectionalLight(0xffffff, 1);
 dirLight.position.set(5, 10, 7.5);
 scene.add(dirLight);
 
-// --- Рендер ---
+// --- Рендер ---// --- Renderöi ---
 function animate() {
   requestAnimationFrame(animate);
   ctrls.update();
@@ -116,7 +116,7 @@ function animate() {
 }
 animate();
 
-// --- Ресайз ---
+// --- Ресайз ---// --- Muuta kokoa ---
 window.addEventListener("resize", () => {
   const w = window.innerWidth;
   const h = window.innerHeight;
@@ -128,7 +128,7 @@ window.addEventListener("resize", () => {
   renderer.setSize(w, h);
 });
 
-
+//Suomi
 document.addEventListener("DOMContentLoaded", () => {
   const text_fi = {
     Otsaluu: `<h2>Otsaluu</h2><p>Otsaluu on pariton luu, joka muodostaa osan kalloa. Otsaluu koostuu kuudesta osasta. Sen tärkein tehtävä on suojella otsalohkoja.​</p>`,
@@ -207,7 +207,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
+//Ukraina
 let text_ua = {
   Otsaluu: `<h2>Лобова кістка</h2><p>Ло́бна кістка також лобова́ кістка (лат. os frontale) — одна чи декілька кісток мозкового черепа. Вони з'єднуються з носовими кістками спереду, слізною і заочними кістками по боках, тім'яними ззаду. У більшості тварин лобні кістки парні, тоді як у представників роду Homo вони формують непарну, зрослу структуру.</p>`,
   Päälaenluu: `<h2>Тім'яна кістка</h2><p>Тім'яна́ кістка (лат. os parietale) — парна кістка мозкового черепа. Має вигляд чотирикутної пластинки, посередині кістка має тім'яний горб (tuber parietale). Між тім'яними горбами міряють ширину мозкового черепа, вони відповідають антропометричним тім'яним точкам (euryon).
@@ -263,7 +263,7 @@ let text_ua = {
 Фаланги (лат. phalanx) — 14 коротких трубчастих кісток, що складають сегменти пальців стопи. Дві фаланги утворюють великий палець, інші пальці складаються з трьох фаланг.</p>`
 
 };
-
+//Enku
 const text_en = {
   Otsaluu: `<h2>Frontal bone</h2><p>The frontal bone is a paired element of the skull forming the front part of the head. In the human skull, the frontal bone or sincipital bone is an unpaired bone which consists of two portions. These are the vertically oriented squamous part, and the horizontally oriented orbital part, making up the bony part of the forehead, part of the bony orbital cavity holding the eye, and part of the bony part of the nose respectively. The name comes from the Latin word frons (meaning "forehead").</p>`,
   Päälaenluu: `<h2>Parietal bone</h2><p>The parietal bones form the sides of the skull. The parietal bones (/pəˈraɪ.ətəl/ pə-RY-ə-təl) are two bones in the skull which, when joined at a fibrous joint known as a cranial suture, form the sides and roof of the neurocranium. In humans, each bone is roughly quadrilateral in form, and has two surfaces, four borders, and four angles. It is named from the Latin paries (-ietis), wall.</p>`,
@@ -322,7 +322,7 @@ the arch of the foot.
 5 metatarsals
 7 tarsal bones</p>`
 };
-
+//Ruotsi
 const text_sv = {
   Otsaluu: `<h2>Pannben</h2><p>Pannben (latin: os frontale) är, i människans skelett, ett ben på kraniets framsida som består av två delar: en vertikal del (squama frontalis) som motsvarar pannan, och en horisontell eller orbital del (pars orbitalis) som utgör ögon- och näshålornas tak.</p>`,
   Päälaenluu: `<h2>Hjässben</h2><p>Hjässbenet (latin: os parietale) är en del av skallen som finns beläget mellan nackben, pannben, kilben och tinningben.</p>`,
@@ -349,6 +349,7 @@ const text_sv = {
   Pohjeluu: `<h2>Vadben</h2><p>Vadbenet (latin: fibula) är det smalare och yttre av de två långa rörben som bildar underbenets skelett hos människan. Ordet Fibula kommer från latin och kan översättas till spänne eller brosch.</p>`,
   Jalkateränluut: `<h2>Fotben</h2><p>Längst fram på människans fot sitter fem tår, och längst bak sitter hälen. Tåvalken är den delen av foten där tårna möter foten. Hålfoten är delen på insidan av foten mellan hälen och tåvalken.</p>`
 };
+//Saksa
 const text_de = {
   Otsaluu: `<h2>Stirnbein</h2><p>Das paarige Stirnbein (lat. Os frontale) ist ein Teil des Hirnschädels. Es bildet das vordere Schädeldach und damit die vordere obere Wand der Schädelhöhle, bei Wiederkäuern einen Großteil des Schädeldachs. Die Stirnbeine beider Seiten sind in der Medianebene über eine Schädelnaht, die Sutura frontalis („Stirnnaht“), miteinander verbunden. Das Stirnbein der Säugetiere besteht aus drei Abschnitten, der Stirnbeinschuppe (Squama frontalis), der Augenhöhlenplatte (Pars orbita) und der Schläfenfläche (Facies temporalis).</p>`,
   Päälaenluu: `<h2>Scheitelbein</h2><p>Das paarige Scheitelbein (lateinisch Os parietale) ist ein Teil des Hirnschädels. Es bildet das Schädeldach und die Seitenwand der knöchernen Gehirnkapsel. Bei Wiederkäuern wird, aufgrund des sehr großen Stirnbeins, nur der Seitenteil des Schädeldachs vom Scheitelbein gebildet.</p>`,
@@ -375,6 +376,7 @@ const text_de = {
   Pohjeluu: `<h2>Wadenbein</h2><p>Das Wadenbein (lat. Fibula (f.) „Heftnadel“, „Spange“) ist neben dem Schienbein (Tibia), an dem es seitlich außen anliegt, einer der beiden Knochen des Unterschenkels. Das Wadenbein ist der dünnere der beiden Knochen und ein typischer Röhrenknochen.</p>`,
   Jalkateränluut:`<h2>Fußknochen</h2><p>Der Knöchel (lateinisch Malleolus, ‚Hämmerchen‘, Diminutiv von lateinisch malleus, ‚Hammer‘), genannt auch Fußknöchel (älter auch Enkel, verwandt mit mittelhochdeutsch anke ‚Gelenk‘[1]), ist ein Knochenhöcker am unteren Ende des Unterschenkels. Er bildet den oberen Teil des Sprunggelenks, des Verbindungsgelenks zwischen Fuß und Bein, und gehört medizinisch-anatomisch betrachtet zum Bein und nicht zum Fuß.</p>`
 };
+//persian
 const text_fa = {
   Otsaluu: `<h2>استخوان پیشانی</h2><p>استخوان پیشانی (به انگلیسی: Frontal bone) استخوانی است که قسمت جلو و بالای جمجمه (پیشانی) را ساخته‌است. این استخوان پیشانی بخش جلویی جمجمه یا پیشانی، بخش بالایی حفره چشم و قسمت اعظم بخش جلویی کف جمجمه را به وجود می‌آورد. استخوان پیشانی از دو بخش راست و چپ تشکیل شده که به شکل استخوانی واحد درمی‌آید.</p>`,
   Päälaenluu: `<h2>استخوان آهیانه</h2><p>استخوان‌های آهیانه (Parietal bones)به صورت یک جفت استخوان پهن و چهارگوش هستند که بخش عمدهٔ کاسهٔ سر را تشکیل می‌دهند. این استخوان‌ها قسمت‌های طرفی و سقف جمجمه را می‌سازد. این استخوان‌ها که با یکدیگر مفصل شده‌اند، در جلو با استخوان پیشانی و در عقب با استخوان پس‌سری، مفصل می‌گردند. هر یک از استخوان‌های آهیانه دارای یک سطح بیرونی صاف و محدب و یک سطح درونی ناصاف و مقعر است و چهار زاویه و چهار کنار دارد.</p>`,
@@ -401,7 +403,7 @@ const text_fa = {
   Pohjeluu: `<h2>استخوان نازک نی</h2><p>نازُک‌نِی یا فیبولا (به انگلیسی: Fibula) استخوانی است که هم‌راستا با استخوان درشت‌نی ساق پا و در سمت خارج آن قرار دارد و میان زانو و مچ پا قرار گرفته‌است.</p>`,
   Jalkateränluut: `<h2>استخوان‌های پا</h2><p>در پا، جلوتر از استخوان‌های مچ پا، پنج استخوان بلند قرار دارند که به آن‌ها کف‌پایی می‌گویند. جلوتر از استخوان‌های کف پا، انگشتان پا قرار دارند که هر کدام از آن‌ها سه بند دارد (بجز شست پا که دو بند دارد). کف‌پایی‌ها به همراه انگشتان پا، پیش‌پا را تشکیل می‌دهند.</p>`
 };
-
+//arabian
 const text_ar = {
   Otsaluu: `<h2> عظم جبهي</h2><p>العظم الجبهي (بالإنجليزية: Frontal bone) هو أحد عظام الجمجمة المفردة، ويشكل الجبهة والحافة العلوية وسقف المحجر. يتوضع في الوجه الأمامي للقحف، ويشاهد من الوجه الجانبي ومن قاعدة القحف أيضاً، وهو عظم مفرد يكون في الحياة الجنينية مزدوجاً وبعد التحامه يبقى أثر للالتحام يسمى: الدرز الجبهي (الناصف)، يساهم في تشكيل كل من الحفرة القحفية الأمامية وقاعدة القحف وجوف الحجاج.</p>`,
   Päälaenluu: `<h2>العظم الجداري</h2><p>العظم الجداري (بالإنجليزية: Parietal bone) هو أحد عظام الجمجمة يشكل باتحاده مع نظيره في الجانب المقابل جانب وسقف الجمجمة. له شكل رباعي غير منتظم، يوصف له سطحان وأربعة حدود وأربع زاويا. يتوضع ضمن سطحه الداخلي التلم السهمي الذي يسير فيه الجيب السهمي العلوي.</p>`,
@@ -430,7 +432,7 @@ const text_ar = {
   Jalkateränluut: `<h2>عظام القدم</h2><p>مُشْط القدم مجموعةٌ من خمسة عظام طويلة في قدم الإنسان، تصل عظامَ الرُّصْغ بعظام سُلَامَيَات القدم. تُرَقَّم عظام مُشط القدم من الجانب الإنسي (جانب إصبع القدم الكبير): مشط القدم الأول، والثاني، والثالث، والرابع، والخامس (ترقم بالأرقام الرومانية غالبًا). عظام مشط القدم تُماثل عظام المشط في اليد. أطول عظام مشط القدم في الإنسان هي بترتيب تنازلي: الثاني، والثالث، والرابع، والخامس، والأول.</p>`
 }
 
-
+//valokuvavalinta
     for (let key in text_fi) {
   text_fi[key] += `<img src="image/${key}.png" alt="${key}" style="max-width:800px; display:block; margin-top:10px;">`;
 }
@@ -454,21 +456,21 @@ for (let key in text_ar) {
 }
 
 
-// Функція для оновлення назв кнопок
-let currentLang = "fi"; // початкова мова
+// Функція для оновлення назв кнопок// Funktio painikkeiden nimien päivittämiseen
+let currentLang = "fi"; // початкова мова // lähdekieli
 
 document.getElementById('languageSelect').addEventListener('change', (e) => {
   currentLang = e.target.value;
   updateButtonNames(currentLang);
 });
 
-// Функція для відображення тексту при кліку на кнопку стрілки
+// Функція для відображення тексту при кліку на кнопку стрілки// Funktio, joka näyttää tekstin nuolipainiketta napsautettaessa
 allButtons.forEach(id => {
   const btn = document.getElementById(id);
   if(btn){
 
      
-
+//tiedosto vaihto
     btn.onclick = () => {
       document.getElementById("info_panel").style.display = "block";
       if(currentLang === "fi") document.getElementById("text").innerHTML = text_fi[id];
@@ -483,7 +485,7 @@ allButtons.forEach(id => {
 });
 
 
-
+//kieli vaihto
 allButtons.forEach(id => {
     const btn = document.getElementById(id);
     if (btn) {
@@ -510,19 +512,19 @@ allButtons.forEach(id => {
 
 
 });
-// назви кнопок по мовах
+// назви кнопок по мовах// painikkeiden nimet kielen mukaan
 document.getElementById('languageSelect').addEventListener('change', (e) => {
   const selectedLang = e.target.value;
   console.log("Selected language:", selectedLang);
   // Тут можна підключити зміну текстів і кнопок на сайті
 });
 
-// всі кнопки
+// всі кнопки// kaikki painikkeet
 const leftButtons = ["Otsaluu","Päälaenluu","Ohimoluu","Takaraivoluu","Yläleukaluu","Alaleukaluu","Kaulanikama","Rintanikama","Lanneranka","Ristiluu","Rintalasta","Kylkiluu"];
 const rightButtons = ["Solisluu","Lapaluu","Olkaluu","Värttinäluu","Kyynärluu","Sormienluut","Lantionluut","Reisiluu","Polvilumpio","Sääriluu","Pohjeluu","Jalkateränluut"];
 const allButtons = leftButtons.concat(rightButtons);
 
-// назви кнопок по мовах
+// назви кнопок по мовах// painikkeiden nimet kielen mukaan
 const names = {
   fi:
   {
@@ -701,7 +703,7 @@ ua: {
 
 };
 
-// функція для оновлення назв кнопок
+// функція для оновлення назв кнопок// funktio painikkeiden nimien päivittämiseen
 function updateButtonNames(lang) {
   allButtons.forEach(id => {
     const panel = document.getElementById(id).parentElement;
@@ -709,7 +711,7 @@ function updateButtonNames(lang) {
   });
 }
 
-// слухач select
+// слухач select// valitse kuuntelija
 document.getElementById('languageSelect').addEventListener('change', (e)=>{
   const lang = e.target.value;
   updateButtonNames(lang);
@@ -725,7 +727,7 @@ if (close_button) {
 
 
 // тут функції які довзволяють появі кота та приберають її
-
+// tässä ovat funktiot, joiden avulla kissa voi ilmestyä ja poistaa sen
 const meme_cat = document.getElementById('meme_cat'); // вибирає перший елемент з класом meme_cat
 const gif = document.getElementById('gif');
 const border_but_div = document.getElementById('border_but_div');
@@ -733,18 +735,22 @@ const border = document.getElementById('border');
 
 
 // перша лінія появи яка покаже другу
+// ensimmäinen esiintymisrivi, joka näyttää toisen
 border_but_div.addEventListener("mouseenter", () => {
     border.style.display = "block";
 })
 // друга лінія яка покаже div в якому кіт
+// toisella rivillä näytetään div-tiedosto, jossa kissa on
 border.addEventListener("mouseenter", () => {
     meme_cat.style.display = "block";
 })
 // покаже кота
+// näytä kissa
 meme_cat.addEventListener("mouseenter", () => {
     gif.style.display = "block";
 });
 // забере кота коли курсор не на ньому
+// ota kissa, kun kursori ei ole sen päällä
 meme_cat.addEventListener("mouseleave", () => {
     gif.style.display = "none";
 });

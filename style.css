@@ -66,10 +66,10 @@
     z-index: 5;
     font-family: Arial, sans-serif;
     display: none;
-
     text-align: justify;
     line-height: 1.5;
     word-wrap: break-word;
+
 }
 
 .btn_close {
@@ -258,7 +258,7 @@
     left: 50%;
     width: auto;
     height: auto;
- background-color: rgba(102, 102, 102, 0.5);
+    background-color: rgba(102, 102, 102, 0.5);
     border-radius: 8px;
     text-align: center;
     color: white;
