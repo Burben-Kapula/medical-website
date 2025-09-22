@@ -1,14 +1,12 @@
-/* Скидаємо відступи та padding для всього документа */
- html, body {
+/* Nollataan marginaalit ja padding koko dokumentista */
+html, body {
     margin: 0px;
     padding: 0;
-    overflow: hidden; /* щоб не було скролу */
+    overflow: hidden; /* Piilottaa sivun vierityspalkin */
     height: 100%;
-
-
 }
 
-/* контейнер для кнопок */
+/* Painikkeiden kontaineri */
 #controls {
     position: fixed;
     bottom: 20px;
@@ -18,7 +16,7 @@
     gap: 10px;
 }
 
-/* стилі кнопок */
+/* Painikkeiden tyyli */
 #controls button {
     padding: 20px 20px;
     font-size: 16px;
@@ -30,29 +28,28 @@
     transition: background 0.3s;
 }
 
+/* Paneeli oikeaan laitaan, napit oikealla */
 .panel {
     display: flex;
-    justify-content: flex-end; /* кнопки притиснуті до правого краю */
+    justify-content: flex-end; /* Painikkeet oikeaan laitaan */
     align-items: center;
     width: 180px;
     height: 34px;
     background: #ffffff;
     box-shadow: -2px 0 8px rgba(0,0,0,0.2);
     font-family: Arial, sans-serif;
-    padding-right: 10px; /* відступ справа від краю панелі */
+    padding-right: 10px; /* Oikea reuna */
     transition: background 0.3s, color 0.3s;
-    position: relative; /* для кнопки всередині */
-
-    padding-left: -10px; /* зсуває текст лівіше */
+    position: relative; /* Sisäisten nappien asettelua varten */
+    padding-left: -10px; /* Tekstin siirtäminen vasemmalle */
 }
 
-
-
 .panel:hover {
-    background: rgba(140,102,68,255);;
+    background: rgba(140,102,68,255);
     color: white;
 }
 
+/* Infopaneeli oikeassa reunassa */
 .info {
     position: absolute;
     top: 0;
@@ -69,41 +66,38 @@
     text-align: justify;
     line-height: 1.5;
     word-wrap: break-word;
-
 }
 
+/* Sulkupainike info-ikkunalle */
 .btn_close {
     padding: 20px 20px;
     font-size: 16px;
     border: none;
     border-radius: 8px;
-    background: rgba(140,102,68,255);;
+    background: rgba(140,102,68,255);
     color: white;
     cursor: pointer;
     transition: background 0.3s;
 }
 
-
-
+/* Paneelin kaikkiin nappeihin: kattavat koko elementin */
 .panel button {
-    position: absolute; /* накриває весь блок */
-
+    position: absolute;
     top: 0;
     left: 0;
-    width: 100%;        /* на всю ширину блоку */
-    height: 100%;       /* на всю висоту блоку */
-    background: transparent; /* прозора */
+    width: 100%;        /* Kattaa koko leveyden */
+    height: 100%;       /* Kattaa koko korkeuden */
+    background: transparent; /* Läpinäkyvä */
     border: none;
     cursor: pointer;
 }
 
-/* тут стиль кота */
+/* "Kissa"-elementin tyyli */
 .border_but_div {
     position: absolute;
     width: 300px;
     height: 20px;
     top: 150px;
-
 }
 
 .border {
@@ -113,10 +107,11 @@
     display: none;
     color: white;
     text-align: center;
-    line-height: 30px; /* щоб текст був по центру вертикально */
+    line-height: 30px; /* Teksti keskitetty pysty */
     top: 70px;
 }
 
+/* Meemi-kissan tyyli */
 .meme_cat {
     width: 200px;
     height: 150px;
@@ -139,21 +134,22 @@
     display: none;
 }
 
-
 .meme_button_div {
     top: 30px;
 }
 
+/* Overlay-kerros kontrollien alle */
 #controls_overlay {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* напівпрозорий чорний */
-    z-index: 999; /* поверх всього */
+    background: rgba(0, 0, 0, 0.5); /* Puoliläpinäkyvä musta */
+    z-index: 999; /* Ylimmäisenä */
 }
 
+/* Väri-painikkeen tyyli */
 .color-btn {
     width: 30px;
     height: 30px;
@@ -169,35 +165,38 @@
     box-shadow: 2px 2px 8px rgba(0,0,0,0.3);
 }
 
+/* Kameran kontrollivalikko keskellä */
 .controls_camera{
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1000; /* вище оверлея */
+    z-index: 1000; /* Overlayn yläpuolella */
     background: white;
     border-radius: 12px;
     padding: 28px 28px 18px 28px;
     box-shadow: 0 0 20px 0 #2228;
 }
 
+/* Teksti kontrollien yhteydessä */
 .text_controlls {
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
     font-variation-settings:"wdth" 100;
     font-size: 20px;
-
 }
+
+/* Sulkupainike kontrollivalikossa */
 .close_for_controls {
     position: relative;
-    background-color: rgba(140,102,68,255);;
+    background-color: rgba(140,102,68,255);
     border: none;
-    border-radius: 50%;        
-    width: 40px;               
-    height: 40px;              
-    font-size: 24px;          
-    color: white;              
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 24px;
+    color: white;
     cursor: pointer;
     float: right;
     display: flex;
@@ -207,51 +206,56 @@
 }
 
 .close_for_controls:hover {
-    background-color: #ff5252;   
-    transform: scale(1.1);       
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3); 
+    background-color: #ff5252;
+    transform: scale(1.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
 }
+
+/* Klassisen pyöreän napin tyyli */
 .classic_button {
-    background-color: rgba(140,102,68,255);;
+    background-color: rgba(140,102,68,255);
     border: none;
-    border-radius: 50%;          
-    width: 24px;                  
-    height: 24px;                 
-    font-size: 14px;              
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
     color: white;
     cursor: pointer;
     display: flex;
     align-items: center;
-    justify-content: center;      
+    justify-content: center;
     transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.2); 
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
 }
 
 .classic_button:hover {
-    background-color: #ff5252;   
+    background-color: #ff5252;
     transform: scale(1.1);
-    box-shadow: 0 3px 6px rgba(0,0,0,0.3); 
+    box-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
+
+/* Ei-klassisen (neliömäisen) napin tyyli */
 .not_classic_button {
-    background-color: rgba(128, 128, 128, 0.5); 
-    color: white;                                
+    background-color: rgba(128, 128, 128, 0.5);
+    color: white;
     border: none;
-    border-radius: 8px;                          
-    padding: 6px 12px;                         
+    border-radius: 8px;
+    padding: 6px 12px;
     position: absolute;
     cursor: pointer;
     font-size: 14px;
     display: flex;
     align-items: center;
-    justify-content: center;                    
+    justify-content: center;
     transition: background-color 0.2s, transform 0.2s;
 }
 
 .not_classic_button:hover {
-    background-color: rgba(128, 128, 128, 0.7); 
-    transform: scale(1.05);                      
+    background-color: rgba(128, 128, 128, 0.7);
+    transform: scale(1.05);
 }
 
+/* Sivun footerin tyyli */
 .footer{
     position: absolute;
     top: 1100px;
@@ -265,13 +269,14 @@
     padding: 2px;
 }
 
+/* Virheilmoituksen/ilmoitusalueen tyyli */
 .find_problem{
     background-color: white;
     border-radius: 8px;
     margin: 5px;
 }
 
+/* Paneeli, mahdollistaa piilottamisen kun sisältö menee yli */
 .panel {
     overflow: hidden;
 }
-
