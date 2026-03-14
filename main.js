@@ -755,7 +755,6 @@ meme_cat.addEventListener("mouseleave", () => {
     gif.style.display = "none";
 });
 
-// Sulje nappi DIV:lle, jossa on kissa
 const meme_button = document.getElementById("meme_button");
 if (meme_button) {
     meme_button.onclick = () => {
@@ -763,7 +762,7 @@ if (meme_button) {
         document.getElementById("meme_cat").style.display = "none";
     };
 }
-// Sulkee vasemman paneelin kaikilla nappuloilla
+
 const close_button_all = document.getElementById("close_button_all");
 if (close_button_all) {
     close_button_all.onclick = () => {
@@ -771,22 +770,116 @@ if (close_button_all) {
         document.getElementById("left-panel").style.display = "none";
     };
 }
-// Näyttää vasemman paneelin, kun nappia painetaan
+
 const show_left_panel = document.getElementById("show_left_panel");
 if (show_left_panel) {
     show_left_panel.onclick = () => {
         document.getElementById("left-panel").style.display = "block";
     };
 }
-// Näyttää overlayn ja kameran hallintapaneelit, kun sivu latautuu
+
 window.onload = function() {
     document.getElementById("controls_overlay").style.display = "block";
     document.getElementById("controls_camera").style.display = "block";
 };
-// Sulkee overlayn ja kameran hallintapaneelit, kun sulkunappia painetaan
+
 document.getElementById("close_for_controls").onclick = function() {
     document.getElementById("controls_overlay").style.display = "none";
     document.getElementById("controls_camera").style.display = "none";
 };
+const quizToggleBtn = document.getElementById("quiz_toggle_button");
+const quizPanel = document.getElementById("quiz_panel");
+const quizCloseBtn = document.getElementById("quiz_close_button");
+
+const quizData = [
+  {
+    options: ["Reisiluu", "Sääriluu", "Olkaluu", "Kyynärluu"],
+    answer: 0,
+    image: "image/Reisiluu.png"
+  },
+  {
+    options: ["Otsaluu", "Päälaenluu", "Takaraivoluu", "Ohimoluu"],
+    answer: 0,
+    image: "image/Otsaluu.png"
+  },
+  {
+    options: ["Olkaluu", "Sormien luut", "Lantionluut", "Rintalasta"],
+    answer: 0,
+    image: "image/Olkaluu.png"
+  }
+];
+
+let currentQuiz = 0;
+let quizScore = 0;
+
+const quizImage = document.getElementById("quiz_image");
+const quizOptionsDiv = document.getElementById("quiz_options");
+const quizResult = document.getElementById("quiz_result");
+const quizScoreP = document.getElementById("quiz_score");
+const quizNextBtn = document.getElementById("quiz_next");
+
+function loadQuestion() {
+  quizResult.innerText = "";
+  quizScoreP.innerText = `Score: ${quizScore}`;
+
+  const q = quizData[currentQuiz];
+  
+  quizImage.src = q.image;
+  quizImage.style.display = "block";
+
+  quizOptionsDiv.innerHTML = "";
+
+  q.options.forEach((opt, index) => {
+    const btn = document.createElement("div");
+    btn.className = "quiz_option";
+    btn.innerText = opt;
+    btn.onclick = () => checkAnswer(index);
+    quizOptionsDiv.appendChild(btn);
+  });
+
+  quizNextBtn.style.display = "none";
+  quizNextBtn.disabled = false;
+}
+
+function checkAnswer(selected) {
+  const q = quizData[currentQuiz];
+  if(selected === q.answer){
+    quizResult.innerText = " Oikein!";
+    quizScore++;
+  } else {
+    quizResult.innerText = ` Väärin! Oikea vastaus: ${q.options[q.answer]}`;
+  }
+  quizScoreP.innerText = `Score: ${quizScore}`;
+  
+  quizNextBtn.style.display = "inline-block";
+
+  Array.from(quizOptionsDiv.children).forEach(btn => {
+    btn.onclick = null;
+  });
+}
+
+quizNextBtn.onclick = () => {
+  currentQuiz++;
+  if(currentQuiz >= quizData.length){
+    quizResult.innerText = `Peli päättynyt! Pistemäärä: ${quizScore}`;
+    quizOptionsDiv.innerHTML = "";
+    quizImage.style.display = "none";
+    quizNextBtn.style.display = "none";
+  } else {
+    loadQuestion();
+  }
+};
+
+quizToggleBtn.onclick = () => {
+  quizPanel.style.display = "block";
+};
 
 
+quizCloseBtn.onclick = () => {
+  quizPanel.style.display = "none";
+  currentQuiz = 0;
+  quizScore = 0;
+  loadQuestion();
+};
+
+loadQuestion();
