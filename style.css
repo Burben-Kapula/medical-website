@@ -280,3 +280,72 @@ html, body {
 .panel {
     overflow: hidden;
 }
+#quiz_panel {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.95);
+  z-index: 1000;
+  padding: 40px 20px 20px 20px;
+  box-sizing: border-box;
+  text-align: center;
+  overflow-y: auto;
+}
+
+#quiz_image {
+  max-width: 300px;
+  margin: 20px auto;
+  display: block;
+}
+
+#quiz_options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.quiz_option {
+  padding: 12px;
+  background: #0288d1;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s;
+}
+
+.quiz_option:hover {
+  background: #0277bd;
+}
+
+
+#quiz_panel.hidden {
+  display: none !important;
+}
+
+#quiz_close_button {
+  background-color: rgba(140,102,68,1);
+  border: none;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  font-size: 20px;
+  color: white;
+  cursor: pointer;
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1010;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+}
+
+#quiz_close_button:hover {
+  background-color: #ff5252;
+}

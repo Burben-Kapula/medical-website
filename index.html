@@ -104,7 +104,6 @@
     <div class="panel">Jalkaterän luut <button id="Jalkateränluut"></button></div>
 </div>
 
-<!-- Värittämisen napit vasemmassa alakulmassa -->
 <div id="color_buttons" style="position: fixed; bottom: 50px; left: 10px; display: flex; gap: 5px;">
     <button class="color-btn" data-color="#9C7659"></button>
     <button class="color-btn" data-color="#3E2C23"></button>
@@ -114,7 +113,7 @@
     <button class="color-btn" data-color="#000000"></button>
 </div>
 
-<!-- Kielivalitsin alasivupalkissa -->
+
 <select id="languageSelect" style="position:fixed; bottom:10px; left:10px; padding:5px 10px;
 border-radius:5px; cursor:pointer; box-shadow:1px 1px 5px rgba(0,0,0,0.2);">
     <option value="fi">Finnish</option>
@@ -126,7 +125,7 @@ border-radius:5px; cursor:pointer; box-shadow:1px 1px 5px rgba(0,0,0,0.2);">
     <option value="ar">Arabic</option>
 </select>
 
-<!-- Kameran ohjeet - Overlay ja sulku -->
+
 <div id="controls_overlay">
     <div id ="controls_camera" class="controls_camera">
         <p class="text_controlls">Hold Shift + Left Mouse Button to move the camera</p>
@@ -136,7 +135,7 @@ border-radius:5px; cursor:pointer; box-shadow:1px 1px 5px rgba(0,0,0,0.2);">
     </div>
 </div>
 
-<!-- Sivun alareunan yhteystiedot -->
+
 <div class="footer" id="footer">
     <footer>
         <p class="text_footer">If you encounter any issues, please contact us by email:</p>
@@ -144,7 +143,18 @@ border-radius:5px; cursor:pointer; box-shadow:1px 1px 5px rgba(0,0,0,0.2);">
     </footer>
 </div>
 
-<!-- JavaScript-päämoduuli -->
+<button id="quiz_toggle_button" class="not_classic_button" style="position: fixed; bottom: 90px; left: 10px; z-index: 20;">
+  Quiz
+</button>
+
+<div id="quiz_panel" style="display:none;">
+  <button id="quiz_close_button" class="classic_button" style="position: fixed; top: 20px; right: 20px; z-index: 1001;">X</button>
+  <img id="quiz_image" alt="Quiz Image" />
+  <div id="quiz_options"></div>
+  <p id="quiz_result"></p>
+  <p id="quiz_score">Score: 0</p>
+  <button id="quiz_next">Next Question</button>
+</div>
 <script type="module" src="main.js"></script>
 </body>
 </html>
