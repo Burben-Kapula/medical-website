@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Robot Bobby Threejs Template</title>
+    <title>MedAnatomy 3D - Interactive Human Skeleton</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Google Fonts - Avataan fontti nähtäväksi oikein selaimessa -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
-    <!-- Three.js ja esimerkit - Modulikirjaston tuonti -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script type="importmap">
         {
           "imports": {
@@ -19,142 +17,146 @@
         }
     </script>
 </head>
-
 <body>
-<!-- Tietopaneeli oikeassa reunassa -->
-<div id="info_panel" aria-label="Tiedot" class="info" >
-    <p id="text"></p>
-    <button  id="close_button" class="classic_button">X</button>
-</div>
-
-<!-- Vasemman laidan infopaneeli - Credits ja info -->
-<div id="left-panel" aria-label="Lisätiedot"
-     style="
-           position: fixed;
-           top: 0;
-           left: 0;
-           width: 320px;
-           height: 220px;
-           background: #ffffff;
-           display: block;
-           box-shadow: 2px 0 8px rgba(0,0,0,0.2);
-           padding: 20px;
-           overflow-y: auto;
-           z-index: 5;
-           font-family: Arial, sans-serif;
-           font-size: 14px;
-           line-height: 1.4;
-         ">
-    <button id="close_button_all" class="classic_button">X</button>
-    <!-- Sivun tekijöiden lista -->
-    <p><strong>Website Creators:</strong> Maksym Kapula, Maryna Kapula, Amaliia Paasonen</p>
-    <p><strong>Skeleton Model:</strong> Downloaded from
-        <a href="https://www.artec3d.com/3d-models/human-skeleton-hd">Human Skeleton HD</a>
-    </p>
-    <p><strong>Bone Information:</strong> Sourced from Wikipedia</p>
-
-    <!-- Meemikissa-nappi -->
-    <div class="meme_button_div" id="meme_button_div">
-        <button id="meme_button" class="meme_button"></button>
-    </div>
-    <!-- Kissan kehys -->
-    <div class ="border_but_div" id="border_but_div">
-        <div id="border" class = "border">
+    <!-- Header Bar -->
+    <div class="header-bar">
+        <div class="logo">
+            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
+            </svg>
+            MedAnatomy <span>3D</span>
+        </div>
+        <div class="header-actions">
+            <select id="languageSelect" aria-label="Select language">
+                <option value="fi">Finnish</option>
+                <option value="ua">Ukrainian</option>
+                <option value="en" selected>English</option>
+                <option value="sv">Swedish</option>
+                <option value="de">German</option>
+                <option value="fa">Persian</option>
+                <option value="ar">Arabic</option>
+            </select>
         </div>
     </div>
 
-    <!-- Animoitu meemi-kissa GIF -->
-    <div class="meme_cat" id="meme_cat">
-        <img id="gif" src="image/maxwell-the-cat.gif" alt="cute_cat_gif" class="gif">
+    <!-- Info Panel - Right Side -->
+    <div id="info_panel" aria-label="Bone Information" class="info">
+        <button id="close_button" class="classic_button" aria-label="Close panel">&times;</button>
+        <div id="text"></div>
     </div>
 
-</div>
-<!-- Painike avaa Credits-paneelin uudelleen -->
-<button id = "show_left_panel" class = "not_classic_button">Credits</button>
+    <!-- Left Panel - Credits -->
+    <div id="left-panel" aria-label="Credits and Info">
+        <button id="close_button_all" class="classic_button" aria-label="Close credits">&times;</button>
+        <h3>About This Project</h3>
+        <p><strong>Website Creators:</strong> Maksym Kapula, Maryna Kapula, Amaliia Paasonen</p>
+        <p><strong>Skeleton Model:</strong> Downloaded from
+            <a href="https://www.artec3d.com/3d-models/human-skeleton-hd" target="_blank" rel="noopener">Human Skeleton HD</a>
+        </p>
+        <p><strong>Bone Information:</strong> Sourced from Wikipedia</p>
+        <p><strong>Supported Languages:</strong> Finnish, Ukrainian, English, Swedish, German, Persian, Arabic</p>
 
-<!-- Vasemmanpuoleinen sarake: Ylävartalon luut ja napit -->
-<div id="left-column" style="position:absolute; top:58px; left:66.5%; display:flex; flex-direction:column; gap:2px;">
-    <div class="panel">Otsaluu <button id="Otsaluu"></button></div>
-    <div class="panel">Päälaenluu <button id="Päälaenluu"></button></div>
-    <div class="panel">Ohimoluu <button id="Ohimoluu"></button></div>
-    <div class="panel">Takaraivoluu <button id="Takaraivoluu"></button></div>
-    <div class="panel">Yläleukaluu <button id="Yläleukaluu"></button></div>
-    <div class="panel">Alaleukaluu <button id="Alaleukaluu"></button></div>
-    <div class="panel">Kaulanikamat <button id="Kaulanikama"></button></div>
-    <div class="panel">Rintanikamat <button id="Rintanikama"></button></div>
-    <div class="panel">Lannerankat <button id="Lanneranka"></button></div>
-    <div class="panel">Ristiluu <button id="Ristiluu"></button></div>
-    <div class="panel">Rintalasta <button id="Rintalasta"></button></div>
-    <div class="panel">Kylkiluut <button id="Kylkiluu"></button></div>
-</div>
-
-<!-- Oikeanpuoleinen sarake: raajojen luut ja napit -->
-<div id="right-column" style="position:absolute; top:490px; left:66.5%;  display:flex; flex-direction:column; gap:2px;">
-    <div class="panel">Solisluu <button id="Solisluu"></button></div>
-    <div class="panel">Lapaluu <button id="Lapaluu"></button></div>
-    <div class="panel">Olkaluu <button id="Olkaluu"></button></div>
-    <div class="panel">Värttinäluu <button id="Värttinäluu"></button></div>
-    <div class="panel">Kyynärluu <button id="Kyynärluu"></button></div>
-    <div class="panel">Sormien luut <button id="Sormienluut"></button></div>
-    <div class="panel">Lonkkaluu<button id="Lantionluut"></button></div>
-    <div class="panel">Reisiluu <button id="Reisiluu"></button></div>
-    <div class="panel">Polvilumpio <button id="Polvilumpio"></button></div>
-    <div class="panel">Sääriluu <button id="Sääriluu"></button></div>
-    <div class="panel">Pohjeluu <button id="Pohjeluu"></button></div>
-    <div class="panel">Jalkaterän luut <button id="Jalkateränluut"></button></div>
-</div>
-
-<div id="color_buttons" style="position: fixed; bottom: 50px; left: 10px; display: flex; gap: 5px;">
-    <button class="color-btn" data-color="#9C7659"></button>
-    <button class="color-btn" data-color="#3E2C23"></button>
-    <button class="color-btn" data-color="#1B3B1A"></button>
-    <button class="color-btn" data-color="#0D1B2A"></button>
-    <button class="color-btn" data-color="#1A1A1A"></button>
-    <button class="color-btn" data-color="#000000"></button>
-</div>
-
-
-<select id="languageSelect" style="position:fixed; bottom:10px; left:10px; padding:5px 10px;
-border-radius:5px; cursor:pointer; box-shadow:1px 1px 5px rgba(0,0,0,0.2);">
-    <option value="fi">Finnish</option>
-    <option value="ua">Ukrainian</option>
-    <option value="en">English</option>
-    <option value="sv">Swedish</option>
-    <option value="de">German</option>
-    <option value="fa">Persian</option>
-    <option value="ar">Arabic</option>
-</select>
-
-
-<div id="controls_overlay">
-    <div id ="controls_camera" class="controls_camera">
-        <p class="text_controlls">Hold Shift + Left Mouse Button to move the camera</p>
-        <p class="text_controlls">Use the Scroll Wheel to zoom in and out</p>
-        <p class="text_controlls">Hold the Left Mouse Button to rotate the view</p>
-        <button class="close_for_controls" id="close_for_controls">X</button>
+        <!-- Meme Cat Easter Egg -->
+        <div class="meme_button_div" id="meme_button_div">
+            <button id="meme_button" class="meme_button" aria-label="Toggle cat"></button>
+        </div>
+        <div class="border_but_div" id="border_but_div">
+            <div id="border" class="border"></div>
+        </div>
+        <div class="meme_cat" id="meme_cat">
+            <img id="gif" src="image/maxwell-the-cat.gif" alt="cute_cat_gif" class="gif">
+        </div>
     </div>
-</div>
 
+    <!-- Show Credits Button -->
+    <button id="show_left_panel" class="not_classic_button" aria-label="Show credits">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
+        About
+    </button>
 
-<div class="footer" id="footer">
-    <footer>
-        <p class="text_footer">If you encounter any issues, please contact us by email:</p>
-        <p><span style="user-select: all; cursor: text;">maksym.kapula@gmail.com</span></p>
-    </footer>
-</div>
+    <!-- Left Column - Axial Skeleton -->
+    <div id="left-column" aria-label="Axial skeleton bones">
+        <div class="panel">Otsaluu <button id="Otsaluu" aria-label="Frontal bone"></button></div>
+        <div class="panel">Päälaenluu <button id="Päälaenluu" aria-label="Parietal bone"></button></div>
+        <div class="panel">Ohimoluu <button id="Ohimoluu" aria-label="Temporal bone"></button></div>
+        <div class="panel">Takaraivoluu <button id="Takaraivoluu" aria-label="Occipital bone"></button></div>
+        <div class="panel">Yläleukaluu <button id="Yläleukaluu" aria-label="Maxilla"></button></div>
+        <div class="panel">Alaleukaluu <button id="Alaleukaluu" aria-label="Mandible"></button></div>
+        <div class="panel">Kaulanikama <button id="Kaulanikama" aria-label="Cervical vertebrae"></button></div>
+        <div class="panel">Rintanikama <button id="Rintanikama" aria-label="Thoracic vertebrae"></button></div>
+        <div class="panel">Lanneranka <button id="Lanneranka" aria-label="Lumbar vertebrae"></button></div>
+        <div class="panel">Ristiluu <button id="Ristiluu" aria-label="Sacrum"></button></div>
+        <div class="panel">Rintalasta <button id="Rintalasta" aria-label="Sternum"></button></div>
+        <div class="panel">Kylkiluu <button id="Kylkiluu" aria-label="Rib"></button></div>
+    </div>
 
-<button id="quiz_toggle_button" class="not_classic_button" style="position: fixed; bottom: 90px; left: 10px; z-index: 20;">
-  Quiz
-</button>
+    <!-- Right Column - Appendicular Skeleton -->
+    <div id="right-column" aria-label="Appendicular skeleton bones">
+        <div class="panel">Solisluu <button id="Solisluu" aria-label="Clavicle"></button></div>
+        <div class="panel">Lapaluu <button id="Lapaluu" aria-label="Scapula"></button></div>
+        <div class="panel">Olkaluu <button id="Olkaluu" aria-label="Humerus"></button></div>
+        <div class="panel">Värttinäluu <button id="Värttinäluu" aria-label="Radius"></button></div>
+        <div class="panel">Kyynärluu <button id="Kyynärluu" aria-label="Ulna"></button></div>
+        <div class="panel">Sormien luut <button id="Sormienluut" aria-label="Finger bones"></button></div>
+        <div class="panel">Lantionluut <button id="Lantionluut" aria-label="Pelvic bone"></button></div>
+        <div class="panel">Reisiluu <button id="Reisiluu" aria-label="Femur"></button></div>
+        <div class="panel">Polvilumpio <button id="Polvilumpio" aria-label="Patella"></button></div>
+        <div class="panel">Sääriluu <button id="Sääriluu" aria-label="Tibia"></button></div>
+        <div class="panel">Pohjeluu <button id="Pohjeluu" aria-label="Fibula"></button></div>
+        <div class="panel">Jalkaterän luut <button id="Jalkateränluut" aria-label="Foot bones"></button></div>
+    </div>
 
-<div id="quiz_panel" style="display:none;">
-  <button id="quiz_close_button" class="classic_button" style="position: fixed; top: 20px; right: 20px; z-index: 1001;">X</button>
-  <img id="quiz_image" alt="Quiz Image" />
-  <div id="quiz_options"></div>
-  <p id="quiz_result"></p>
-  <p id="quiz_score">Score: 0</p>
-  <button id="quiz_next">Next Question</button>
-</div>
-<script type="module" src="main.js"></script>
+    <!-- Bottom Toolbar -->
+    <div class="bottom-toolbar">
+        <!-- Background Color Buttons -->
+        <div id="color_buttons" aria-label="Background colors">
+            <button class="color-btn" data-color="#9C7659" aria-label="Bone color" title="Bone"></button>
+            <button class="color-btn" data-color="#3E2C23" aria-label="Dark brown" title="Dark Brown"></button>
+            <button class="color-btn" data-color="#1B3B1A" aria-label="Dark green" title="Dark Green"></button>
+            <button class="color-btn" data-color="#0D1B2A" aria-label="Dark blue" title="Dark Blue"></button>
+            <button class="color-btn" data-color="#1A1A1A" aria-label="Dark gray" title="Dark Gray"></button>
+            <button class="color-btn" data-color="#000000" aria-label="Black" title="Black"></button>
+        </div>
+    </div>
+
+    <!-- Camera Controls Overlay -->
+    <div id="controls_overlay" aria-hidden="true">
+        <div id="controls_camera" class="controls_camera" role="dialog" aria-label="Camera Controls">
+            <h3 style="margin:0 0 16px 0; color:var(--primary-dark); font-size:1.1rem;">Navigation Controls</h3>
+            <p class="text_controlls">Hold Shift + Left Mouse Button to pan camera</p>
+            <p class="text_controlls">Use Scroll Wheel to zoom in and out</p>
+            <p class="text_controlls">Hold Left Mouse Button to rotate view</p>
+            <p class="text_controlls">Touch: Drag to rotate, Pinch to zoom, Two fingers to pan</p>
+            <button class="close_for_controls" id="close_for_controls" aria-label="Close controls">&times;</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer" id="footer">
+        <footer>
+            <p>Contact: <span>maksym.kapula@gmail.com</span></p>
+        </footer>
+    </div>
+
+    <!-- Quiz Toggle -->
+    <button id="quiz_toggle_button" class="not_classic_button" aria-label="Start anatomy quiz">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>
+        Quiz
+    </button>
+
+    <!-- Quiz Panel -->
+    <div id="quiz_panel" aria-hidden="true" role="dialog" aria-label="Anatomy Quiz">
+        <button id="quiz_close_button" aria-label="Close quiz">&times;</button>
+        <div class="quiz-content">
+            <h2>Anatomy Quiz</h2>
+            <img id="quiz_image" alt="Quiz bone image" />
+            <div id="quiz_options" role="group" aria-label="Answer options"></div>
+            <p id="quiz_result" aria-live="polite"></p>
+            <p id="quiz_score">Score: 0</p>
+            <button id="quiz_next" disabled>Next Question</button>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
 </body>
 </html>
