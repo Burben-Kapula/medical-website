@@ -6,15 +6,15 @@ type BoneTooltipProps = {
   sublabel?: string;
 };
 
-/** Floating label that follows the pointer. Tracks the pointer itself so the rest of the app doesn't re-render on every mouse move. */
+/** Small label that follows the mouse. It tracks the pointer itself so the rest of the app doesn't re-render on every move. */
 export default function BoneTooltip({ label, sublabel }: BoneTooltipProps) {
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const move = (e: PointerEvent) => {
       const el = ref.current;
-      if (!el) return;
-      const pad = 16;
+      if (!el || e.pointerType === "touch") return;
+      const pad = 14;
       const { offsetWidth: w, offsetHeight: h } = el;
       let x = e.clientX + pad;
       let y = e.clientY + pad;
@@ -31,15 +31,12 @@ export default function BoneTooltip({ label, sublabel }: BoneTooltipProps) {
       ref={ref}
       role="tooltip"
       aria-hidden={!label}
-      className={`pointer-events-none fixed left-0 top-0 z-50 max-w-xs rounded-lg border border-accent-500/30 bg-ink-900/90 px-3 py-2 shadow-xl shadow-black/40 backdrop-blur-md transition-opacity duration-100 ${
-        label ? "opacity-100" : "opacity-0"
+      className={`pointer-events-none fixed left-0 top-0 z-50 max-w-xs rounded-md bg-fg px-2.5 py-1.5 text-white shadow-md ${
+        label ? "visible" : "invisible"
       }`}
     >
-      <div className="flex items-center gap-2">
-        <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-accent-400 shadow-[0_0_8px] shadow-accent-400" />
-        <span className="text-sm font-medium text-white">{label}</span>
-      </div>
-      {sublabel && <div className="mt-0.5 ps-3.5 font-serif text-xs italic text-ink-300">{sublabel}</div>}
+      <div className="text-sm font-medium">{label}</div>
+      {sublabel && <div className="text-xs italic text-white/70">{sublabel}</div>}
     </div>
   );
 }

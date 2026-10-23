@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { getBone, type BoneInfo } from "../data/bones";
 import type { Lang, UiStrings } from "../data/i18n";
 import { localizedText, type SkeletonEntry } from "../lib/skeleton";
+import { CloseButton } from "./BoneInfoPanel";
 
 const QUESTION_COUNT = 10;
 
@@ -69,48 +70,38 @@ export default function QuizPanel({ entries, lang, strings, onHighlight, onExit 
     if (id === q.answerId) setScore((s) => s + 1);
   };
 
+  const progress = Math.min(current + (picked ? 1 : 0), questions.length) / questions.length;
+
   return (
-    <section className="animate-panel-in flex h-full flex-col" aria-labelledby="quiz-title">
-      <header className="flex items-center gap-3 border-b border-white/5 px-5 py-4">
+    <section className="flex min-h-0 flex-1 flex-col" aria-labelledby="quiz-title">
+      <header className="flex items-center gap-3 border-b border-line px-5 pb-3 pt-2 md:pt-4">
         <div className="flex-1">
-          <h2 id="quiz-title" className="text-base font-semibold text-white">
+          <h2 id="quiz-title" className="text-base font-semibold text-fg">
             {strings.quizTitle}
           </h2>
-          <p className="text-xs text-ink-400">
-            {strings.quizScore}: <span className="tabular-nums text-ink-200">{score}</span> /{" "}
-            {questions.length}
+          <p className="text-sm text-muted">
+            {finished ? questions.length : current + 1} / {questions.length} · {strings.quizScore}:{" "}
+            <span className="tabular-nums">{score}</span>
           </p>
         </div>
-        <button
-          type="button"
-          onClick={onExit}
-          aria-label={strings.close}
-          className="grid h-9 w-9 place-items-center rounded-lg text-ink-300 transition hover:bg-white/5 hover:text-white"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-            <path d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        </button>
+        <CloseButton label={strings.close} onClick={onExit} />
       </header>
 
-      <div className="h-1 bg-ink-800">
-        <div
-          className="h-full bg-accent-500 transition-[width] duration-500"
-          style={{ width: `${(Math.min(current + (picked ? 1 : 0), questions.length) / questions.length) * 100}%` }}
-        />
+      <div className="h-1 bg-sunken">
+        <div className="h-full bg-accent transition-[width] duration-300" style={{ width: `${progress * 100}%` }} />
       </div>
 
-      <div className="scroll-thin flex-1 overflow-y-auto px-5 py-5">
+      <div className="scroll-thin min-h-0 flex-1 overflow-y-auto px-5 py-4">
         {finished ? (
-          <div className="flex flex-col items-center py-8 text-center">
-            <div className="grid h-20 w-20 place-items-center rounded-full border-4 border-accent-500/30 text-2xl font-semibold tabular-nums text-white">
+          <div className="py-8 text-center">
+            <p className="text-4xl font-semibold tabular-nums text-fg">
               {score}/{questions.length}
-            </div>
-            <p className="mt-4 text-lg font-semibold text-white">{strings.quizFinished}</p>
+            </p>
+            <p className="mt-2 text-muted">{strings.quizFinished}</p>
             <button
               type="button"
               onClick={restart}
-              className="mt-6 rounded-lg bg-accent-600 px-5 py-2.5 text-sm font-medium text-white hover:bg-accent-500"
+              className="mt-6 h-11 rounded-md bg-accent px-5 text-sm font-medium text-white hover:bg-accent-dark"
             >
               {strings.quizRestart}
             </button>
@@ -118,31 +109,28 @@ export default function QuizPanel({ entries, lang, strings, onHighlight, onExit 
         ) : (
           q && (
             <>
-              <p className="text-xs font-medium uppercase tracking-[0.12em] text-ink-400">
-                {current + 1} / {questions.length}
-              </p>
-              <p className="mt-2 text-[15px] text-ink-100">{strings.quizPrompt}</p>
-              <div className="mt-4 grid gap-2" role="group">
+              <p className="text-[15px] text-fg">{strings.quizPrompt}</p>
+              <div className="mt-3 grid gap-2" role="group">
                 {q.options.map((opt) => {
                   const isAnswer = opt.id === q.answerId;
                   const isPicked = opt.id === picked;
                   const local = localizedText(lang, opt.id);
-                  let tone = "border-white/8 bg-ink-800/60 hover:border-accent-500/50 hover:bg-ink-800";
-                  if (picked && isAnswer) tone = "border-emerald-400/60 bg-emerald-500/15";
-                  else if (picked && isPicked) tone = "border-red-400/60 bg-red-500/15";
-                  else if (picked) tone = "border-white/5 bg-ink-800/30 opacity-60";
+                  let tone = "border-line hover:border-accent hover:bg-accent-soft";
+                  if (picked && isAnswer) tone = "border-ok bg-ok-soft";
+                  else if (picked && isPicked) tone = "border-bad bg-bad-soft";
+                  else if (picked) tone = "border-line opacity-50";
                   return (
                     <button
                       key={opt.id}
                       type="button"
                       disabled={!!picked}
                       onClick={() => answer(opt.id)}
-                      className={`rounded-xl border px-4 py-3 text-start transition ${tone}`}
+                      className={`min-h-12 rounded-md border px-4 py-2.5 text-start transition-colors ${tone}`}
                     >
-                      <span className="block text-sm font-medium text-white">{opt.name}</span>
-                      <span className="block font-serif text-xs italic text-ink-300">
-                        {opt.latinName}
-                        {local && lang !== "en" && <span className="ms-2 not-italic font-sans text-ink-400">{local.name}</span>}
+                      <span className="block text-[15px] font-medium text-fg">{opt.name}</span>
+                      <span className="block text-sm text-muted">
+                        <i>{opt.latinName}</i>
+                        {local && <span className="ms-2">{local.name}</span>}
                       </span>
                     </button>
                   );
@@ -150,20 +138,20 @@ export default function QuizPanel({ entries, lang, strings, onHighlight, onExit 
               </div>
 
               {picked && (
-                <div className="mt-4 rounded-xl border border-white/5 bg-ink-800/50 p-4" aria-live="polite">
-                  <p className={`text-sm font-semibold ${picked === q.answerId ? "text-emerald-300" : "text-red-300"}`}>
+                <div className="mt-4" aria-live="polite">
+                  <p className={`font-semibold ${picked === q.answerId ? "text-ok" : "text-bad"}`}>
                     {picked === q.answerId
                       ? strings.quizCorrect
                       : `${strings.quizWrong} ${getBone(q.answerId)?.name}`}
                   </p>
-                  <p className="mt-1 text-sm leading-relaxed text-ink-300">{getBone(q.answerId)?.function}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-muted">{getBone(q.answerId)?.function}</p>
                   <button
                     type="button"
                     onClick={() => {
                       setCurrent((c) => c + 1);
                       setPicked(null);
                     }}
-                    className="mt-3 rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white hover:bg-accent-500"
+                    className="mt-3 h-11 w-full rounded-md bg-accent px-4 text-sm font-medium text-white hover:bg-accent-dark md:w-auto"
                   >
                     {strings.quizNext}
                   </button>

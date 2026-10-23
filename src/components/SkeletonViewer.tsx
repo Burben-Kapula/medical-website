@@ -56,8 +56,7 @@ export default function SkeletonViewer(props: SkeletonViewerProps) {
   const [attempt, setAttempt] = useState(0);
 
   return (
-    <div className="viewer-backdrop relative h-full w-full overflow-hidden">
-      <div className="viewer-grid pointer-events-none absolute inset-0" aria-hidden />
+    <div className="relative h-full w-full overflow-hidden bg-viewer">
 
       <ViewerErrorBoundary
         key={attempt}
@@ -106,12 +105,9 @@ export default function SkeletonViewer(props: SkeletonViewerProps) {
 
         {ready && (
           <>
-            <div className="pointer-events-none absolute bottom-3 start-3 hidden flex-wrap gap-1.5 text-[11px] text-ink-300 sm:flex">
+            <div className="pointer-events-none absolute bottom-3 start-3 hidden text-xs text-muted md:block">
               {[strings.hintRotate, strings.hintZoom, strings.hintPan].map((hint) => (
-                <span
-                  key={hint}
-                  className="rounded-full border border-white/5 bg-ink-900/70 px-2.5 py-1 backdrop-blur"
-                >
+                <span key={hint} className="me-3">
                   {hint}
                 </span>
               ))}
@@ -247,7 +243,7 @@ function SkeletonModel({
   };
 
   const handleMove = (e: ThreeEvent<PointerEvent>) => {
-    if (!interactive) return;
+    if (!interactive || e.pointerType === "touch") return;
     e.stopPropagation();
     onHover(pickKey(e.intersections));
   };
@@ -271,7 +267,7 @@ function SkeletonModel({
       <ContactShadows
         position={[0, bounds.min.y - 0.002, 0]}
         scale={2.4}
-        opacity={0.55}
+        opacity={0.3}
         blur={2.6}
         far={0.9}
         resolution={512}
@@ -366,19 +362,11 @@ function LoadingOverlay({ label }: { label: string }) {
   const { progress } = useProgress();
   return (
     <div className="absolute inset-0 grid place-items-center" role="status" aria-live="polite">
-      <div className="flex w-64 flex-col items-center gap-4 text-center">
-        <div className="relative h-12 w-12">
-          <div className="absolute inset-0 rounded-full border-2 border-ink-700" />
-          <div className="absolute inset-0 animate-spin rounded-full border-2 border-transparent border-t-accent-400" />
+      <div className="w-56 text-center">
+        <p className="text-sm text-muted">{label}</p>
+        <div className="mt-3 h-1 overflow-hidden rounded-full bg-line">
+          <div className="h-full bg-accent transition-[width] duration-300" style={{ width: `${Math.max(4, progress)}%` }} />
         </div>
-        <p className="text-sm text-ink-200">{label}</p>
-        <div className="h-1 w-full overflow-hidden rounded-full bg-ink-800">
-          <div
-            className="h-full rounded-full bg-accent-500 transition-[width] duration-300"
-            style={{ width: `${Math.max(4, progress)}%` }}
-          />
-        </div>
-        <span className="text-xs tabular-nums text-ink-400">{Math.round(progress)}%</span>
       </div>
     </div>
   );
@@ -403,16 +391,15 @@ function ViewerButton({
       onClick={onClick}
       disabled={disabled}
       aria-pressed={active}
-      className={`flex items-center gap-2 rounded-lg border px-3 py-2 text-xs font-medium backdrop-blur transition ${
-        active
-          ? "border-accent-500/60 bg-accent-500/20 text-accent-300"
-          : "border-white/8 bg-ink-900/75 text-ink-200 hover:border-white/15 hover:text-white"
-      } disabled:cursor-not-allowed disabled:opacity-40`}
+      aria-label={label}
+      className={`flex h-10 min-w-10 items-center justify-center gap-2 rounded-md border px-2.5 text-sm shadow-sm transition-colors md:h-9 md:px-3 ${
+        active ? "border-accent bg-accent text-white" : "border-line bg-surface text-fg hover:bg-sunken"
+      } disabled:cursor-not-allowed disabled:opacity-50`}
     >
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
         {children}
       </svg>
-      <span>{label}</span>
+      <span className="hidden sm:inline">{label}</span>
     </button>
   );
 }
@@ -436,17 +423,16 @@ class ViewerErrorBoundary extends Component<BoundaryProps, { error: Error | null
     const { strings, onRetry } = this.props;
     return (
       <div className="absolute inset-0 grid place-items-center p-6" role="alert">
-        <div className="max-w-md rounded-2xl border border-red-400/20 bg-ink-850/90 p-6 text-center shadow-2xl">
-          <div className="mx-auto mb-3 grid h-10 w-10 place-items-center rounded-full bg-red-500/15 text-red-300">!</div>
-          <h2 className="text-base font-semibold text-white">{strings.loadErrorTitle}</h2>
-          <p className="mt-2 text-sm text-ink-300">{strings.loadErrorText}</p>
-          <p className="mt-3 break-words rounded-md bg-ink-950/60 px-3 py-2 font-mono text-xs text-red-200/80">
+        <div className="max-w-md rounded-lg border border-line bg-surface p-5 text-center shadow-sm">
+          <h2 className="text-base font-semibold text-bad">{strings.loadErrorTitle}</h2>
+          <p className="mt-2 text-sm text-muted">{strings.loadErrorText}</p>
+          <p className="mt-3 break-words rounded-md bg-sunken px-3 py-2 font-mono text-xs text-muted">
             {error.message}
           </p>
           <button
             type="button"
             onClick={onRetry}
-            className="mt-4 rounded-lg bg-accent-600 px-4 py-2 text-sm font-medium text-white hover:bg-accent-500"
+            className="mt-4 h-10 rounded-md bg-accent px-4 text-sm font-medium text-white hover:bg-accent-dark"
           >
             {strings.retry}
           </button>

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState, type ReactNode } from "react";
 import SkeletonViewer, { type FocusRequest } from "./components/SkeletonViewer";
 import BoneTooltip from "./components/BoneTooltip";
 import BoneInfoPanel from "./components/BoneInfoPanel";
@@ -13,6 +13,7 @@ import modelUrl from "./models/skeleton.glb?url";
 type Mode = "explore" | "quiz";
 
 const LANG_KEY = "medanatomy.lang";
+const isPhone = () => window.matchMedia("(max-width: 767px)").matches;
 
 function initialLang(): Lang {
   try {
@@ -34,6 +35,7 @@ export default function App() {
   const [isolate, setIsolate] = useState(false);
   const [focus, setFocus] = useState<FocusRequest>({ key: null, nonce: 0 });
   const [aboutOpen, setAboutOpen] = useState(false);
+  const [sheetExpanded, setSheetExpanded] = useState(false);
 
   const strings = ui[lang];
   const sideWords = useMemo(() => ({ left: strings.left, right: strings.right }), [strings]);
@@ -72,6 +74,7 @@ export default function App() {
   const select = useCallback(
     (key: string | null, withFocus = false) => {
       setSelectedKey(key);
+      setSheetExpanded(false);
       if (!key) setIsolate(false);
       if (key && withFocus) focusOn(key);
     },
@@ -83,6 +86,7 @@ export default function App() {
     setSelectedKey(null);
     setHoveredKey(null);
     setIsolate(false);
+    setSheetExpanded(false);
   };
 
   const exitQuiz = useCallback(() => {
@@ -119,59 +123,47 @@ export default function App() {
   }, [selectedEntry, index]);
 
   const panelOpen = mode === "quiz" || !!selectedEntry;
+  const search = (
+    <SearchBar items={searchItems} strings={strings} onPick={(k) => select(k, true)} disabled={mode === "quiz"} />
+  );
 
   return (
-    <div className="flex h-full flex-col bg-ink-900">
-      {/* ── Top bar ─────────────────────────────────────────────────────── */}
-      <header className="z-30 border-b border-white/5 bg-ink-900/95 backdrop-blur">
-        <div className="flex h-14 items-center gap-3 px-3 sm:px-5">
-          <div className="flex min-w-0 items-center gap-2.5">
-            <img src="/favicon.svg" alt="" className="h-8 w-8 shrink-0" />
-            <div className="min-w-0 leading-tight">
-              <h1 className="truncate text-[15px] font-semibold text-white">{strings.title}</h1>
-              <p className="hidden truncate text-[11px] text-ink-400 sm:block">MedAnatomy 3D · {strings.subtitle}</p>
+    <div className="flex h-dvh flex-col bg-page">
+      {/* Top bar */}
+      <header className="z-30 border-b border-line bg-surface">
+        <div className="flex h-14 items-center gap-2 px-3 md:gap-4 md:px-5">
+          <div className="flex min-w-0 flex-1 items-center gap-2.5 md:flex-none">
+            <img src="/favicon.svg" alt="" className="h-7 w-7 shrink-0" />
+            <div className="min-w-0">
+              <h1 className="line-clamp-2 text-sm font-semibold leading-tight text-fg md:line-clamp-1 md:text-[15px]">
+                {strings.title}
+              </h1>
+              <p className="hidden text-xs text-faint md:block">MedAnatomy 3D</p>
             </div>
           </div>
 
-          <div className="mx-auto hidden w-full max-w-md md:block">
-            <SearchBar items={searchItems} strings={strings} onPick={(k) => select(k, true)} disabled={mode === "quiz"} />
-          </div>
+          <div className="mx-auto hidden w-full max-w-md md:block">{search}</div>
 
-          <div className="ms-auto flex shrink-0 items-center gap-1.5 md:ms-0">
-            <button
-              type="button"
+          <nav className="flex shrink-0 items-center gap-1.5">
+            <HeaderButton
+              label={mode === "quiz" ? strings.close : strings.quiz}
               onClick={mode === "quiz" ? exitQuiz : startQuiz}
               disabled={!index}
-              aria-pressed={mode === "quiz"}
-              className={`flex h-9 items-center gap-1.5 rounded-lg px-3 text-sm font-medium transition disabled:opacity-40 ${
-                mode === "quiz"
-                  ? "bg-accent-500/20 text-accent-300 ring-1 ring-accent-500/50"
-                  : "text-ink-200 hover:bg-white/5 hover:text-white"
-              }`}
+              active={mode === "quiz"}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                <path d="M9 11l3 3L22 4" />
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
-              </svg>
-              <span className="hidden sm:inline">{strings.quiz}</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setAboutOpen(true)}
-              className="flex h-9 items-center gap-1.5 rounded-lg px-3 text-sm font-medium text-ink-200 transition hover:bg-white/5 hover:text-white"
-            >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-                <circle cx="12" cy="12" r="9" />
-                <path d="M12 16v-4M12 8h.01" />
-              </svg>
-              <span className="hidden sm:inline">{strings.about}</span>
-            </button>
+              <path d="M9 11l3 3L22 4" />
+              <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
+            </HeaderButton>
+            <HeaderButton label={strings.about} onClick={() => setAboutOpen(true)}>
+              <circle cx="12" cy="12" r="9" />
+              <path d="M12 16v-4M12 8h.01" />
+            </HeaderButton>
             <label className="relative">
               <span className="sr-only">{strings.language}</span>
               <select
                 value={lang}
                 onChange={(e) => setLang(e.target.value as Lang)}
-                className="h-9 cursor-pointer appearance-none rounded-lg border border-white/8 bg-ink-850 ps-3 pe-7 text-sm text-ink-100 outline-none focus:border-accent-500/60"
+                className="h-10 w-[88px] cursor-pointer appearance-none truncate rounded-md border border-line bg-surface ps-2.5 pe-6 text-sm text-fg outline-none hover:bg-sunken focus:border-accent md:h-9 md:w-auto"
               >
                 {languages.map((l) => (
                   <option key={l.code} value={l.code}>
@@ -179,20 +171,18 @@ export default function App() {
                   </option>
                 ))}
               </select>
-              <svg className="pointer-events-none absolute end-2 top-1/2 -translate-y-1/2 text-ink-400" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
+              <svg className="pointer-events-none absolute end-2 top-1/2 -translate-y-1/2 text-faint" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" aria-hidden>
                 <path d="m6 9 6 6 6-6" />
               </svg>
             </label>
-          </div>
+          </nav>
         </div>
-        <div className="px-3 pb-3 md:hidden">
-          <SearchBar items={searchItems} strings={strings} onPick={(k) => select(k, true)} disabled={mode === "quiz"} />
-        </div>
+        <div className="px-3 pb-3 md:hidden">{search}</div>
       </header>
 
-      {/* ── Viewer + panel ──────────────────────────────────────────────── */}
+      {/* Viewer + panel */}
       <main className="relative flex min-h-0 flex-1 flex-col md:flex-row">
-        <div className="relative min-w-0 flex-1">
+        <div className="relative min-h-0 min-w-0 flex-1">
           <SkeletonViewer
             modelUrl={modelUrl}
             strings={strings}
@@ -203,7 +193,7 @@ export default function App() {
             focus={focus}
             onIndex={setIndex}
             onHover={setHoveredKey}
-            onSelect={(key) => select(key, window.matchMedia("(max-width: 767px)").matches)}
+            onSelect={(key) => select(key, isPhone())}
             onToggleIsolate={() => setIsolate((v) => !v)}
             onResetView={() => focusOn(null)}
           />
@@ -211,9 +201,20 @@ export default function App() {
 
         {panelOpen && (
           <aside
-            className="z-20 -mt-4 flex h-[55%] shrink-0 flex-col overflow-hidden rounded-t-2xl border-t border-white/8 bg-ink-850 shadow-[0_-20px_40px_rgba(0,0,0,0.4)] md:mt-0 md:h-auto md:w-[400px] md:rounded-none md:border-s md:border-t-0 md:shadow-none lg:w-[420px]"
+            className={`z-20 flex shrink-0 flex-col overflow-hidden border-t border-line bg-surface pb-[env(safe-area-inset-bottom)] transition-[height] duration-200 md:h-auto md:w-[380px] md:border-s md:border-t-0 md:pb-0 lg:w-[420px] ${
+              sheetExpanded ? "h-[85%]" : "h-[48%]"
+            }`}
           >
-            <div className="mx-auto mt-2 h-1 w-10 shrink-0 rounded-full bg-white/15 md:hidden" aria-hidden />
+            {/* Phone only: tap the handle to expand or shrink the sheet. */}
+            <button
+              type="button"
+              onClick={() => setSheetExpanded((v) => !v)}
+              aria-label={sheetExpanded ? "Collapse" : "Expand"}
+              aria-expanded={sheetExpanded}
+              className="flex h-8 shrink-0 items-center justify-center md:hidden"
+            >
+              <span className="h-1 w-10 rounded-full bg-line-strong" />
+            </button>
             {mode === "quiz" && index ? (
               <QuizPanel
                 entries={index.entries}
@@ -244,5 +245,39 @@ export default function App() {
       />
       <AboutDialog open={aboutOpen} strings={strings} onClose={() => setAboutOpen(false)} />
     </div>
+  );
+}
+
+function HeaderButton({
+  label,
+  onClick,
+  children,
+  disabled,
+  active,
+}: {
+  label: string;
+  onClick: () => void;
+  children: ReactNode;
+  disabled?: boolean;
+  active?: boolean;
+}) {
+  return (
+    <button
+      type="button"
+      onClick={onClick}
+      disabled={disabled}
+      aria-pressed={active}
+      aria-label={label}
+      className={`flex h-10 min-w-10 items-center justify-center gap-1.5 rounded-md border px-2.5 text-sm transition-colors disabled:opacity-40 md:h-9 md:px-3 ${
+        active
+          ? "border-accent bg-accent text-white hover:bg-accent-dark"
+          : "border-line bg-surface text-fg hover:bg-sunken"
+      }`}
+    >
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+        {children}
+      </svg>
+      <span className="hidden md:inline">{label}</span>
+    </button>
   );
 }

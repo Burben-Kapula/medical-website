@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { getBone } from "../data/bones";
 import { languages, type Lang, type UiStrings } from "../data/i18n";
 import { localizedText, prettifyMeshName, type SkeletonEntry } from "../lib/skeleton";
@@ -18,6 +18,9 @@ export default function BoneInfoPanel({ entry, lang, strings, related, onNavigat
   const bone = entry.boneId ? getBone(entry.boneId) : undefined;
   const local = entry.boneId ? localizedText(lang, entry.boneId) : undefined;
   const dir = languages.find((l) => l.code === lang)?.dir ?? "ltr";
+  const meta = [entry.region && strings.regions[entry.region], entry.side && strings[entry.side]]
+    .filter(Boolean)
+    .join(" · ");
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -28,73 +31,57 @@ export default function BoneInfoPanel({ entry, lang, strings, related, onNavigat
   }, [onClose]);
 
   return (
-    <article key={entry.key} className="animate-panel-in flex h-full flex-col" aria-labelledby="bone-title">
-      <header className="flex items-start gap-3 border-b border-white/5 px-5 pb-4 pt-5">
+    <article key={entry.key} className="flex min-h-0 flex-1 flex-col" aria-labelledby="bone-title">
+      <header className="flex items-start gap-3 border-b border-line px-5 pb-4 pt-2 md:pt-5">
         <div className="min-w-0 flex-1">
-          <div className="mb-2 flex flex-wrap gap-1.5">
-            {entry.region && <Chip>{strings.regions[entry.region]}</Chip>}
-            {entry.side && <Chip tone="accent">{strings[entry.side]}</Chip>}
-          </div>
-          <h2 id="bone-title" className="text-xl font-semibold leading-tight text-white">
+          {meta && <p className="mb-1 text-xs text-faint first-letter:uppercase">{meta}</p>}
+          <h2 id="bone-title" className="text-xl font-semibold leading-snug text-fg">
             {bone?.name ?? prettifyMeshName(entry.meshName)}
           </h2>
-          {bone && <p className="mt-1 font-serif text-[15px] italic text-accent-300">{bone.latinName}</p>}
-          {local?.name && lang !== "en" && (
-            <p className="mt-1 text-sm text-ink-300" dir={dir}>
+          {bone && <p className="mt-0.5 text-[15px] italic text-muted">{bone.latinName}</p>}
+          {local?.name && (
+            <p className="mt-0.5 text-sm text-muted" dir={dir}>
               {local.name}
             </p>
           )}
         </div>
-        <button
-          type="button"
-          onClick={onClose}
-          aria-label={strings.close}
-          className="-me-1 grid h-9 w-9 shrink-0 place-items-center rounded-lg text-ink-300 transition hover:bg-white/5 hover:text-white"
-        >
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-            <path d="M6 6l12 12M18 6L6 18" />
-          </svg>
-        </button>
+        <CloseButton label={strings.close} onClick={onClose} />
       </header>
 
-      <div className="scroll-thin flex-1 space-y-6 overflow-y-auto px-5 py-5">
+      <div className="scroll-thin min-h-0 flex-1 space-y-5 overflow-y-auto px-5 py-5">
         {bone ? (
           <>
             <BoneImage src={bone.image} alt={bone.name} />
-            <Section title={strings.description}>{bone.description}</Section>
-            <Section title={strings.function}>{bone.function}</Section>
+            <Section title={strings.description}>
+              <p>{bone.description}</p>
+            </Section>
+            <Section title={strings.function}>
+              <p>{bone.function}</p>
+            </Section>
 
             {local && local.paragraphs.length > 0 && (
-              <section dir={dir} className="rounded-xl border border-white/5 bg-ink-800/50 p-4">
-                <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-400">
-                  {strings.inYourLanguage}
-                </h3>
-                <div className="space-y-2 text-sm leading-relaxed text-ink-200">
-                  {local.paragraphs.map((p, i) => (
-                    <p key={i}>{p}</p>
-                  ))}
-                </div>
-              </section>
+              <Section title={strings.inYourLanguage} dir={dir}>
+                {local.paragraphs.map((p, i) => (
+                  <p key={i}>{p}</p>
+                ))}
+              </Section>
             )}
 
             {related.length > 0 && entry.region && (
-              <section>
-                <h3 className="mb-2 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-400">
-                  {strings.regions[entry.region]}
-                </h3>
+              <Section title={strings.regions[entry.region]}>
                 <div className="flex flex-wrap gap-1.5">
                   {related.map((r) => (
                     <button
                       key={r.key}
                       type="button"
                       onClick={() => onNavigate(r.key)}
-                      className="rounded-md border border-white/5 bg-ink-800/60 px-2.5 py-1 text-xs text-ink-200 transition hover:border-accent-500/40 hover:text-white"
+                      className="rounded-md border border-line px-2.5 py-1.5 text-sm text-fg transition-colors hover:border-accent hover:text-accent"
                     >
                       {r.label}
                     </button>
                   ))}
                 </div>
-              </section>
+              </Section>
             )}
 
             {bone.sourceUrl && (
@@ -102,65 +89,58 @@ export default function BoneInfoPanel({ entry, lang, strings, related, onNavigat
                 href={bone.sourceUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 text-sm font-medium text-accent-400 hover:text-accent-300"
+                className="inline-block text-sm text-accent underline underline-offset-2 hover:text-accent-dark"
               >
-                {strings.reference}
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                  <path d="M7 17 17 7M8 7h9v9" />
-                </svg>
+                {strings.reference} ↗
               </a>
             )}
           </>
         ) : (
-          <div className="rounded-xl border border-dashed border-white/10 p-4">
-            <h3 className="text-sm font-semibold text-white">{strings.unmappedTitle}</h3>
-            <p className="mt-1 text-sm text-ink-300">{strings.unmappedText}</p>
-            <p className="mt-3 font-mono text-xs text-ink-400">{entry.meshName}</p>
-          </div>
+          <Section title={strings.unmappedTitle}>
+            <p>{strings.unmappedText}</p>
+            <p className="font-mono text-xs text-faint">{entry.meshName}</p>
+          </Section>
         )}
       </div>
     </article>
   );
 }
 
-function Section({ title, children }: { title: string; children: string }) {
+function Section({ title, children, dir }: { title: string; children: ReactNode; dir?: "ltr" | "rtl" }) {
   return (
-    <section>
-      <h3 className="mb-1.5 text-[11px] font-semibold uppercase tracking-[0.12em] text-ink-400">{title}</h3>
-      <p className="text-[15px] leading-relaxed text-ink-100">{children}</p>
+    <section dir={dir}>
+      <h3 className="mb-1.5 text-sm font-semibold text-fg">{title}</h3>
+      <div className="space-y-2 text-[15px] leading-relaxed text-muted">{children}</div>
     </section>
   );
 }
 
-function Chip({ children, tone = "neutral" }: { children: string; tone?: "neutral" | "accent" }) {
+export function CloseButton({ label, onClick }: { label: string; onClick: () => void }) {
   return (
-    <span
-      className={`rounded-full px-2 py-0.5 text-[11px] font-medium ${
-        tone === "accent" ? "bg-accent-500/15 text-accent-300" : "bg-white/5 text-ink-300"
-      }`}
+    <button
+      type="button"
+      onClick={onClick}
+      aria-label={label}
+      className="-me-2 grid h-10 w-10 shrink-0 place-items-center rounded-md text-muted transition-colors hover:bg-sunken hover:text-fg"
     >
-      {children}
-    </span>
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
+        <path d="M6 6l12 12M18 6L6 18" />
+      </svg>
+    </button>
   );
 }
 
 function BoneImage({ src, alt }: { src: string; alt: string }) {
-  const [state, setState] = useState<"loading" | "ok" | "error">("loading");
-  useEffect(() => setState("loading"), [src]);
-
-  if (state === "error") return null;
+  const [failed, setFailed] = useState(false);
+  useEffect(() => setFailed(false), [src]);
+  if (failed) return null;
   return (
-    <figure className="overflow-hidden rounded-xl border border-white/5 bg-ink-950">
-      <img
-        src={src}
-        alt={alt}
-        loading="lazy"
-        onLoad={() => setState("ok")}
-        onError={() => setState("error")}
-        className={`aspect-[8/5] w-full object-cover transition-opacity duration-300 ${
-          state === "ok" ? "opacity-100" : "opacity-0"
-        }`}
-      />
-    </figure>
+    <img
+      src={src}
+      alt={alt}
+      loading="lazy"
+      onError={() => setFailed(true)}
+      className="aspect-[8/5] w-full rounded-md border border-line bg-sunken object-cover"
+    />
   );
 }

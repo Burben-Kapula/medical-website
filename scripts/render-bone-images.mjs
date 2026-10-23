@@ -23,10 +23,10 @@ const W = 960;
 const H = 600;
 const SPLIT = 300; // width of the location panel
 
-const BG_TOP = [11, 18, 32];
-const BG_BOTTOM = [17, 26, 46];
-const BONE = [226, 224, 216];
-const HIGHLIGHT = [80, 160, 255];
+const BG_TOP = [236, 237, 239]; // matches the viewer background
+const BG_BOTTOM = [228, 230, 233];
+const BONE = [236, 232, 222];
+const HIGHLIGHT = [47, 111, 222];
 
 // Camera yaw in degrees (0 = front, -90 = view the right side, 180 = back).
 const YAW = {
@@ -210,12 +210,12 @@ function writeImage(id, targetBuf, closeBuf) {
         if (sceneHit) col = BONE.map((c) => c * sceneBuf.shade[o] * 0.82);
         if (targetHit) {
           const visible = targetBuf.depth[o] >= sceneBuf.depth[o] - 1e-5;
-          const lit = HIGHLIGHT.map((c) => Math.min(255, c * (0.55 + 0.6 * targetBuf.shade[o])));
+          const lit = HIGHLIGHT.map((c) => Math.min(255, c * (0.6 + 0.6 * targetBuf.shade[o])));
           col = visible ? lit : col.map((c, k) => c * 0.45 + lit[k] * 0.55);
         }
       } else if (closeBuf.depth[o] > -Infinity) {
         const sh = closeBuf.shade[o];
-        col = BONE.map((c, k) => Math.min(255, c * sh + HIGHLIGHT[k] * 0.06));
+        col = BONE.map((c) => Math.min(255, c * (0.15 + 0.85 * sh)));
       }
       hi[o * 3] = col[0];
       hi[o * 3 + 1] = col[1];
@@ -235,9 +235,9 @@ function writeImage(id, targetBuf, closeBuf) {
       const d = (y * W + x) * 4;
       const n = SS * SS;
       const divider = x === SPLIT && y > 24 && y < H - 24;
-      data[d] = divider ? 40 : acc[0] / n;
-      data[d + 1] = divider ? 56 : acc[1] / n;
-      data[d + 2] = divider ? 84 : acc[2] / n;
+      data[d] = divider ? 207 : acc[0] / n;
+      data[d + 1] = divider ? 207 : acc[1] / n;
+      data[d + 2] = divider ? 202 : acc[2] / n;
       data[d + 3] = 255;
     }
   const file = path.join(OUT_DIR, `${id}.jpg`);

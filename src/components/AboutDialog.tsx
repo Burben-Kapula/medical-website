@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import type { UiStrings } from "../data/i18n";
+import { CloseButton } from "./BoneInfoPanel";
 
 const CREATORS = ["Maksym Kapula", "Maryna Kapula", "Amaliia Paasonen"];
 const CONTACT = "maksym.kapula@gmail.com";
@@ -23,58 +24,44 @@ export default function AboutDialog({ open, strings, onClose }: AboutDialogProps
       ref={ref}
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
-      className="m-auto w-[min(92vw,440px)] rounded-2xl border border-white/10 bg-ink-850 p-0 text-ink-100 shadow-2xl backdrop:bg-ink-950/70 backdrop:backdrop-blur-sm"
+      className="m-auto w-[min(92vw,420px)] rounded-lg border border-line bg-surface p-0 text-fg shadow-xl backdrop:bg-black/30"
     >
-      <div className="p-6">
+      <div className="p-5">
         <div className="flex items-start justify-between gap-4">
           <div>
-            <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-400">MedAnatomy 3D</p>
-            <h2 className="mt-1 text-lg font-semibold text-white">{strings.title}</h2>
+            <h2 className="text-lg font-semibold">MedAnatomy 3D</h2>
+            <p className="text-sm text-muted">{strings.title}</p>
           </div>
-          <button
-            type="button"
-            onClick={onClose}
-            aria-label={strings.close}
-            className="grid h-9 w-9 place-items-center rounded-lg text-ink-300 hover:bg-white/5 hover:text-white"
-          >
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden>
-              <path d="M6 6l12 12M18 6L6 18" />
-            </svg>
-          </button>
+          <CloseButton label={strings.close} onClick={onClose} />
         </div>
 
-        <dl className="mt-5 space-y-4 text-sm">
+        <dl className="mt-4 divide-y divide-line border-y border-line text-sm">
           <Row term={strings.aboutCreators}>{CREATORS.join(", ")}</Row>
           <Row term={strings.aboutModel}>
-            <a href={MODEL_SOURCE.url} target="_blank" rel="noopener noreferrer" className="text-accent-400 hover:text-accent-300">
+            <a href={MODEL_SOURCE.url} target="_blank" rel="noopener noreferrer" className="text-accent underline underline-offset-2">
               {MODEL_SOURCE.label}
             </a>
           </Row>
           <Row term={strings.aboutInfo}>Wikipedia</Row>
           <Row term={strings.aboutContact}>
-            <a href={`mailto:${CONTACT}`} className="text-accent-400 hover:text-accent-300">
+            <a href={`mailto:${CONTACT}`} className="break-all text-accent underline underline-offset-2">
               {CONTACT}
             </a>
           </Row>
         </dl>
 
-        <p className="mt-5 rounded-lg bg-ink-800/60 px-3 py-2 text-xs leading-relaxed text-ink-300">
-          {strings.aboutDisclaimer}
-        </p>
+        <p className="mt-4 text-xs leading-relaxed text-faint">{strings.aboutDisclaimer}</p>
 
-        <div className="mt-4 flex items-end justify-between">
+        <div className="mt-3 flex items-end justify-between">
           <button
             type="button"
             onClick={() => setCat((c) => !c)}
             aria-label="Maxwell"
-            title="Maxwell"
-            className="h-6 w-6 rounded-full border border-white/5 text-xs opacity-30 transition hover:opacity-100"
+            className="text-sm opacity-30 transition-opacity hover:opacity-100"
           >
             🐈
           </button>
-          {cat && (
-            <img src="/images/maxwell-the-cat.gif" alt="Maxwell the cat" className="h-24 rounded-lg" />
-          )}
+          {cat && <img src="/images/maxwell-the-cat.gif" alt="Maxwell the cat" className="h-20 rounded-md" />}
         </div>
       </div>
     </dialog>
@@ -83,9 +70,9 @@ export default function AboutDialog({ open, strings, onClose }: AboutDialogProps
 
 function Row({ term, children }: { term: string; children: ReactNode }) {
   return (
-    <div className="grid grid-cols-[120px_1fr] gap-3">
-      <dt className="text-ink-400">{term}</dt>
-      <dd className="text-ink-100">{children}</dd>
+    <div className="grid grid-cols-[110px_1fr] gap-3 py-2.5">
+      <dt className="text-muted">{term}</dt>
+      <dd>{children}</dd>
     </div>
   );
 }

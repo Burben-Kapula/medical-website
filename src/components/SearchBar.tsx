@@ -92,7 +92,7 @@ export default function SearchBar({ items, strings, onPick, disabled }: SearchBa
     <div ref={wrapRef} className="relative w-full">
       <div className="relative">
         <svg
-          className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-ink-400"
+          className="pointer-events-none absolute start-3 top-1/2 -translate-y-1/2 text-faint"
           width="16"
           height="16"
           viewBox="0 0 24 24"
@@ -122,26 +122,23 @@ export default function SearchBar({ items, strings, onPick, disabled }: SearchBa
           }}
           onFocus={() => setOpen(true)}
           onKeyDown={onKeyDown}
-          className="h-10 w-full rounded-xl border border-white/8 bg-ink-850 ps-9 pe-12 text-sm text-white placeholder:text-ink-400 outline-none transition focus:border-accent-500/60 focus:bg-ink-800 focus:ring-4 focus:ring-accent-500/10 disabled:opacity-50"
+          className="h-10 w-full rounded-md border border-line bg-sunken ps-9 pe-3 text-base text-fg placeholder:text-faint outline-none transition-colors focus:border-accent focus:bg-surface disabled:opacity-50 md:h-9 md:text-sm"
         />
-        <kbd className="pointer-events-none absolute end-3 top-1/2 hidden -translate-y-1/2 rounded border border-white/10 px-1.5 py-0.5 text-[10px] text-ink-400 md:block">
-          /
-        </kbd>
       </div>
 
       {open && !disabled && (
         <ul
           id={listId}
           role="listbox"
-          className="scroll-thin absolute inset-x-0 top-12 z-40 max-h-[60vh] overflow-y-auto rounded-xl border border-white/8 bg-ink-850/95 p-1.5 shadow-2xl shadow-black/50 backdrop-blur-xl"
+          className="scroll-thin absolute inset-x-0 top-full z-40 mt-1 max-h-[60vh] overflow-y-auto rounded-md border border-line bg-surface py-1 shadow-lg shadow-black/10"
         >
-          {results.length === 0 && <li className="px-3 py-6 text-center text-sm text-ink-400">{strings.noResults}</li>}
+          {results.length === 0 && <li className="px-3 py-6 text-center text-sm text-faint">{strings.noResults}</li>}
           {results.map((item, i) => {
             const showRegion = item.region && item.region !== results[i - 1]?.region;
             return (
               <li key={item.key} role="presentation">
                 {showRegion && (
-                  <div className="px-3 pb-1 pt-2.5 text-[10px] font-semibold uppercase tracking-[0.14em] text-ink-400">
+                  <div className="px-3 pb-1 pt-3 text-xs font-semibold text-faint">
                     {strings.regions[item.region!]}
                   </div>
                 )}
@@ -151,16 +148,16 @@ export default function SearchBar({ items, strings, onPick, disabled }: SearchBa
                   aria-selected={i === active}
                   onPointerEnter={() => setActive(i)}
                   onClick={() => pick(item.key)}
-                  className={`flex cursor-pointer items-baseline justify-between gap-3 rounded-lg px-3 py-2 ${
-                    i === active ? "bg-accent-500/15 text-white" : "text-ink-200"
+                  className={`flex cursor-pointer items-baseline justify-between gap-3 px-3 py-2.5 md:py-2 ${
+                    i === active ? "bg-accent-soft text-fg" : "text-fg"
                   }`}
                 >
                   <span className="truncate text-sm">
                     {item.label}
-                    {item.localName && <span className="ms-2 text-xs text-ink-400">{item.localName}</span>}
+                    {item.localName && <span className="ms-2 text-xs text-faint">{item.localName}</span>}
                   </span>
                   {item.latinName && (
-                    <span className="shrink-0 font-serif text-xs italic text-ink-400">{item.latinName}</span>
+                    <span className="shrink-0 text-xs italic text-faint">{item.latinName}</span>
                   )}
                 </div>
               </li>
